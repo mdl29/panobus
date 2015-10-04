@@ -82,3 +82,72 @@ class Bibus:
             return self.__fetchJson("/WIPOD01/Transport/REST/getVersion?format=json")
         except UnparsableResult:
             return {}
+
+    """
+    @args:  *routeId : str -> 2
+            *stopName: str (Malakoff)
+            *tripHeadsign: str -> direction (oceanopolis)
+    @return: list -> [{"Advance":"00:00:19","Arrival_time":"16:20:51",
+        "Delay":"00:00:00","EstimateTime_arrivalRealized":"16:23:33","Remaining_time":"00:13:41"}]
+    """
+    def getRemainingTimes(self,routeId:str ,stopName:str , tripHeadsign:str) -> list:
+
+        assert(type(stopName) is str)
+        assert(type(routeId) is str)
+        assert(type(tripHeadsign) is str)
+
+        try:
+            return self.__fetchJson(
+                "/WIPOD01/Transport/REST/getRemainingTimes?format=json&route_id={0}&trip_headsign={1}&stop_name={2}".format(
+                    routeId,tripHeadsign,stopName))
+        except UnparsableResult:
+            return []
+
+    """
+    @return: list -> [  {"Stop_name": "4 Chemins"},{"Stop_name": "4 Moulins"},
+                        {"Stop_name": "8 mai 1945"},{"Stop_name": "A.France"},
+                        ...
+                     ]
+    """
+    def getStopNames(self) -> list:
+        try:
+            return self.__fetchJson("/WIPOD01/Transport/REST/getStopsNames?format=json")
+        except UnparsableResult:
+            return []
+
+    """
+    @return: list -> [  {"Route_id":"A","Route_long_name":"Tramway Est Ouest"},
+                        {"Route_id":"1","Route_long_name":"Chru < > Montbarrey"},
+                        ...
+                     ]
+    """
+    def getRoutes(self) -> list:
+        try:
+            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes?format=json")
+        except UnparsableResult:
+            return []
+
+    """
+    Return the list of all directions of a route
+    @args: *routeId : str -> A
+    @return: list -> [{"Trip_headsign":"Porte de Gouesnou"},
+                     {"Trip_headsign":"Porte de Guipavas"},
+                     {"Trip_headsign":"Porte de Plouzané"}]
+    """
+    def getDestinations(self, routeId :str) -> list:
+        assert(type(routeId) is str)
+        try:
+            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes?format=json&routeId")
+        except UnparsableResult:
+            return []
+
+    """
+    Return a list of route passing throught a stop
+    """
+    def getRoutesStops(self, stopName :str) -> list:
+        assert(type(stopName) is str)
+        try:
+            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes_Stop?format=json&stop_name={}".format(stopName))
+        except UnparsableResult:
+            return []
+
