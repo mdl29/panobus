@@ -10,6 +10,7 @@ class testBibus(unittest.TestCase):
 
     def test_getVersion(self):
         self.assertEqual(self.b.getVersion(), {'Number': '1.1', 'Date': '09/09/2015'})
+        print(self.b.getVersion())
 
 if __name__ == '__main__':
     unittest.main()
