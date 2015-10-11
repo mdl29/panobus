@@ -58,19 +58,19 @@ class Bibus:
                     if header[0] == "Set-cookie":
                         self.cookie += header[1].split(";")[0]
                         self.cookie += ";"
+
+                h.close()
                 continue
 
             elif resp.code == 200:
                 b = resp.read().strip().decode('utf-8')
+                h.close()
                 try:
-                    h.close() #Needed to close the socket
                     return json.loads(b)
                 except: 
                     raise UnparsableResult(b)
             else:
-                print(resp.read().strip().decode('utf-8'))
                 raise BadReturnCode(resp.code)
-            print(resp.read())
 
         raise BadReturnCode(302) #If here, it should be an error with 302 return code
 
@@ -78,10 +78,11 @@ class Bibus:
     @return: dict -> should be {"Date":"09/09/2015","Number":"1.1"}
     """
     def getVersion(self) -> dict:
+        uri = "/WIPOD01/Transport/REST/getVersion?format=json"
         try:
-            return self.__fetchJson("/WIPOD01/Transport/REST/getVersion?format=json")
+            return (self.__fetchJson(uri),uri)
         except UnparsableResult:
-            return {}
+            return ({},uri)
 
     """
     @args:  *routeId : str -> 2
@@ -96,12 +97,13 @@ class Bibus:
         assert(type(routeId) is str)
         assert(type(tripHeadsign) is str)
 
+        uri = "/WIPOD01/Transport/REST/getRemainingTimes?format=json&route_id={0}&trip_headsign={1}&stop_name={2}".format(
+                    routeId,tripHeadsign,stopName)
         try:
-            return self.__fetchJson(
-                "/WIPOD01/Transport/REST/getRemainingTimes?format=json&route_id={0}&trip_headsign={1}&stop_name={2}".format(
-                    routeId,tripHeadsign,stopName))
+            return (self.__fetchJson(uri),uri)
+
         except UnparsableResult:
-            return []
+            return ([],uri)
 
     """
     @return: list -> [  {"Stop_name": "4 Chemins"},{"Stop_name": "4 Moulins"},
@@ -110,10 +112,11 @@ class Bibus:
                      ]
     """
     def getStopNames(self) -> list:
+        uri = "/WIPOD01/Transport/REST/getStopsNames?format=json"
         try:
-            return self.__fetchJson("/WIPOD01/Transport/REST/getStopsNames?format=json")
+            return (self.__fetchJson(uri),uri)
         except UnparsableResult:
-            return []
+            return ([],uri)
 
     """
     @return: list -> [  {"Route_id":"A","Route_long_name":"Tramway Est Ouest"},
@@ -122,10 +125,11 @@ class Bibus:
                      ]
     """
     def getRoutes(self) -> list:
+        uri = "/WIPOD01/Transport/REST/getRoutes?format=json"
         try:
-            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes?format=json")
+            return (self.__fetchJson(uri),uri)
         except UnparsableResult:
-            return []
+            return ([],uri)
 
     """
     Return the list of all directions of a route
@@ -136,18 +140,19 @@ class Bibus:
     """
     def getDestinations(self, routeId :str) -> list:
         assert(type(routeId) is str)
+        uri =  "/WIPOD01/Transport/REST/getDestinations?format=json&route_id={}".format(routeId)
         try:
-            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes?format=json&routeId")
+            return (self.__fetchJson(uri),uri)
         except UnparsableResult:
-            return []
+            return ([],uri)
 
     """
     Return a list of route passing throught a stop
     """
-    def getRoutesStops(self, stopName :str) -> list:
+    def getRoutesStop(self, stopName :str) -> list:
         assert(type(stopName) is str)
+        uri =  "/WIPOD01/Transport/REST/getRoutes_Stop?format=json&stop_name={}".format(stopName)
         try:
-            return self.__fetchJson("/WIPOD01/Transport/REST/getRoutes_Stop?format=json&stop_name={}".format(stopName))
+            return (self.__fetchJson(uri),uri)
         except UnparsableResult:
-            return []
-
+            return ([],uri)
