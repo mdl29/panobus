@@ -156,3 +156,26 @@ class Bibus:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
             return ([],uri)
+            
+    """
+    Return a list of the arret where the bus is
+    """
+    def getStopVehiclesPosition(self, routeId :str, tripHeadsign :str) -> list:
+        assert(type(routeId) is str)
+        assert(type(tripHeadsign) is str)
+        uri = "/WIPOD01/Transport/REST/getStopVehiclesPosition?format=json&route_id={0}&trip_headsign={1}".format(routeId,tripHeadsign)
+        try:
+            return(self.__fetchJson(uri),uri)
+        except UnparsableResult:
+            return ([],uri)
+            
+    """
+    Return a list of the arret data
+    """
+    def getStop(self, stopName :str) -> list:
+        assert(type(stopName) is str)
+        uri = "/WIPOD01/Transport/REST/getStop?format=json&stop_name={0}".format(stopName)
+        try:
+            return(self.__fetchJson(uri),uri)
+        except UnparsableResult:
+            return ([],uri)

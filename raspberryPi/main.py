@@ -11,7 +11,7 @@ class Bibus2Arduino:
 
         self.b = bibus.Bibus()
 
-        print("Bibus API version :", self.b.getVersion()[0]['Number'])
+        print("Bibus API version :", self.b.getVersion()[0]['Number'],"released the ", self.b.getVersion()[0]["Date"])
         print("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
 
         self.s = sched.scheduler(time.time, time.sleep)
