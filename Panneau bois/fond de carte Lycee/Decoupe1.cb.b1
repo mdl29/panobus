@@ -583,7 +583,7 @@
     </layer>
   </layers>
   <MachiningOptions>
-    <OutFile>{$cbfile.name}.nc</OutFile>
+    <OutFile />
     <FastPlungeHeight>-1</FastPlungeHeight>
     <Stock>
       <PMin>0,0</PMin>

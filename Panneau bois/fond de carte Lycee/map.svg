@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,13 +40,13 @@
      inkscape:window-height="704"
      id="namedview54179"
      showgrid="false"
-     inkscape:zoom="0.55861436"
-     inkscape:cx="142.59581"
-     inkscape:cy="383.63375"
+     inkscape:zoom="1.1172287"
+     inkscape:cx="203.5665"
+     inkscape:cy="567.7467"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer5" />
   <defs
      id="defs44592">
     <inkscape:path-effect
@@ -24399,7 +24399,7 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Arrets"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
@@ -24633,5 +24633,34 @@
        d="m 287.18029,262.18465 -18.36448,-18.89181 17.73937,-6.6374 z"
        id="path61990-0-4-5-8-79-2"
        inkscape:connector-curvature="0" />
+    <path
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.52480721px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 191.57254,565.38494 -25.87248,-5.88569 10.19208,-15.52323 z"
+       id="path61990-0-4-5-8-7-3"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.52480721px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 178.70717,517.19409 25.78889,6.2418 -10.40512,15.38125 z"
+       id="path61990-0-4-5-8-7-5"
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-x="-0.81200061"
+       inkscape:transform-center-y="1.7701509" />
+    <path
+       sodipodi:type="star"
+       style="display:inline;fill:#ff0000"
+       id="path8407"
+       sodipodi:sides="5"
+       sodipodi:cx="230.92854"
+       sodipodi:cy="120.87105"
+       sodipodi:r1="11.814949"
+       sodipodi:r2="5.8308339"
+       sodipodi:arg1="1.5707963"
+       sodipodi:arg2="2.1950734"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 230.92854,132.686 -3.40818,-7.0839 -7.8285,-1.08003 5.68399,-5.43042 -1.39196,-7.7791 6.92109,3.72771 6.96822,-3.72771 -1.40653,7.73427 5.69856,5.47525 -7.79037,1.05233 z"
+       inkscape:transform-center-x="1.0226756"
+       inkscape:transform-center-y="-3.9571338" />
   </g>
 </svg>
