@@ -53,8 +53,9 @@ class testBibus(unittest.TestCase):
         #print("\n",out)
     
     def test_getStop(self):
-        out = self.b.getStop("Porte%20de%20Guipavas")
-        print("\n",out)
+        stopName = "8 mai 1945"
+        out = self.b.getStop( stopName )
+        self.assertEqual(out[0][0]["Stop_name"], stopName)
     
     def test_getRemainingTimes(self):
         out = self.b.getRemainingTimes("3","malakoff","oceanopolis")
