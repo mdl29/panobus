@@ -1,5 +1,6 @@
 import json
 import http.client
+from urllib.parse import urlencode
 
 class APIError(Exception):
     def __init__(self,what:str):
@@ -19,6 +20,13 @@ The Bibus web-API looks like : https://applications002.brest-metropole.fr/WIPOD0
 The Py version should be : bibus.methodName(argName=arg,anotherArgName=anotherArg)
 """
 class Bibus:
+    
+    """
+        Some constants for the Rest API requests
+    """
+    REST_API_BASE_URI = "/WIPOD01/Transport/REST/"
+    REST_API_DEFAULT_FORMAT = "json"
+    
     def __init__(self):
         self.cookie = ""
 
@@ -73,12 +81,24 @@ class Bibus:
                 raise BadReturnCode(resp.code)
 
         raise BadReturnCode(302) #If here, it should be an error with 302 return code
+    
+    """
+        Generate the request uri from a command and some parameters.
+        @args:  * cmd : str, Rest command
+                * params : dict, Rest parameters
+        @return: full uri (url encoded)
+    """ 
+    def getUri(self, cmd:str, params:dict = dict() ) -> str:
+        if not("format" in params) :
+            params["format"] = self.REST_API_DEFAULT_FORMAT
+        
+        return self.REST_API_BASE_URI + cmd + "?" + urlencode(params)
 
     """
     @return: dict -> should be {"Date":"09/09/2015","Number":"1.1"}
     """
     def getVersion(self) -> dict:
-        uri = "/WIPOD01/Transport/REST/getVersion?format=json"
+        uri = self.getUri("getVersion")
         try:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -97,8 +117,8 @@ class Bibus:
         assert(type(routeId) is str)
         assert(type(tripHeadsign) is str)
 
-        uri = "/WIPOD01/Transport/REST/getRemainingTimes?format=json&route_id={0}&trip_headsign={1}&stop_name={2}".format(
-                    routeId,tripHeadsign,stopName)
+        uri = self.getUri("getRemainingTimes", {"route_id": routeId, "trip_headsign": tripHeadsign, "stop_name": stopName})
+
         try:
             return (self.__fetchJson(uri),uri)
 
@@ -112,7 +132,7 @@ class Bibus:
                      ]
     """
     def getStopNames(self) -> list:
-        uri = "/WIPOD01/Transport/REST/getStopsNames?format=json"
+        uri = self.getUri("getStopsNames")
         try:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -125,7 +145,7 @@ class Bibus:
                      ]
     """
     def getRoutes(self) -> list:
-        uri = "/WIPOD01/Transport/REST/getRoutes?format=json"
+        uri = self.getUri("getRoutes")
         try:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -140,7 +160,7 @@ class Bibus:
     """
     def getDestinations(self, routeId :str) -> list:
         assert(type(routeId) is str)
-        uri =  "/WIPOD01/Transport/REST/getDestinations?format=json&route_id={}".format(routeId)
+        uri = self.getUri("getDestinations", {"route_id": routeId})
         try:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -151,7 +171,7 @@ class Bibus:
     """
     def getRoutesStop(self, stopName :str) -> list:
         assert(type(stopName) is str)
-        uri =  "/WIPOD01/Transport/REST/getRoutes_Stop?format=json&stop_name={}".format(stopName)
+        uri = self.getUri("getRoutes_Stop", {"stop_name": stopName})
         try:
             return (self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -163,7 +183,7 @@ class Bibus:
     def getStopVehiclesPosition(self, routeId :str, tripHeadsign :str) -> list:
         assert(type(routeId) is str)
         assert(type(tripHeadsign) is str)
-        uri = "/WIPOD01/Transport/REST/getStopVehiclesPosition?format=json&route_id={0}&trip_headsign={1}".format(routeId,tripHeadsign)
+        uri = self.getUri("getStopVehiclesPosition", {"route_id": routeId, "trip_headsign": tripHeadsign})
         try:
             return(self.__fetchJson(uri),uri)
         except UnparsableResult:
@@ -174,7 +194,7 @@ class Bibus:
     """
     def getStop(self, stopName :str) -> list:
         assert(type(stopName) is str)
-        uri = "/WIPOD01/Transport/REST/getStop?format=json&stop_name={0}".format(stopName)
+        uri = self.getUri("getStop", { "stop_name": stopName })
         try:
             return(self.__fetchJson(uri),uri)
         except UnparsableResult:

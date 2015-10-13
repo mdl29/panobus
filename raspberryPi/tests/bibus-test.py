@@ -8,6 +8,10 @@ class testBibus(unittest.TestCase):
     def setUp(self):
         self.b = bibus.Bibus()
         self.maxDiff = None
+        
+    def test_getUri(self):
+        # TODO add more tests, with multiple parameters, spaces ...
+        self.assertEqual(self.b.getUri("getVersion"), "/WIPOD01/Transport/REST/getVersion?format=json")
 
     def test_getVersion(self):
         out = self.b.getVersion()
