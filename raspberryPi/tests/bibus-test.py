@@ -58,8 +58,9 @@ class testBibus(unittest.TestCase):
         self.assertEqual(out[0][0]["Stop_name"], stopName)
     
     def test_getRemainingTimes(self):
-        out = self.b.getRemainingTimes("3","malakoff","oceanopolis")
-        #print("\n",out)
+        out = self.b.getRemainingTimes("A","liberte","porte de gouesnou")
+        print("\n",out)
+        self.assertEqual(type(out[0][0]["Advance"]),str)
     
 if __name__ == "__main__":
     unittest.main()

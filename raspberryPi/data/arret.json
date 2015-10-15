@@ -1,0 +1,25 @@
+{
+    "arret": [
+        {
+            "name": "liberte",
+            "dest": [
+                "porte de plouzane",
+                "porte de gouesnou",
+                "porte de guipavas"
+            ],
+            "route":[
+                "A"
+                ]
+        },
+        {
+            "name": "coat tan",
+            "dest": [
+                "porte de plouzane",
+                "fort montbarey"
+            ],
+            "route":[
+                "A"
+                ]
+        }
+    ]
+}
