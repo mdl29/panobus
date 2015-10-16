@@ -40,7 +40,6 @@ class testBibus(unittest.TestCase):
 
     def test_getRoutesStop(self):
         out = self.b.getRoutesStop("mouettes")
-        #print("\n",out)
         self.assertEqual(out[0],
                 [{"Route_id":"55",
                       "Route_long_name":"Scolaires Plouzane c ar go"},
@@ -50,7 +49,6 @@ class testBibus(unittest.TestCase):
                 
     def test_getStopVehiclesPosition(self):
         out = self.b.getStopVehiclesPosition("15","montbarrey")
-        #print("\n",out)
     
     def test_getStop(self):
         stopName = "8 mai 1945"
@@ -59,7 +57,6 @@ class testBibus(unittest.TestCase):
     
     def test_getRemainingTimes(self):
         out = self.b.getRemainingTimes("A","liberte","porte de gouesnou")
-        print("\n",out)
         self.assertEqual(type(out[0][0]["Advance"]),str)
     
 if __name__ == "__main__":

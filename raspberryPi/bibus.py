@@ -30,6 +30,13 @@ class Bibus:
     def __init__(self):
         self.cookie = ""
 
+
+    def getJSON(self,uri:str) -> dict:
+        try:
+            return(self.__fetchJson(uri),uri)
+        except UnparsableResult:
+            return ([],uri)
+ 
     """
         Intern method and "private" of the API object
         just fetch the web API page and parse the JSON as a dict
@@ -96,19 +103,18 @@ class Bibus:
 
     """
     @return: dict -> should be {"Date":"09/09/2015","Number":"1.1"}
+             uri -> the uri location of the API page (for debug purpose mainly)
     """
     def getVersion(self) -> dict:
         uri = self.getUri("getVersion")
-        try:
-            return (self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ({},uri)
-
+        return self.getJSON(uri)
+    
     """
     @args:  *routeId : str -> 2
             *stopName: str (Malakoff)
             *tripHeadsign: str -> direction (oceanopolis)
     @return: list -> [{"Advance":"00:00:19","Arrival_time":"16:20:51",
+             uri -> the uri location of the API page (for debug purpose mainly)
         "Delay":"00:00:00","EstimateTime_arrivalRealized":"16:23:33","Remaining_time":"00:13:41"}]
     """
     def getRemainingTimes(self,routeId:str ,stopName:str , tripHeadsign:str) -> list:
@@ -118,84 +124,69 @@ class Bibus:
         assert(type(tripHeadsign) is str)
 
         uri = self.getUri("getRemainingTimes", {"route_id": routeId, "trip_headsign": tripHeadsign, "stop_name": stopName})
+        return self.getJSON(uri)
 
-        try:
-            return (self.__fetchJson(uri),uri)
-
-        except UnparsableResult:
-            return ([],uri)
 
     """
     @return: list -> [  {"Stop_name": "4 Chemins"},{"Stop_name": "4 Moulins"},
+             uri -> the uri location of the API page (for debug purpose mainly)
                         {"Stop_name": "8 mai 1945"},{"Stop_name": "A.France"},
                         ...
                      ]
     """
     def getStopNames(self) -> list:
         uri = self.getUri("getStopsNames")
-        try:
-            return (self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
+        return self.getJSON(uri)
 
     """
     @return: list -> [  {"Route_id":"A","Route_long_name":"Tramway Est Ouest"},
+             uri -> the uri location of the API page (for debug purpose mainly)
                         {"Route_id":"1","Route_long_name":"Chru < > Montbarrey"},
                         ...
                      ]
     """
     def getRoutes(self) -> list:
         uri = self.getUri("getRoutes")
-        try:
-            return (self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
+        return self.getJSON(uri)
 
     """
     Return the list of all directions of a route
     @args: *routeId : str -> A
     @return: list -> [{"Trip_headsign":"Porte de Gouesnou"},
+             uri -> the uri location of the API page (for debug purpose mainly)
                      {"Trip_headsign":"Porte de Guipavas"},
                      {"Trip_headsign":"Porte de Plouzané"}]
     """
     def getDestinations(self, routeId :str) -> list:
         assert(type(routeId) is str)
         uri = self.getUri("getDestinations", {"route_id": routeId})
-        try:
-            return (self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
+        return self.getJSON(uri)
 
     """
+    TODO : add doc
     Return a list of route passing throught a stop
     """
     def getRoutesStop(self, stopName :str) -> list:
         assert(type(stopName) is str)
         uri = self.getUri("getRoutes_Stop", {"stop_name": stopName})
-        try:
-            return (self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
+        return self.getJSON(uri)
             
     """
+    TODO : add doc
     Return a list of the arret where the bus is
     """
     def getStopVehiclesPosition(self, routeId :str, tripHeadsign :str) -> list:
         assert(type(routeId) is str)
         assert(type(tripHeadsign) is str)
         uri = self.getUri("getStopVehiclesPosition", {"route_id": routeId, "trip_headsign": tripHeadsign})
-        try:
-            return(self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
-            
+        return self.getJSON(uri)
+
     """
+    TODO : add doc
     Return a list of the arret data
     """
     def getStop(self, stopName :str) -> list:
         assert(type(stopName) is str)
         uri = self.getUri("getStop", { "stop_name": stopName })
-        try:
-            return(self.__fetchJson(uri),uri)
-        except UnparsableResult:
-            return ([],uri)
+        return self.getJSON(uri)
+
