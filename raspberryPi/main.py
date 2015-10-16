@@ -27,7 +27,6 @@ class Bibus2Arduino:
         debug("Bibus API used version : 1.1 released the 09/09/2015")
         info("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
 
-
         info("Info du fichier json des arrets")
 
         for arret in self.data:
