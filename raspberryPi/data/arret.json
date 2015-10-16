@@ -1,25 +1,40 @@
-{
-    "arret": [
-        {
-            "name": "liberte",
-            "dest": [
-                "porte de plouzane",
-                "porte de gouesnou",
-                "porte de guipavas"
-            ],
-            "route":[
-                "A"
-                ]
+[
+    {
+    "name": "liberte",
+    "route":[
+        {"name":"A",
+        "dest": [
+            "porte de plouzane",
+            "porte de gouesnou",
+            "porte de guipavas"
+            ]
         },
-        {
-            "name": "coat tan",
-            "dest": [
-                "porte de plouzane",
-                "fort montbarey"
-            ],
-            "route":[
-                "A"
-                ]
+        {"name":"3",
+        "dest": [
+            "oceanopolis",
+            "lambezellec"
+        ]                
         }
     ]
-}
+    },
+    {
+    "name": "vali hir",
+    "route":[
+        {"name":"A",
+        "dest": [
+            "porte de plouzane",
+            "porte de gouesnou",
+            "porte de guipavas"
+            ]
+        },
+        {"name":"4",
+        "dest": [
+            "port de commerce",
+            "hopital cavale"
+        ]                
+        }
+    ]
+    }
+]
+    
+
