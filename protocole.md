@@ -3,6 +3,7 @@ Ici sera décrit en langage naturel (plus ou moins...) les differents protocoles
 #######################
 ##### Raspberry #####
 On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json est de la forme suivante:
+<pre><code>
 [   
   {
     "name": Nom de l'arret,
@@ -23,3 +24,4 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
     ]
   }
 ]
+</code></pre>
