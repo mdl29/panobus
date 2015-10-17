@@ -16,9 +16,9 @@ class Bibus2Arduino:
         
         info("Processing data file...")
 
-        with open('data/arret.json') as json_data:
-            self.data = json.load(json_data)
-        if not self.data:
+        with open('data/arret.json') as json_config:
+            self.config = json.load(json_config)
+        if not self.config:
             raise Exception("Can't load file !")
 
         self.b = bibus.Bibus()
@@ -29,10 +29,10 @@ class Bibus2Arduino:
 
         info("Info du fichier json des arrets")
 
-        for arret in self.data:
+        for arret in self.config:
             for route in arret["route"]:
                 for dest in route["dest"]:
-                    debug("Reading JSON ... {}({}) -> {}".format(arret["name"],route["name"], dest))
+                    debug("Reading JSON ... {}({}) -> {}".format(arret["name"],route["name"], dest["name"]))
 
         self.s = sched.scheduler(time.time, time.sleep)
         self.s.enter(0, 1, self.loop) # No wait the first time
@@ -42,16 +42,21 @@ class Bibus2Arduino:
 
     def getData(self):
         debug("Get data : ")
-        for arret in self.data:
+        data = []
+        for arret in self.config:
             for route in arret["route"]:
                 for dest in route["dest"]:
-                    remainingTime = self.b.getRemainingTimes(route["name"],arret["name"], dest)
+                    remainingTime = self.b.getRemainingTimes(route["name"],arret["name"], dest["name"])
+
+                    # test data integrity
                     try:
                         remainingTimeVal = remainingTime[0][0]['Remaining_time']
                     except IndexError:
                         warning('Bad URI ? : {}'.format(remainingTime[1]))
+                        continue
+                    
+                    data
 
-                    debug("Remaining time for {}({}) -> {} : {}".format(arret["name"],route["name"], dest,remainingTimeVal))
 
     def processData(self,data):
         pass
