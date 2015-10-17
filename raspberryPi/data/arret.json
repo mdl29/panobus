@@ -18,7 +18,13 @@
                         "id": 2
                     }
                 ]
-            },
+            }
+        ]
+    },
+    {
+        "name": "liberte place",
+        "time2Go": 120,
+        "route":[
             {
                 "name":"3",
                 "dest": [
