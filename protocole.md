@@ -28,3 +28,5 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
 
 ####################
 En bon français : keskonva fer?
+-La rasppi récupère le temps restant avant le passage de chaque bus de chaque destination du panneau
+-La rasppi
