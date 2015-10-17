@@ -1,40 +1,82 @@
 [
     {
-    "name": "liberte",
-    "route":[
-        {"name":"A",
-        "dest": [
-            "porte de plouzane",
-            "porte de gouesnou",
-            "porte de guipavas"
-            ]
-        },
-        {"name":"3",
-        "dest": [
-            "oceanopolis",
-            "lambezellec"
-        ]                
-        }
-    ]
+        "name": "liberte",
+        "time2Go": 120,
+        "route":[
+            {"name":"A",
+                "dest": [
+                    {
+                        "name": "porte de plouzane",
+                        "id":0
+                    },
+                    {
+                        "name": "porte de gouesnou",
+                        "id" :1
+                    },
+                    {
+                        "name": "porte de guipavas",
+                        "id": 2
+                    }
+                ]
+            }
+        ]
     },
     {
-    "name": "vali hir",
-    "route":[
-        {"name":"A",
-        "dest": [
-            "porte de plouzane",
-            "porte de gouesnou",
-            "porte de guipavas"
-            ]
-        },
-        {"name":"4",
-        "dest": [
-            "port de commerce",
-            "hopital cavale"
-        ]                
-        }
-    ]
+        "name": "liberte place",
+        "time2Go": 120,
+        "route":[
+            {
+                "name":"3",
+                "dest": [
+                    {
+                        "name": "oceanopolis",
+                        "id": 3
+                    },
+                    {
+                        "name":"lambezellec",
+                        "id": 4
+                    }
+                ]                
+            }
+        ]
+    },
+
+    {
+        "name": "vali hir",
+        "time2Go": 120,
+        "route":[
+            {
+                "name":"A",
+                "dest": [
+                    {
+                        "name": "porte de plouzane",
+                        "id": 5
+                    },
+                    {
+                        "name": "porte de gouesnou",
+                        "id": 6
+                    },
+                    {
+                        "name":"porte de guipavas",
+                        "id": 7
+                    }
+                ]
+            },
+            {
+                "name":"4",
+                "dest": [
+                    {
+                        "name": "port de commerce",
+                        "id": 8
+                    },
+                    {
+                        "name": "hopital cavale",
+                        "id": 9
+                    }
+                ]                
+            }
+        ]
     }
 ]
-    
+
 
