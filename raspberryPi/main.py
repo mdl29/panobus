@@ -5,6 +5,9 @@ import sched, time # for a 60sec scheduler
 import json # For the file import
 import logging # For ... logs
 
+
+from collections import OrderedDict #order by key
+
 logging.basicConfig(filename='bibus.log', level=logging.DEBUG)
 debug = logging.debug
 info = logging.info
@@ -42,7 +45,7 @@ class Bibus2Arduino:
 
     def getData(self):
         debug("Get data : ")
-        data = []
+        data = {}
         for arret in self.config:
             for route in arret["route"]:
                 for dest in route["dest"]:
@@ -50,22 +53,51 @@ class Bibus2Arduino:
 
                     # test data integrity
                     try:
-                        remainingTimeVal = remainingTime[0][0]['Remaining_time']
+                        remainingTime0 = remainingTime[0][0]['Remaining_time']
+    
+                        #transform the 'hh:mm:ss' format to seconds
+                        t = remainingTime0.split(':')
+                        remainingTimeVal0 = int(t[0])*3600 + int(t[1])*60 + int(t[2])
                     except IndexError:
                         warning('Bad URI ? : {}'.format(remainingTime[1]))
                         continue
+        
                     
-                    data
+                    try:
+                        remainingTime1 = remainingTime[0][1]['Remaining_time']
+    
+                        #transform the 'hh:mm:ss' format to seconds
+                        t= remainingTime1.split(':')
+                        remainingTimeVal1 = int(t[0])*3600 + int(t[1])*60 + int(t[2])
+                    except IndexError:
+                        remainingTimeVal1 = -1
 
+                    data[dest["id"]] = [(-1,-1),-1] #[(remainingTime0,remainingTime1),time2Go]
+
+                    data[dest["id"]][1] = arret["time2Go"]
+                    data[dest["id"]][0] = (remainingTimeVal0,remainingTimeVal1)
+        return data
 
     def processData(self,data):
-        pass
+        #order by key
+        processedData = dict()
+        for key in sorted(data):
+            val = -1
+            time2Go = data[key][1]
+            if data[key][0][0] - time2Go > 0 :
+                val = data[key][0][0] - time2Go
+
+            elif data[key][0][1] - time2Go > 0:
+                val = data[key][0][1] - time2Go
+            processedData[key] = int(255/600 * val)
+        return processedData
 
     """
         See protocole.md for more informations 
     """
     def sendData(self, processData):
-        pass
+        for key in sorted(processData):
+            print(key, processData[key])
 
     """
         A loop restarting all 60sec which do the whole cycle 
