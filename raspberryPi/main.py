@@ -5,9 +5,6 @@ import sched, time # for a 60sec scheduler
 import json # For the file import
 import logging # For ... logs
 
-
-from collections import OrderedDict #order by key
-
 logging.basicConfig(filename='bibus.log', level=logging.DEBUG)
 debug = logging.debug
 info = logging.info
