@@ -3,27 +3,31 @@ Ici sera décrit en langage naturel (plus ou moins...) les differents protocoles
 #######################
 ##### Raspberry #####
 On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json est de la forme suivante:
+
 <pre><code>
 [
-  {
-    "name": Nom de l'arret,
-    "route":[
-        {"name":Chiffre ou lettre de la ligne,
-        "dest": [
-            Destionation 1,
-            Destionation 2,
-            Destionation 3
-            ]
-        },
-        {"name":Chiffre ou lettre de la ligne",
-        "dest": [
-            Destionation 1,
-            Destionation 2
+    {
+        "name": "Liberte", //Par exemple
+        "time2Go": 120, //en seconde
+        "route":[
+            {"name":"A",
+                "dest": [
+                    {
+                        "name": "porte de plouzane",
+                        "id":0
+                    },
+                    {
+                        "name": "porte de gouesnou",
+                        "id" :1
+                    },
+                    {
+                        "name": "porte de guipavas",
+                        "id": 2
+                    }
+                ]
+            }
         ]
-        }
-    ]
-  }
-]
+
 </code></pre>
 
 ####################
