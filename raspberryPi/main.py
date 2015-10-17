@@ -89,7 +89,11 @@ class Bibus2Arduino:
 
             elif data[key][0][1] - time2Go > 0:
                 val = data[key][0][1] - time2Go
-            processedData[key] = int(255/600 * val)
+
+            if val > 600:
+                processedData[key] = 255
+            else:
+                processedData[key] = int(254/600 * val)
         return processedData
 
     """
