@@ -16,7 +16,7 @@ class Bibus2Arduino:
         
         info("Processing data file...")
 
-        with open('data/arret.json') as json_config:
+        with open('data/arret_lycee.json') as json_config:
             self.config = json.load(json_config)
         if not self.config:
             raise Exception("Can't load file !")
@@ -99,6 +99,7 @@ class Bibus2Arduino:
     def sendData(self, processData):
         for key in sorted(processData):
             print(key, processData[key])
+        print("\n")
 
     """
         A loop restarting all 60sec which do the whole cycle 

@@ -54,8 +54,6 @@
             }
         ]
     },
-
-
     {
         "name": "messidou",
         "time2Go": 120,
@@ -67,7 +65,7 @@
                         "id":6
                     },
                     {
-                        "name": "hopital tromeur",
+                        "name": "Hopital Tromeur",
                         "id" :7
                     }
                 ]
@@ -75,7 +73,7 @@
         ]
     },
     {
-        "name": "Saint luc",
+        "name": "st luc",
         "time2Go": 120,
         "route":[
             {"name":"7",
@@ -85,7 +83,7 @@
                         "id":8
                     },
                     {
-                        "name": "hopital tromeur",
+                        "name": "Hopital Tromeur",
                         "id" :9
                     }
                 ]
@@ -103,7 +101,7 @@
                         "id":10
                     },
                     {
-                        "name": "hopital tromeur",
+                        "name": "Hopital Tromeur",
                         "id" :11
                     }
                 ]
@@ -121,7 +119,7 @@
                         "id":12
                     },
                     {
-                        "name": "hopital tromeur",
+                        "name": "Hopital Tromeur",
                         "id" :13
                     }
                 ]
@@ -139,7 +137,7 @@
                         "id":14
                     },
                     {
-                        "name": "hopital tromeur",
+                        "name": "Hopital Tromeur",
                         "id" :15
                     }
                 ]
@@ -165,7 +163,7 @@
         ]
     },
     {
-        "name": "kerichen lesven",
+        "name": "Kerichen Lesven",
         "time2Go": 120,
         "route":[
             {"name":"5",
@@ -183,7 +181,7 @@
             {"name":"12",
                 "dest": [
                     {
-                        "name": "kerana",
+                        "name": "Guipavas",
                         "id":20
                     }
                 ]
