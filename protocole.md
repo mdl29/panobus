@@ -7,18 +7,19 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
 <pre><code>
 [
     {
-        "name": "Liberte", //Par exemple
-        "time2Go": 120, //en seconde
-        "route":[
-            {"name":"A",
+        "name": "Liberte", //exemple
+        "time2Go": 120,    //exemple
+        "route": [
+            {
+                "name": "A",
                 "dest": [
                     {
                         "name": "porte de plouzane",
-                        "id":0
+                        "id": 0
                     },
                     {
                         "name": "porte de gouesnou",
-                        "id" :1
+                        "id": 1
                     },
                     {
                         "name": "porte de guipavas",
@@ -27,6 +28,8 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
                 ]
             }
         ]
+    }
+]
 
 </code></pre>
 
