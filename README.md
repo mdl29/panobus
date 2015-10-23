@@ -1,6 +1,7 @@
 # panobus
 Panobus
-Plus d'info sur https://pad.mdl29.net/p/panobus
+
+Plus d'info sur <a link="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus">le wiki de la Maison du Libre</a>
 
 Fichier à éxecuter : main.py
 /!\ Tous les logs sont dans bibus.log
