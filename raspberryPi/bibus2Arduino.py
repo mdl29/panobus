@@ -64,6 +64,8 @@ class Bibus2Arduino:
                 for dest in route["dest"]:
                     remainingTime = self.b.getRemainingTimes(route["name"],arret["name"], dest["name"])
 
+                    data[dest["id"]] = [(-1,-1),-1] #[(remainingTime0,remainingTime1),time2Go]
+
                     # test data integrity
                     try:
                         remainingTime0 = remainingTime[0][0]['Remaining_time']
@@ -85,8 +87,6 @@ class Bibus2Arduino:
                     except IndexError:
                         remainingTimeVal1 = -1
 
-                    data[dest["id"]] = [(-1,-1),-1] #[(remainingTime0,remainingTime1),time2Go]
-
                     data[dest["id"]][1] = arret["time2Go"]
                     data[dest["id"]][0] = (remainingTimeVal0,remainingTimeVal1)
         return data
@@ -103,7 +103,7 @@ class Bibus2Arduino:
             elif data[key][0][1] - time2Go > 0:
                 val = data[key][0][1] - time2Go
 
-            if val > 600:
+            if val > 600 or val < 0:
                 processedData[key] = 255
             else:
                 processedData[key] = int(254/600 * val)
