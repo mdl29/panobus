@@ -48,13 +48,13 @@ Toutes les minutes :
         *la raspi map les temps sur un octet (600s => 0s; 254=>0)
         *la raspi envoit les résultats dans l'ordre des ID à l'arduino
 
-    -l'arduino:
-        *stocke les valeurs dans un tableau
-        *calcule dans un autre tableau la correspondance en couleur:
+    - l'arduino:
+        * stocke les valeurs dans un tableau
+        * calcule dans un autre tableau la correspondance en couleur:
             -255 : bleu = 255
             -entre 254 et 127 : bleu map(254=> 127; 255 => 0) || vert map(254=>127; 0=>255)
             -entre 127 et 0 : vert map(127=>0; 255=>0) || rouge map(127=>0; 0=>255)
-        *toutes les map(600=>0; 255=>0) secondes, val_couleur-1 SAUF si tmp = 255
+        * toutes les map(600=>0; 255=>0) secondes, val_couleur-1 SAUF si tmp = 255
 
 Rpi -> Arduino : 
 1 *  x: nbr de destinations/directions/leds/(mettre ici ce qui passe)
