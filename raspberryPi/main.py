@@ -48,9 +48,10 @@ def main():
         return
         
 
-    def quit(*args): 
+    def quit(*args):
         event.clear()
         b.kill()
+        print("quit is taken in count, could be quite long before exit")
     
     fctArray = {
             "print": print,

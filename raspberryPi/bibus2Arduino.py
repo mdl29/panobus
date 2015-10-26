@@ -34,8 +34,13 @@ class Bibus2Arduino:
         info("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
 
         self.load()
+        
+        self.s = sched.scheduler(time.time, time.sleep)
 
     def kill(self):
+        if not self.s.empty():
+            for event in self.s.queue:
+                self.s.cancel(event)
         self.interval = -1
 
     def load(self,file = "data/arret_lycee.json"):
@@ -63,7 +68,6 @@ class Bibus2Arduino:
         info("File {} readed".format(file))
 
     def start(self):
-        self.s = sched.scheduler(time.time, time.sleep)
         self.s.enter(0, 1, self.loop) # No wait the first time
  
         self.s.run()
