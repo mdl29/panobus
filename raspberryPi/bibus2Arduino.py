@@ -1,8 +1,13 @@
 import bibus
 
+import serial
+
 import sched, time # for a 60sec scheduler
 import json # For the file import
 import logging # For ... logs
+
+class NoSerial(Exception):
+    pass
 
 logging.basicConfig(filename='bibus.log', level=logging.DEBUG)
 debug = logging.debug
@@ -10,8 +15,15 @@ info = logging.info
 warning = logging.warning
 
 class Bibus2Arduino:
+    port = "/dev/ttyACM0"
     def __init__(self):
         info("Starting...")
+        
+        try:
+            self.ser = serial.Serial(self.port, 9600, timeout=1)
+        except serial.serialutil.SerialException:
+            warning("Can't open {}".format(self.port))
+            raise NoSerial
 
         self.interval = 60
 
@@ -36,6 +48,7 @@ class Bibus2Arduino:
                 except:
                     warning("Can't read json ! Malformed JSON ?")
                     return -1
+
         except FileNotFoundError:
             warning("File not found !")
             return -1
@@ -113,20 +126,30 @@ class Bibus2Arduino:
         See protocole.md for more informations 
     """
     def sendData(self, processData):
-        for key in sorted(processData):
-            print(key, processData[key])
-        print("\n")
+        out = bytearray()
+        out.append(len(processData))
+
+        for key in sorted(processData): # sort by key (here, an index)
+            out.append(processData[key])
+
+        self.ser.write(out)
 
     """
         A loop restarting all 60sec which do the whole cycle 
     """
     def loop(self):
+
+        if not self.ser.isOpen():
+            warning("Serial liaison closed!!!")
+            raise NoSerial
+
         #should don't be changed, look to subfunctions instead
         data = self.getData()
         processedData = self.processData(data)
         self.sendData(processedData)
         if self.interval > 0:
             self.s.enter(self.interval, 1, self.loop) #Wait for an interval (1 min by default)
+
 
     def setUpdateInterval(self,i):
         try:
@@ -135,3 +158,9 @@ class Bibus2Arduino:
             return
         
         self.interval = i
+
+    def __del__(self):
+        try:
+            self.ser.close()
+        except AttributeError:
+            pass

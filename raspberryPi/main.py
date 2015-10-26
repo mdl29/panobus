@@ -38,11 +38,15 @@ def parsePipe(event, fctArray):
 
         fct(*args)
 
-if __name__=="__main__":
+def main():
     event = threading.Event()
     event.set()
 
-    b = bibus2Arduino.Bibus2Arduino()
+    try:
+        b = bibus2Arduino.Bibus2Arduino()
+    except bibus2Arduino.NoSerial:
+        return
+        
 
     def quit(*args): 
         event.clear()
@@ -66,4 +70,9 @@ if __name__=="__main__":
 
     except KeyboardInterrupt:
         quit()
+
+
+if __name__=="__main__":
+    main()
+
 
