@@ -1,7 +1,7 @@
 [
     {
         "name": "Donnart",
-        "time2Go": 120,
+        "time2Go": 900,
         "route":[
             {"name":"8",
                 "dest": [
@@ -19,7 +19,7 @@
     },
     {
         "name": "Le Moult",
-        "time2Go": 120,
+        "time2Go": 660,
         "route":[
             {"name":"8",
                 "dest": [
@@ -38,7 +38,7 @@
 
     {
         "name": "montaigne",
-        "time2Go": 120,
+        "time2Go": 480,
         "route":[
             {"name":"8",
                 "dest": [
@@ -56,7 +56,7 @@
     },
     {
         "name": "messidou",
-        "time2Go": 120,
+        "time2Go": 780,
         "route":[
             {"name":"7",
                 "dest": [
@@ -74,7 +74,7 @@
     },
     {
         "name": "st luc",
-        "time2Go": 120,
+        "time2Go": 660,
         "route":[
             {"name":"7",
                 "dest": [
@@ -92,7 +92,7 @@
     },
     {
         "name": "Kerichen lycee",
-        "time2Go": 120,
+        "time2Go": 540,
         "route":[
             {"name":"7",
                 "dest": [
@@ -110,7 +110,7 @@
     },
     {
         "name": "blum",
-        "time2Go": 120,
+        "time2Go": 360,
         "route":[
             {"name":"7",
                 "dest": [
@@ -128,7 +128,7 @@
     },
     {
         "name": "mirabeau",
-        "time2Go": 120,
+        "time2Go": 420,
         "route":[
             {"name":"7",
                 "dest": [
@@ -146,7 +146,7 @@
     },
     {
         "name": "jules lesven",
-        "time2Go": 120,
+        "time2Go": 180,
         "route":[
             {"name":"5",
                 "dest": [
@@ -164,7 +164,7 @@
     },
     {
         "name": "Kerichen Lesven",
-        "time2Go": 120,
+        "time2Go": 240,
         "route":[
             {"name":"5",
                 "dest": [
