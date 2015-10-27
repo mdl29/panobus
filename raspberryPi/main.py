@@ -20,7 +20,7 @@ def parsePipe(event, fctArray):
             return
         try:
             args = json.loads(line)
-        except json.decoder.JSONDecodeError:
+        except ValueError:
             continue
 
         if not isinstance(args, list):
