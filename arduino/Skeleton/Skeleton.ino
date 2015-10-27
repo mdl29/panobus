@@ -10,9 +10,9 @@ void setup() {
 
 void loop() {
 
-    unsigned short int length; //Should be a byte
-    unsigned short int* buf = NULL;
-    unsigned short int i = 0; //index counter, ugly, but I can't do otherwise, 
+    byte length; //Should be a byte
+    byte* buf = NULL;
+    byte i = 0; //index counter, ugly, but I can't do otherwise, 
 
     // /!\ Should fail if the arduino is not connected BEFORE the rpi
     while(true){ // Block until end of data
@@ -28,7 +28,7 @@ void loop() {
                 }
 #endif
 
-                buf = (unsigned short int*) malloc(length);
+                buf = (byte*) malloc(length);
                 continue;
             }
 
