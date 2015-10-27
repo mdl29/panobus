@@ -9,7 +9,7 @@ import logging # For ... logs
 class NoSerial(Exception):
     pass
 
-logging.basicConfig(filename='bibus.log', level=logging.DEBUG)
+logging.basicConfig(filename='bibus.log', level=logging.WARNING)
 debug = logging.debug
 info = logging.info
 warning = logging.warning
