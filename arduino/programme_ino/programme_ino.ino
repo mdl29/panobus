@@ -48,6 +48,8 @@ int incomming=0;
 int increment = 0 ;
 int leds[arret_size][3];//En attente des adressables
 int actual;//Pour les test
+long lastUpdate;
+int compteurTest;
 
 void setup(){
   Serial.begin(9600);
@@ -67,6 +69,19 @@ void loop(){
   delay(1000);
   testColor(R_LA,G_LA,B_LA);
   delay(1000);*/
+     
+  if(millis()-lastUpdate>600000&&compteurTest<5){
+    testLeds();
+    Serial.println(compteurTest);
+  }
+  else if(millis()-lastUpdate>600000 && compteurTest>=5){
+    Serial.println(compteurTest);
+    for(int i = 0;i<21;i++){
+      for(int j = 0;j<3;j++){
+          analogWrite(leds[i][j],0);
+      }
+     }
+  }
   getData();
 }
 
@@ -88,6 +103,7 @@ void getData(){
     else if(increment == 0 && incomming == arret_size){
       Serial.println("No erreur");
       digitalWrite(13,HIGH);
+      lastUpdate=millis();
     }
     arret[increment-1]=incomming-10;
     increment++;
@@ -143,4 +159,27 @@ void testColor(int r,int g, int b){
   analogWrite(10,g);
   analogWrite(9,b);
   
+}
+
+void testLeds(){
+  Serial.println("No more data leds test mode");
+  for(int i = 0;i<21;i++){
+    for(int j = 0;j<3;j++){
+      for(int k =0; k <255;k++){
+        analogWrite(leds[i][j],k);
+        delay(10);
+      }
+    }
+   }
+   for(int i = 21;i>0;i--){
+     for(int j = 3;j>0;j--){
+      for(int k =255; k >=0;k--){
+        analogWrite(leds[i][j],k);
+        delay(10);
+      }
+     }
+   }
+   lastUpdate=millis();
+   compteurTest++;
+
 }
