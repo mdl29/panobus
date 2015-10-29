@@ -53,10 +53,15 @@ int compteurTest;
 
 void setup(){
   Serial.begin(9600);
-  actual = 18;
+  actual = 7;
+  
   leds[actual][0]=11;
   leds[actual][1]=10;
   leds[actual][2]=9;
+  
+  leds[actual+2][0]=6;
+  leds[actual+2][1]=5;
+  leds[actual+2][2]=3;
 }
 void loop(){
   /*testColor(R_LOIN,G_LOIN,B_LOIN);
@@ -109,6 +114,7 @@ void getData(){
     increment++;
     if(increment-1 == arret_size){
       Serial.println("FIN DE RECEPTION");
+      digitalWrite(13,LOW);
       printData();
       increment = 0 ;
     }
@@ -117,7 +123,7 @@ void getData(){
 
 void printData(){
   for( int i = 0; i <arret_size;i++){
-    if(actual==i){
+    if(actual==i||actual+2==i){
       Serial.print("*");
     }
     if(arret[i]>240){

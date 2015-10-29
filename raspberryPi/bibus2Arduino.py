@@ -25,7 +25,7 @@ class Bibus2Arduino:
             warning("Can't open {}".format(self.port))
             raise NoSerial
 
-        self.interval = 60
+        self.interval = 30
 
         self.b = bibus.Bibus()
 
@@ -43,7 +43,7 @@ class Bibus2Arduino:
                 self.s.cancel(event)
         self.interval = -1
 
-    def load(self,file = "data/arret_lycee.json"):
+    def load(self,file = "data/arret_lycee_rel.json"):
          
         info("Processing data file...")
         try:
@@ -137,6 +137,7 @@ class Bibus2Arduino:
             out.append(processData[key])
 
         self.ser.write(out)
+        print("Data logged in Serial Connection")
 
     """
         A loop restarting all 60sec which do the whole cycle 
