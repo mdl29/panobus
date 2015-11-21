@@ -25,11 +25,11 @@
                 "dest": [
                     {
                         "name": "Liberte",
-                        "id":2
+                        "id":5
                     },
                     {
                         "name": "Plougastel",
-                        "id" :3
+                        "id" :4
                     }
                 ]
             }
@@ -44,11 +44,11 @@
                 "dest": [
                     {
                         "name": "Liberte",
-                        "id":4
+                        "id":19
                     },
                     {
                         "name": "Plougastel",
-                        "id" :5
+                        "id" :20
                     }
                 ]
             }
@@ -62,11 +62,11 @@
                 "dest": [
                     {
                         "name": "Liberte",
-                        "id":6
+                        "id":2
                     },
                     {
                         "name": "Hopital Tromeur",
-                        "id" :7
+                        "id" :3
                     }
                 ]
             }
@@ -75,6 +75,24 @@
     {
         "name": "st luc",
         "time2Go": 660,
+        "route":[
+            {"name":"7",
+                "dest": [
+                    {
+                        "name": "Liberte",
+                        "id":7
+                    },
+                    {
+                        "name": "Hopital Tromeur",
+                        "id" :6
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Kerichen lycee",
+        "time2Go": 540,
         "route":[
             {"name":"7",
                 "dest": [
@@ -91,26 +109,26 @@
         ]
     },
     {
-        "name": "Kerichen lycee",
-        "time2Go": 540,
+        "name": "blum",
+        "time2Go": 360,
         "route":[
             {"name":"7",
                 "dest": [
                     {
                         "name": "Liberte",
-                        "id":10
+                        "id":11
                     },
                     {
                         "name": "Hopital Tromeur",
-                        "id" :11
+                        "id" :10
                     }
                 ]
             }
         ]
     },
     {
-        "name": "blum",
-        "time2Go": 360,
+        "name": "mirabeau",
+        "time2Go": 420,
         "route":[
             {"name":"7",
                 "dest": [
@@ -127,24 +145,6 @@
         ]
     },
     {
-        "name": "mirabeau",
-        "time2Go": 420,
-        "route":[
-            {"name":"7",
-                "dest": [
-                    {
-                        "name": "Liberte",
-                        "id":14
-                    },
-                    {
-                        "name": "Hopital Tromeur",
-                        "id" :15
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "name": "jules lesven",
         "time2Go": 180,
         "route":[
@@ -152,11 +152,11 @@
                 "dest": [
                     {
                         "name": "Niepce",
-                        "id":16
+                        "id":14
                     },
                     {
                         "name": "Provence",
-                        "id" :17
+                        "id" :15
                     }
                 ]
             }
@@ -170,11 +170,11 @@
                 "dest": [
                     {
                         "name": "Niepce",
-                        "id":18
+                        "id":17
                     },
                     {
                         "name": "Provence",
-                        "id" :19
+                        "id" :16
                     }
                     ]   },
 
@@ -182,7 +182,7 @@
                 "dest": [
                     {
                         "name": "Guipavas",
-                        "id":20
+                        "id":18
                     }
                 ]
             }
