@@ -1,7 +1,9 @@
 /*
 Code du Projet Panobus
-Pour un pano implenté dans le Lycée avec 21 arrets referencés
-*/
+ Pour un pano implenté dans le Lycée avec 21 arrets referencés
+ */
+
+#include <Adafruit_NeoPixel.h>
 
 #define arret_size 21
 
@@ -43,61 +45,59 @@ Pour un pano implenté dans le Lycée avec 21 arrets referencés
 #define G_LOIN 0
 #define B_LOIN 255
 
+Adafruit_NeoPixel tempsAttenteLeds = Adafruit_NeoPixel(21, 6, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel arretLeds = Adafruit_NeoPixel(12, 7, NEO_GRB + NEO_KHZ800);
+
+
 int arret[arret_size];
 int incomming=0;
 int increment = 0 ;
-int leds[arret_size][3];//En attente des adressables
-int actual;//Pour les test
 long lastUpdate;
 int compteurTest;
 
 void setup(){
   Serial.begin(9600);
-  actual = 7;
-  
-  leds[actual][0]=11;
-  leds[actual][1]=10;
-  leds[actual][2]=9;
-  
-  leds[actual+2][0]=6;
-  leds[actual+2][1]=5;
-  leds[actual+2][2]=3;
+
+  tempsAttenteLeds.begin();
+  arretLeds.begin();
+
+  for(int i=0;i<3;i++){
+    arretLeds.setPixelColor(i, arretLeds.Color(R8,G8,B8));
+  }
+  arretLeds.setPixelColor(3, arretLeds.Color(R12,G12,B12));
+  arretLeds.setPixelColor(4, arretLeds.Color(R5,G5,B5));
+  arretLeds.setPixelColor(5, arretLeds.Color(R8,G8,B8));
+  arretLeds.setPixelColor(6, arretLeds.Color(255,255,255));
+   for(int i=7;i<12;i++){
+    arretLeds.setPixelColor(i, arretLeds.Color(R7,G7,B7));
+  }
 }
+
 void loop(){
-  /*testColor(R_LOIN,G_LOIN,B_LOIN);
-  delay(1000);
-  testColor(R_APPROCHE,G_APPROCHE,B_APPROCHE);
-  delay(1000);
-  testColor(R_PROCHE,G_PROCHE,B_PROCHE);
-  delay(1000);
-  testColor(R_PRET,G_PRET,B_PRET);
-  delay(1000);
-  testColor(R_LA,G_LA,B_LA);
-  delay(1000);*/
-     
-  if(millis()-lastUpdate>600000&&compteurTest<5){
+  if(millis()-lastUpdate>1&&compteurTest<5){
     testLeds();
     Serial.println(compteurTest);
   }
   else if(millis()-lastUpdate>600000 && compteurTest>=5){
     Serial.println(compteurTest);
-    for(int i = 0;i<21;i++){
-      for(int j = 0;j<3;j++){
-          analogWrite(leds[i][j],0);
-      }
-     }
+    for(int i = 0;i<22;i++){
+        tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(0,0,0));
+    }
+    for(int i = 0;i<12;i++){
+        arretLeds.setPixelColor(i, arretLeds.Color(0,0,0));
+    }
   }
   getData();
 }
 
 void getData(){
-  
+
   if(Serial.available()>0){
     incomming = Serial.read();
     /*Serial.print("increment: ");
-    Serial.print(increment);
-    Serial.print(" incomming : ");
-    Serial.println(incomming);*/
+     Serial.print(increment);
+     Serial.print(" incomming : ");
+     Serial.println(incomming);*/
     if(increment == 0 && incomming != arret_size){
       Serial.print("Erreur ");
       Serial.print(arret_size);
@@ -128,33 +128,23 @@ void printData(){
     }
     if(arret[i]>240){
       Serial.println("BUS LOIN");
-      analogWrite(leds[i][0],R_LOIN);
-      analogWrite(leds[i][1],G_LOIN);
-      analogWrite(leds[i][2],B_LOIN);
+      tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(R_LOIN,G_LOIN,B_LOIN));
     }
     else if(arret[i]>150){
       Serial.println("BUS EN APPROCHE");
-      analogWrite(leds[i][0],R_APPROCHE);
-      analogWrite(leds[i][1],G_APPROCHE);
-      analogWrite(leds[i][2],B_APPROCHE);
+      tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(R_APPROCHE,G_APPROCHE,B_APPROCHE));
     }
     else if(arret[i]>100){
       Serial.println("BUS PROCHE");
-      analogWrite(leds[i][0],R_PROCHE);
-      analogWrite(leds[i][1],G_PROCHE);
-      analogWrite(leds[i][2],B_PROCHE);
+      tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(R_PROCHE,G_PROCHE,B_PROCHE));
     }
     else if(arret[i]>50){
       Serial.println("BUS PRET");
-      analogWrite(leds[i][0],R_PRET);
-      analogWrite(leds[i][1],G_PRET);
-      analogWrite(leds[i][2],B_PRET);
+      tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(R_PRET,G_PRET,B_PRET));
     }
     else if(arret[i]<5){
       Serial.println("BUS LA");
-      analogWrite(leds[i][0],R_LA);
-      analogWrite(leds[i][1],G_LA);
-      analogWrite(leds[i][2],B_LA);
+      tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(R_LA,G_LA,B_LA));
     }
   }
 
@@ -164,28 +154,34 @@ void testColor(int r,int g, int b){
   analogWrite(11,r);
   analogWrite(10,g);
   analogWrite(9,b);
-  
+
 }
 
 void testLeds(){
   Serial.println("No more data leds test mode");
   for(int i = 0;i<21;i++){
-    for(int j = 0;j<3;j++){
+    for(int j = 0;j<255;j++){
       for(int k =0; k <255;k++){
-        analogWrite(leds[i][j],k);
-        delay(10);
+        for(int l =0; l <255;l++){
+          tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(j,k,l));
+          delay(10);
+        }
       }
     }
-   }
-   for(int i = 21;i>0;i--){
-     for(int j = 3;j>0;j--){
-      for(int k =255; k >=0;k--){
-        analogWrite(leds[i][j],k);
-        delay(10);
+  }
+  for(int i = 21;i>0;i--){
+    for(int j = 255;j>=0;j--){
+      for(int k =255; k>=0;k--){
+        for(int l =255; l>=0;l--){
+          tempsAttenteLeds.setPixelColor(i, tempsAttenteLeds.Color(j,k,l));
+          delay(10);
+        }
       }
-     }
-   }
-   lastUpdate=millis();
-   compteurTest++;
+    }
+  }
+  lastUpdate=millis();
+  compteurTest++;
 
 }
+
+
