@@ -68,7 +68,7 @@ void setup(){
   arretLeds.setPixelColor(4, arretLeds.Color(R5,G5,B5));
   arretLeds.setPixelColor(5, arretLeds.Color(R8,G8,B8));
   arretLeds.setPixelColor(6, arretLeds.Color(255,255,255));
-   for(int i=7;i<12;i++){
+  for(int i=7;i<12;i++){
     arretLeds.setPixelColor(i, arretLeds.Color(R7,G7,B7));
   }
 }

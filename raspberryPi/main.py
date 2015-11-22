@@ -41,7 +41,7 @@ def parsePipe(event, fctArray):
 def main():
     event = threading.Event()
     event.set()
-
+	
     try:
         b = bibus2Arduino.Bibus2Arduino()
     except bibus2Arduino.NoSerial:

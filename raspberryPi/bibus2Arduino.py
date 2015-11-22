@@ -1,5 +1,5 @@
 import bibus
-
+#import ledHandler
 import serial
 
 import sched, time # for a 60sec scheduler
@@ -14,10 +14,14 @@ debug = logging.debug
 info = logging.info
 warning = logging.warning
 
+
 class Bibus2Arduino:
     port = "/dev/ttyACM0"
     def __init__(self):
         info("Starting...")
+        info("Switch on LED...")
+        #self.led.ledhandler()
+        #self.led.led_arret()
         
         try:
             self.ser = serial.Serial(self.port, 9600, timeout=1)
@@ -135,12 +139,13 @@ class Bibus2Arduino:
 
         for key in sorted(processData): # sort by key (here, an index)
             out.append(processData[key])
-
+		
+		#self.led.led_time(out)
         self.ser.write(out)
         print("Data logged in Serial Connection")
 
     """
-        A loop restarting all 60sec which do the whole cycle 
+        A loop restarting all 30sec which do the whole cycle 
     """
     def loop(self):
 
