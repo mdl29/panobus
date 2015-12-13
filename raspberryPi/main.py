@@ -1,6 +1,5 @@
 #! /usr/bin/python3
 
-import bibus2Arduino
 from pipe import Pipe
 
 import threading 
@@ -39,9 +38,26 @@ def parsePipe(event, fctArray):
         fct(*args)
 
 def main():
+    interface = "logs"
+    try:
+        with open("./data/interface.conf") as f :
+            interface = f.readline()
+
+    except IOError:
+        pass
+    if interface == "leds":
+        from bibus2Leds import Bibus2Leds
+        iBibus = Bibus2Leds
+    elif interface == "logs":
+        from bibus2Logs import Bibus2Logs
+        iBibus = Bibus2Logs
+    else:
+        raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
+
+
     event = threading.Event()
     event.set()
-    b = bibus2Arduino.Bibus2Arduino()
+    b = iBibus()
 
     def quit(*args):
         event.clear()
@@ -54,7 +70,6 @@ def main():
             "reloadDefaultJSON": lambda *args: b.load(),
             "loadFile": lambda *args: b.load(args[0]),
             "setUpdateInterval": lambda *args: b.setUpdateInterval(args[0]),
-            "bouh": lambda *args: print("bouh"),
             "killPipeReading": lambda *args: event.clear()
             }
 

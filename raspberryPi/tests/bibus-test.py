@@ -16,8 +16,8 @@ class testBibus(unittest.TestCase):
     def test_getVersion(self):
         out = self.b.getVersion()
         #print("\n",out)
-        self.assertEqual(out[0], {'Number': '1.1',
-            'Date': '09/09/2015'})
+        self.assertEqual(out[0], {'Number': '1.2',
+            'Date': '26/10/2015'})
 
     def test_getStopNames(self):
         out = self.b.getStopNames()

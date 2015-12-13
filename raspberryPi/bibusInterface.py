@@ -1,39 +1,26 @@
 import bibus
-import ledHandler
 
 import sched, time # for a 60sec scheduler
 import json # For the file import
-import logging # For ... logs
 
-
-logging.basicConfig(filename='bibus.log', level=logging.WARNING)
-debug = logging.debug
-info = logging.info
-warning = logging.warning
-
-
-class Bibus2Arduino:
+"""
+Abstract class
+Only need to reimplement sendData
+"""
+class BibusInterface:
     def __init__(self):
-        info("Starting...")
-        info("Switch on LED...")
-        
-        self.led = ledHandler.LedHandler()
-        self.led.led_arret()
-
+        print("Starting...")
         self.interval = 30
 
         self.b = bibus.Bibus()
 
-        debug("Bibus API last version : {} released the {}".format(self.b.getVersion()[0]['Number'],self.b.getVersion()[0]["Date"]))
-        debug("Bibus API used version : 1.1 released the 09/09/2015")
-        info("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
+        print("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
 
         self.load()
         
         self.s = sched.scheduler(time.time, time.sleep)
 
     def kill(self):
-        self.led.off()
         if not self.s.empty():
             for event in self.s.queue:
                 self.s.cancel(event)
@@ -41,7 +28,7 @@ class Bibus2Arduino:
 
     def load(self,file = "data/arret_lycee_rel.json"):
          
-        info("Processing data file...")
+        print("Processing data file...")
         try:
             with open(file) as json_config:
                 try:
@@ -54,14 +41,7 @@ class Bibus2Arduino:
             warning("File not found !")
             return -1
 
-        info("Info du fichier json des arrets")
-
-        for arret in self.config:
-            for route in arret["route"]:
-                for dest in route["dest"]:
-                    debug("Reading JSON ... {}({}) -> {}".format(arret["name"],route["name"], dest["name"]))
-
-        info("File {} readed".format(file))
+        print("File {} readed".format(file))
 
     def start(self):
         self.s.enter(0, 1, self.loop,()) # No wait the first time
@@ -70,7 +50,6 @@ class Bibus2Arduino:
     
 
     def getData(self):
-        debug("Get data : ")
         data = {}
         for arret in self.config:
             for route in arret["route"]:
@@ -87,7 +66,7 @@ class Bibus2Arduino:
                         t = remainingTime0.split(':')
                         remainingTimeVal0 = int(t[0])*3600 + int(t[1])*60 + int(t[2])
                     except IndexError:
-                        warning('Bad URI ? : {} -> I got {}'.format(remainingTime[1], remainingTime[0]))
+                        print('Bad URI ? : {} -> I got {}'.format(remainingTime[1], remainingTime[0]))
                         continue
         
                     
@@ -126,14 +105,8 @@ class Bibus2Arduino:
         See protocole.md for more informations 
     """
     def sendData(self, processData):
-        out = bytearray()
-        out.append(len(processData))
-
-        for key in sorted(processData): # sort by key (here, an index)
-            out.append(processData[key])
+        raise NotImplemented
 		
-        self.led.led_time(out)
-        print("Send to the led")
 
     """
         A loop restarting all 30sec which do the whole cycle 
@@ -143,8 +116,9 @@ class Bibus2Arduino:
         #should don't be changed, look to subfunctions instead
         data = self.getData()
         processedData = self.processData(data)
+        print("Send to the led")
         self.sendData(processedData)
-        if self.interval > 0:
+        if self.interval >= 0:
             self.s.enter(self.interval, 1, self.loop,()) #Wait for an interval (30s by default)
 
 
