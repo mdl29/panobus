@@ -16,34 +16,35 @@ class LedHandler:
     LED_DMA        = 5       # Cannal DMA a utiliser pour generer le signal PWM  
     LED_LUMINOSITE = 255    # 0 -> sombre  255 forte luminositee
     LED_INVERT     = False   # True pour invertir le signal 
-   
+	LED_NBR        = 33
     def __init__(self):
         print("Led should be turn on")
         # Intialisation de la librairie
-        strip = Adafruit_NeoPixel(33, 18, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_LUMINOSITE)
+        strip = Adafruit_NeoPixel(self.LED_NBR, 18, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_LUMINOSITE)
         strip.begin()
         #timer = Adafruit_NeoPixel(21, 19, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
         #timer.begin()
         
     def set_led(ruban,led_num,couleur):
-        ruban.setPixelColorRGB(led_num,Color(couleur[0],couleur[1],couleur[2]))
+        ruban.setPixelColor(led_num,Color(couleur[0],couleur[1],couleur[2]))
         ruban.show()
     
     def led_arret():
-        for i in range(12):
-             if i<3:
-                set_led(strip,21+i,colorBank[L8])
-             if i==3:
-                set_led(strip,21+i,colorBank[L12])
-             if i==4 or i==5:
-                set_led(strip,21+i,colorBank[L5])
-             if i==6:
+        for i in range(21,33,1):
+             if i<24:
+                set_led(strip,i,colorBank[L8])
+             if i==24:
+                set_led(strip,i,colorBank[L12])
+             if i==25 or i==26:
+                set_led(strip,i,colorBank[L5])
+             if i==27:
                 set_led(strip,21+i,[255,0,0])
-             if i >= 7:
+             if i >= 28:
                 set_led(strip,21+i,colorBank[L7])
     
     def led_time(data):
-        for i in data:
+        for i in range(len(data)):
+			print(i)
             if data[i] > 255:
                 set_led(strip,i,colorBank[loin])
             elif data[i] > 200:
@@ -55,7 +56,7 @@ class LedHandler:
             elif data[i] < 10:
                 set_led(strip,i,colorBank[la])
     def off():
-        for i in range(33):
+        for i in range(LED_NBR):
             set_led(strip,i,Color(0,0,0))
 
 		
