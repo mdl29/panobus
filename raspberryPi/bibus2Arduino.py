@@ -33,7 +33,7 @@ class Bibus2Arduino:
         self.s = sched.scheduler(time.time, time.sleep)
 
     def kill(self):
-		self.led.off()
+        self.led.off()
         if not self.s.empty():
             for event in self.s.queue:
                 self.s.cancel(event)
