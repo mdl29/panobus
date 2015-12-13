@@ -18,7 +18,7 @@ class LedHandler:
     LED_INVERT     = False   # True pour invertir le signal 
    
     def __init__(self):
-        info("Led should be turn on")
+        print("Led should be turn on")
         # Intialisation de la librairie
         strip = Adafruit_NeoPixel(33, 18, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
         strip.begin()
