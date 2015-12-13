@@ -64,7 +64,7 @@ class Bibus2Arduino:
         info("File {} readed".format(file))
 
     def start(self):
-        self.s.enter(0, 1, self.loop) # No wait the first time
+        self.s.enter(0, 1, self.loop,()) # No wait the first time
  
         self.s.run()
     
@@ -145,7 +145,7 @@ class Bibus2Arduino:
         processedData = self.processData(data)
         self.sendData(processedData)
         if self.interval > 0:
-            self.s.enter(self.interval, 1, self.loop) #Wait for an interval (30s by default)
+            self.s.enter(self.interval, 1, self.loop,()) #Wait for an interval (30s by default)
 
 
     def setUpdateInterval(self,i):

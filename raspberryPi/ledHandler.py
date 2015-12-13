@@ -17,52 +17,47 @@ class LedHandler:
     LED_LUMINOSITE = 255    # 0 -> sombre  255 forte luminositee
     LED_INVERT     = False   # True pour invertir le signal 
     LED_NBR        = 33
+    strip = Adafruit_NeoPixel(LED_NBR, 18, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
     def __init__(self):
-        print("Led should be turn on")
         # Intialisation de la librairie
-        strip = Adafruit_NeoPixel(self.LED_NBR, 18, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_LUMINOSITE)
         print("Strip object created")
-        strip.begin()
+        self.strip.begin()
         print("Strip begin")
         #timer = Adafruit_NeoPixel(21, 19, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
         #timer.begin()
         
-    def set_led(ruban,led_num,couleur):
+    def set_led(self,led_num,couleur):
         print("Set color to led:",led_num)
-        ruban.setPixelColor(led_num,Color(couleur[0],couleur[1],couleur[2]))
-        ruban.show()
+        self.strip.setPixelColor(led_num,Color(couleur[0],couleur[1],couleur[2]))
+        self.strip.show()
     
     def led_arret(self):
+        print("Set up led arret")
         for i in range(21,33,1):
              if i<24:
-                self.set_led(strip,i,colorBank[L8])
+                self.set_led(i,self.colorBank["L8"])
              if i==24:
-                self.set_led(strip,i,colorBank[L12])
+                self.set_led(i,self.colorBank["L12"])
              if i==25 or i==26:
-                self.set_led(strip,i,colorBank[L5])
+                self.set_led(i,self.colorBank["L5"])
              if i==27:
-                self.set_led(strip,21+i,[255,0,0])
+                self.set_led(i,[255,0,0])
              if i >= 28:
-                self.set_led(strip,21+i,colorBank[L7])
+                self.set_led(i,self.colorBank["L7"])
     
     def led_time(self,data):
         for i in range(len(data)):
-            print(i)
+            print(data[i])
             if data[i] > 255:
-                self.set_led(strip,i,colorBank[loin])
+                self.set_led(i,self.colorBank["loin"])
             elif data[i] > 200:
-                self.set_led(strip,i,colorBank[approche])
+                self.set_led(i,self.colorBank["approche"])
             elif data[i] > 100:
-                self.set_led(strip,i,colorBank[proche])
+                self.set_led(i,self.colorBank["proche"])
             elif data[i] > 50:
-                self.set_led(strip,i,colorBank[pret])
-            elif data[i] < 10:
-                self.set_led(strip,i,colorBank[la])
+                self.set_led(i,self.colorBank["pret"])
+            elif data[i] < 50:
+                self.set_led(i,self.colorBank["la"])
     def off(self):
         for i in range(self.LED_NBR):
-            set_led(strip,i,Color(0,0,0))
-
-		
-  
-			
-
+            self.set_led(i,[0,0,0])
