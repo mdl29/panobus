@@ -1,13 +1,10 @@
 import bibus
-#import ledHandler
-import serial
+import ledHandler
 
 import sched, time # for a 60sec scheduler
 import json # For the file import
 import logging # For ... logs
 
-class NoSerial(Exception):
-    pass
 
 logging.basicConfig(filename='bibus.log', level=logging.WARNING)
 debug = logging.debug
@@ -16,18 +13,12 @@ warning = logging.warning
 
 
 class Bibus2Arduino:
-    port = "/dev/ttyACM0"
     def __init__(self):
         info("Starting...")
         info("Switch on LED...")
-        #self.led.ledhandler()
-        #self.led.led_arret()
         
-        try:
-            self.ser = serial.Serial(self.port, 9600, timeout=1)
-        except serial.serialutil.SerialException:
-            warning("Can't open {}".format(self.port))
-            raise NoSerial
+        self.led = ledHandler.LedHandler()
+        self.led.led_arret()
 
         self.interval = 30
 
@@ -140,25 +131,20 @@ class Bibus2Arduino:
         for key in sorted(processData): # sort by key (here, an index)
             out.append(processData[key])
 		
-		#self.led.led_time(out)
-        self.ser.write(out)
-        print("Data logged in Serial Connection")
+		self.led.led_time(out)
+        print("Send to the led")
 
     """
         A loop restarting all 30sec which do the whole cycle 
     """
     def loop(self):
 
-        if not self.ser.isOpen():
-            warning("Serial liaison closed!!!")
-            raise NoSerial
-
         #should don't be changed, look to subfunctions instead
         data = self.getData()
         processedData = self.processData(data)
         self.sendData(processedData)
         if self.interval > 0:
-            self.s.enter(self.interval, 1, self.loop) #Wait for an interval (1 min by default)
+            self.s.enter(self.interval, 1, self.loop) #Wait for an interval (30s by default)
 
 
     def setUpdateInterval(self,i):
@@ -168,9 +154,3 @@ class Bibus2Arduino:
             return
         
         self.interval = i
-
-    def __del__(self):
-        try:
-            self.ser.close()
-        except AttributeError:
-            pass
