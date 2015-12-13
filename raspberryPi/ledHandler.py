@@ -55,8 +55,8 @@ class LedHandler:
             elif data[i] < 10:
                 set_led(strip,i,colorBank[la])
     def off():
-		for i in range(33):
-			set_led(strip,i,Color(0,0,0))
+        for i in range(33):
+            set_led(strip,i,Color(0,0,0))
 
 		
   
