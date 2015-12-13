@@ -47,7 +47,7 @@ class LedHandler:
     
     def led_time(self,data):
         for i in range(len(data)):
-			print(i)
+            print(i)
             if data[i] > 255:
                 self.set_led(strip,i,colorBank[loin])
             elif data[i] > 200:
