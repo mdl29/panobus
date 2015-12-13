@@ -17,7 +17,7 @@ class LedHandler:
     LED_LUMINOSITE = 255    # 0 -> sombre  255 forte luminositee
     LED_INVERT     = False   # True pour invertir le signal 
    
-    def __init__():
+    def __init__(self):
         info("Led should be turn on")
         # Intialisation de la librairie
         strip = Adafruit_NeoPixel(33, 18, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
@@ -54,6 +54,9 @@ class LedHandler:
                 set_led(strip,i,colorBank[pret])
             elif data[i] < 10:
                 set_led(strip,i,colorBank[la])
+    def off():
+		for i in range(33):
+			set_led(strip,i,Color(0,0,0))
 
 		
   

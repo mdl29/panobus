@@ -44,8 +44,6 @@ def main():
 	
     try:
         b = bibus2Arduino.Bibus2Arduino()
-    except bibus2Arduino.NoSerial:
-        return
         
 
     def quit(*args):
