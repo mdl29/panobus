@@ -20,7 +20,7 @@ class LedHandler:
     def __init__(self):
         print("Led should be turn on")
         # Intialisation de la librairie
-        strip = Adafruit_NeoPixel(33, 18, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
+        strip = Adafruit_NeoPixel(33, 18, self.LED_FREQ_HZ, self.LED_DMA, self.LED_INVERT, self.LED_LUMINOSITE)
         strip.begin()
         #timer = Adafruit_NeoPixel(21, 19, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
         #timer.begin()
