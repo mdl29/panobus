@@ -13,14 +13,14 @@ class LedHandler:
                  "loin":[0, 0, 255],
                  "blanc":[255,255,255]}
     
-    rubanArret[ "L8",
+    rubanArret = [ "L8",
+				"L7",
 				"L8",
 				"L8",
 				"L12",
 				"L5",
-				"L5",
 				"blanc",
-				"L7",
+				"L5",
 				"L7",
 				"L7",
 				"L7",
@@ -49,7 +49,7 @@ class LedHandler:
     def led_arret(self):
         print("Set up led arret")
         for i in range(len(self.rubanArret)):
-            self.set_led(21+i, self.colorBank[self.ruban[i]])
+            self.set_led(21+i, self.colorBank[self.rubanArret[i]])
 
     def led_time(self, data):
         for i in range(len(data)):

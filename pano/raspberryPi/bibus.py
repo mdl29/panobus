@@ -6,37 +6,9 @@ import http.client
 from urllib.parse import urlencode
 
 
-from functools import wraps
-from inspect import signature
 
 def check_types(fct):
-    """
-    decorator which check the type of args of the fonction, based on the annotations
-    ex :
-    @check_types
-    f(a: int, b: dict) -> list
-    raise TypeError if annotations are not respected
-    """
-    #CF https://zestedesavoir.com/tutoriels/954/notions-de-python-avancees/6-decorators/#4-4-tp
-    sig = signature(fct)
-    args_types = [(p.annotation if p.annotation != sig.empty else None)
-                  for p in sig.parameters.values()
-                  if p.kind == p.POSITIONAL_OR_KEYWORD]
-    kwargs_types = {p.name: p.annotation for p in sig.parameters.values()
-                    if p.kind == p.KEYWORD_ONLY and p.annotation != p.empty}
-    @wraps(fct)
-    def decorated(*args, **kwargs):
-        """check for typing error and return the function if no problem"""
-        bind = sig.bind(*args, **kwargs)
-        for value, typ in zip(bind.args, args_types):
-            if typ and not isinstance(value, typ):
-                raise TypeError('{} must be of type {}'.format(value, typ))
-        for name, value in bind.kwargs.items():
-            typ = kwargs_types.get(name, object)
-            if not isinstance(value, typ):
-                raise TypeError('{} must be of type {}'.format(value, typ))
-        return fct(*args, **kwargs)
-    return decorated
+    return fct
 
 class APIError(Exception):
     """

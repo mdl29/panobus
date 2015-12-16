@@ -41,7 +41,7 @@ def main():
     """
     Main fonction
     """
-    interface = "logs"
+    interface = "leds"
     try:
         with open("./data/interface.conf") as i_file:
             interface = i_file.readline()
@@ -49,13 +49,14 @@ def main():
     except IOError:
         pass
     if interface == "leds":
-        from bibus2leds import Bibus2Leds
-        i_bibus = Bibus2Leds
-    elif interface == "logs":
-        from bibus2logs import Bibus2Logs
-        i_bibus = Bibus2Logs
+        pass
+    from bibus2leds import Bibus2Leds
+    i_bibus = Bibus2Leds
+    if True:
+        pass
     else:
-        raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
+        pass
+        #raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
 
 
     event = threading.Event()
