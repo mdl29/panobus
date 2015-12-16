@@ -2,16 +2,16 @@ from neopixel import *
 
 class LedHandler:
 
-    colorBank = {"L8":[0, 230, 30],
-                 "L5":[220, 108, 2],
-                 "L7":[197, 30, 32],
+    colorBank = {"L8":[0, 50, 5],
+                 "L5":[200, 40, 0],
+                 "L7":[160, 30, 20],
                  "L12":[91, 190, 100],
                  "la":[255, 0, 0],
                  "pret":[255, 50, 0],
                  "proche":[20, 255, 20],
                  "approche":[0, 200, 255],
                  "loin":[0, 0, 255],
-                 "blanc":[255,255,255]}
+                 "blanc":[255,255,100]}
     
     rubanArret = [ "L8",
 				"L7",
@@ -64,6 +64,8 @@ class LedHandler:
                 self.set_led(i, self.colorBank["pret"])
             elif data[i] < 50:
                 self.set_led(i, self.colorBank["la"])
+        self.set_led(21, self.colorBank["L8"])
+ 
     def off(self):
         for i in range(self.LED_NBR):
             self.set_led(i, [0, 0, 0])
