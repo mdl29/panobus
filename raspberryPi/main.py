@@ -4,6 +4,7 @@ from pipe import Pipe
 
 import threading 
 import json
+import sys
 
 
 
@@ -39,12 +40,8 @@ def parsePipe(event, fctArray):
 
 def main():
     interface = "logs"
-    try:
-        with open("./data/interface.conf") as f :
-            interface = f.readline()
-
-    except IOError:
-        pass
+    if len(sys.argv)>1:
+        interface = sys.argv[1]
     if interface == "leds":
         from bibus2Leds import Bibus2Leds
         iBibus = Bibus2Leds
