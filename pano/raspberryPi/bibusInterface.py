@@ -19,6 +19,8 @@ class BibusInterface:
         self.load()
         
         self.s = sched.scheduler(time.time, time.sleep)
+        
+        self.loop2sleep = 10 #Number of interval do before sleep when no data get
 
     def kill(self):
         if not self.s.empty():
@@ -80,7 +82,7 @@ class BibusInterface:
                         remainingTimeVal1 = -1
 
                     data[dest["id"]][1] = arret["time2Go"]
-                    data[dest["id"]][0] = (remainingTimeVal0,remainingTimeVal1)
+                    data[dest["id"]][0] = (remainingTimeVal0,remainingTimeVal1)				
         return data
 
     def processData(self,data):
@@ -116,7 +118,11 @@ class BibusInterface:
         #should don't be changed, look to subfunctions instead
         data = self.getData()
         processedData = self.processData(data)
-        print("Send to the led")
+        if self.emptyData(data):
+            self.loopNbr+=1
+            if self.loopNbr>self.loop2sleep:
+                self.sendData("no")
+                loopNbr=0
         self.sendData(processedData)
         if self.interval >= 0:
             self.s.enter(self.interval, 1, self.loop,()) #Wait for an interval (30s by default)
@@ -129,3 +135,11 @@ class BibusInterface:
             return
         
         self.interval = i
+    
+    def emptyData(self,data):
+        empty=True
+        for i in data:
+            if i!="":
+                empty=False
+        return empty
+			

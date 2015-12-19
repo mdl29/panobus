@@ -58,6 +58,20 @@ class LedHandler:
                 self.set_led(i,self.colorBank["pret"])
             elif data[i] < 50:
                 self.set_led(i,self.colorBank["la"])
+                
     def off(self):
         for i in range(self.LED_NBR):
             self.set_led(i,[0,0,0])
+            
+    def test(self):
+        for i in range(self.led_NBR):
+            for k in range(256):
+                self.set_led(i,Color(0,0,k))
+                time.sleep(0.2)
+            for k in range(256):
+                self.set_led(i,Color(0,k,0))
+                time.sleep(0.2)
+            for k in range(256):
+                self.set_led(i,Color(k,0,0))
+                time.sleep(0.2)
+        self.off()
