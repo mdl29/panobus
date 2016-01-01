@@ -1,49 +1,51 @@
+"""
+A class which read from a pipe data
+"""
 import os
-import fcntl
 
 
-"""
-A class to communicate with other programs throught a named pipe
-@args :- pipeName -> the path to the named Pipe eg: /tmp/bibusPipe
-"""
-class Pipe():
-    def __init__(self, pipeName):
-        self.pipeName = pipeName
-
-        if os.path.exists(self.pipeName):
-            os.remove(self.pipeName)
-
-        os.mkfifo(self.pipeName)
-
-        self.pipe = os.open(self.pipeName, os.O_RDONLY | os.O_NONBLOCK)
-
+class Pipe: #pylint: disable=R0903
     """
-    Destructor
+    A class to communicate with other programs throught a named pipe
+    @args :- pipeName -> the path to the named Pipe eg: /tmp/pipe
     """
+
+    def __init__(self, pipe_name):
+        self.pipe_name = pipe_name
+
+        if os.path.exists(self.pipe_name):
+            os.remove(self.pipe_name)
+
+        os.mkfifo(self.pipe_name)
+
+        self.pipe = os.open(self.pipe_name, os.O_RDONLY | os.O_NONBLOCK)
+
     def __del__(self):
+        """
+        Destructor
+        """
+
         if self.pipe:
             os.close(self.pipe)
-            try:
-                os.remove(self.pipeName)
-            except Exception as e:
-                raise e
+            os.remove(self.pipe_name)
 
-    """
-    Read in the field and create a generator on each line of the file
-    This call is non-blocking and can return "" if no more data for the moment
-    Should be exception safe but I'm not really sure
-    """
     def readlines(self):
+        """
+        Read in the field and create a generator on each line of the file
+        This call is non-blocking and can return "" if no more data for the moment
+        Should be exception safe but I'm not really sure
+        """
+
         buffer = bytearray()
-    
+
         while True:
             if not self.pipe:
                 return
             try:
-                block = os.read(self.pipe,256)
-            except BlockingIOError :
+                block = os.read(self.pipe, 256)
+            except BlockingIOError:
                 yield ""
-        
+
             if block:
                 buffer.extend(block)
             else:
@@ -54,7 +56,7 @@ class Pipe():
                     yield ""
 
             while True:
-                (line,_,buffer) = buffer.partition(b'\n')
+                (line, _, buffer) = buffer.partition(b'\n')
 
                 if not buffer:
                     buffer = line

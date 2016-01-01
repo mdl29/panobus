@@ -1,18 +1,18 @@
 #! /usr/bin/python3
+"""
+Look at Readme.md
+"""
+import threading
+import json
 
 from pipe import Pipe
 
-import threading 
-import json
-
-
-
-"""
-read line in a pipe and parse it to call a function with given args
-ex -> ["print", "un", "deux, "trois","soleil"] will be the same than
-print("un","deux", "trois", "soleil")
-"""
-def parsePipe(event, fctArray):
+def parse_pipe(event, fct_array):
+    """
+    read line in a pipe and parse it to call a function with given args
+    ex -> ["print", "un", "deux, "trois","soleil"] will be the same than
+    print("un","deux", "trois", "soleil")
+    """
     pipe = Pipe("/tmp/bibusPipe")
     for line in pipe.readlines():
         if not event.isSet():
@@ -31,59 +31,65 @@ def parsePipe(event, fctArray):
             continue
 
         try:
-            fct = fctArray[command]
+            fct = fct_array[command]
         except IndexError:
             continue
 
         fct(*args)
 
 def main():
+    """
+    Main fonction
+    """
     interface = "logs"
     try:
-        with open("./data/interface.conf") as f :
-            interface = f.readline()
+        with open("./data/interface.conf") as i_file:
+            interface = i_file.readline()
 
     except IOError:
         pass
     if interface == "leds":
-        from bibus2Leds import Bibus2Leds
-        iBibus = Bibus2Leds
+        from bibus2leds import Bibus2Leds
+        i_bibus = Bibus2Leds
     elif interface == "logs":
-        from bibus2Logs import Bibus2Logs
-        iBibus = Bibus2Logs
+        from bibus2logs import Bibus2Logs
+        i_bibus = Bibus2Logs
     else:
         raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
 
 
     event = threading.Event()
     event.set()
-    b = iBibus()
+    bibus = i_bibus()
 
-    def quit(*args):
+    def quit_():
+        """
+        Stop the program
+        """
         event.clear()
-        b.kill()
+        bibus.kill()
         print("quit is taken in count, could be quite long before exit")
-    
-    fctArray = {
-            "print": print,
-            "quit" : quit,
-            "reloadDefaultJSON": lambda *args: b.load(),
-            "loadFile": lambda *args: b.load(args[0]),
-            "setUpdateInterval": lambda *args: b.setUpdateInterval(args[0]),
-            "killPipeReading": lambda *args: event.clear()
-            }
+
+    fct_array = {
+        "print": print,
+        "quit" : quit,
+        "reloadDefaultJSON": lambda *args: bibus.load(),
+        "loadFile": lambda *args: bibus.load(args[0]),
+        "set_update_interval": lambda *args: bibus.set_update_interval(args[0]),
+        "killPipeReading": lambda *args: event.clear()
+        }
 
     try:
-        thread = threading.Thread(target = parsePipe, args = (event,fctArray))
+        thread = threading.Thread(target=parse_pipe, args=(event, fct_array))
 
         thread.start()
-        b.start()
+        bibus.start()
 
     except KeyboardInterrupt:
-        quit()
+        quit_()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
 
 
