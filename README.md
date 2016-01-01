@@ -6,12 +6,12 @@ Plus d'info sur <a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bib
 Fichier à éxecuter : main.py
 /!\ Tous les logs sont dans bibus.log 
 
-Pour que les informations soient transmis aux leds
+Pour que les informations soient transmises aux leds
 ```
-echo "leds" > ./raspberryPi/data/interface.conf
+./raspberryPi/main.py leds
 ```
 
-Pour que les informations soient diffusés à l'écran
+Pour que les informations soient diffusées à l'écran
 ```
-echo "logs" > ./raspberryPi/data/interface.conf
+./raspberryPi/main.py logs
 ```
