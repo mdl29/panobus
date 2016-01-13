@@ -10,7 +10,21 @@ class LedHandler:
                  "pret":[255, 50, 0],
                  "proche":[20, 255, 20],
                  "approche":[0, 200, 255],
-                 "loin":[0, 0, 255]}
+                 "loin":[0, 0, 255],
+                 "blanc":[255,255,255]}
+    
+    rubanArret[ "L8",
+				"L8",
+				"L8",
+				"L12",
+				"L5",
+				"L5",
+				"blanc",
+				"L7",
+				"L7",
+				"L7",
+				"L7",
+				"L7"]#A modifier, pour le moment pris de la map sur le wiki
 
     LED_FREQ_HZ = 800000  # LED signal frequency in hertz (800khz)
     LED_DMA = 5       # Cannal DMA a utiliser pour generer le signal PWM
@@ -18,6 +32,7 @@ class LedHandler:
     LED_INVERT = False   # True pour invertir le signal
     LED_NBR = 33
     strip = Adafruit_NeoPixel(LED_NBR, 18, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_LUMINOSITE)
+    
     def __init__(self):
         # Intialisation de la librairie
         print("Strip object created")
@@ -33,17 +48,8 @@ class LedHandler:
 
     def led_arret(self):
         print("Set up led arret")
-        for i in range(21, 33, 1):
-            if i < 24:
-                self.set_led(i, self.colorBank["L8"])
-            if i == 24:
-                self.set_led(i, self.colorBank["L12"])
-            if i == 25 or i == 26:
-                self.set_led(i, self.colorBank["L5"])
-            if i == 27:
-                self.set_led(i, [255, 0, 0])
-            if i >= 28:
-                self.set_led(i, self.colorBank["L7"])
+        for i in range(len(self.rubanArret)):
+            self.set_led(21+i, self.colorBank[self.ruban[i]])
 
     def led_time(self, data):
         for i in range(len(data)):
