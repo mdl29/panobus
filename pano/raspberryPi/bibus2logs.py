@@ -10,9 +10,6 @@ class Bibus2Logs(bibusinterface.BibusInterface):
     def __init__(self):
         super().__init__()
 
-    def kill(self):
-        super().kill()
-
     def update_data(self, id_, remaining_time=None):
         if not remaining_time:
             remaining_time = 'UNKNOW'

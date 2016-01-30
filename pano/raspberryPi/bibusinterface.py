@@ -27,11 +27,14 @@ class BibusInterface:
         """
         Stop the scheduler and exit the loop
         """
-        if not self.sched.empty():
-            for event in self.sched.queue:
-                self.sched.cancel(event)
-        self.interval = -1
-
+        try:
+            if not self.sched.empty():
+                for event in self.sched.queue:
+                    self.sched.cancel(event)
+            del self.sched
+        except Exception:
+            pass
+            
     def load(self, file="data/arret_lycee_rel.json"):
         """
         load the good file (effect may be quite long)
@@ -136,11 +139,10 @@ class BibusInterface:
         #should don't be changed, look to subfunctions instead
         data = self.get_data()
 
-        if self.interval >= 0:
+        try:
             self.sched.enter(self.interval, 1, self.loop, ()) #Wait for an interval (30s by default)
-
-        return
-
+        except Exception:
+            return
 
     def set_update_interval(self, interval):
         """

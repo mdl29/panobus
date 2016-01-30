@@ -8,6 +8,8 @@ from sys import argv
 
 from pipe import Pipe
 
+PIPE_START = "\n\n\n\n==================================== PIPE START ====================================\n\n"
+PIPE_END =   "\n\n===================================== PIPE END ====================================\n\n\n\n"
 def parse_pipe(event, fct_array):
     """
     read line in a pipe and parse it to call a function with given args
@@ -18,11 +20,12 @@ def parse_pipe(event, fct_array):
     for line in pipe.readlines():
         if not event.isSet():
             return
+        if not line:
+            continue
         try:
             args = json.loads(line)
         except ValueError:
             continue
-
         if not isinstance(args, list):
             continue
 
@@ -33,10 +36,16 @@ def parse_pipe(event, fct_array):
 
         try:
             fct = fct_array[command]
-        except IndexError:
+        except KeyError:
+            print("Bad command", command)
             continue
 
-        fct(*args)
+        print(PIPE_START)
+        try:
+            fct(*args)
+        except Exception as e:
+            print("ERROR in pipe", e.args)
+        print(PIPE_END)
 
 def main():
     """
@@ -65,18 +74,18 @@ def main():
         """
         Stop the program
         """
-        event.clear()
-        bibus.kill()
         print("quit is taken in count, could be quite long before exit")
+        bibus.kill()
+        event.clear()
 
     fct_array = {
-        "quit" : quit,
-        "reloadDefaultJSON": lambda *args: bibus.load(),
-        "loadFile": lambda *args: bibus.load(args[0]),
+        "quit" : quit_,
+        "reload_efault_json": lambda *args: bibus.load(),
+        "load_file": lambda *args: bibus.load(args[0]),
         "set_update_interval": lambda *args: bibus.set_update_interval(args[0]),
-        "killPipeReading": lambda *args: event.clear(),
-        "clearLeds" : lambda *args: bibus.clearLeds(),
-        "help" : lambda *args: print(fct_array),
+        "kill_pipe": lambda *args: event.clear(),
+        "clear_leds" : lambda *args: bibus.clear(),
+        "help" : lambda *args: print("\n".join(fct_array.keys())),
         }
 
     try:
