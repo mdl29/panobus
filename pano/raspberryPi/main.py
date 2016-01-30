@@ -4,6 +4,7 @@ Look at Readme.md
 """
 import threading
 import json
+from sys import argv
 
 from pipe import Pipe
 
@@ -41,22 +42,19 @@ def main():
     """
     Main fonction
     """
-    interface = "leds"
     try:
-        with open("./data/interface.conf") as i_file:
-            interface = i_file.readline()
+        interface = argv[1]
+    except IndexError:
+        interface = "logs"
 
-    except IOError:
-        pass
     if interface == "leds":
-        pass
-    from bibus2leds import Bibus2Leds
-    i_bibus = Bibus2Leds
-    if True:
-        pass
+        from bibus2leds import Bibus2Leds
+        i_bibus = Bibus2Leds
+    if interface == "logs":
+        from bibus2logs import Bibus2Logs
+        i_bibus = Bibus2Logs
     else:
-        pass
-        #raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
+        raise ValueError("Values in data/interface  should be 'leds' or 'logs'")
 
 
     event = threading.Event()
@@ -72,12 +70,13 @@ def main():
         print("quit is taken in count, could be quite long before exit")
 
     fct_array = {
-        "print": print,
         "quit" : quit,
         "reloadDefaultJSON": lambda *args: bibus.load(),
         "loadFile": lambda *args: bibus.load(args[0]),
         "set_update_interval": lambda *args: bibus.set_update_interval(args[0]),
-        "killPipeReading": lambda *args: event.clear()
+        "killPipeReading": lambda *args: event.clear(),
+        "clearLeds" : lambda *args: bibus.clearLeds(),
+        "help" : lambda *args: print(fct_array),
         }
 
     try:
@@ -92,5 +91,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

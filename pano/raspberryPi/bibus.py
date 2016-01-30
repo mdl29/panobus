@@ -40,6 +40,7 @@ class Bibus:
     The Pythonic version should be : bibus.method_name(argName=arg,anotherArgName=anotherArg)
     """
     #Some constants for the Rest API requests
+    HOST = "applications002.brest-metropole.fr"
     REST_API_BASE_URI = "/WIPOD01/Transport/REST/"
     REST_API_DEFAULT_FORMAT = "json"
 
@@ -72,8 +73,7 @@ class Bibus:
         retry = 0
         while retry <= 1:
             retry += 1
-            host = "applications002.brest-metropole.fr"
-            request = http.client.HTTPSConnection(host)
+            request = http.client.HTTPSConnection(self.HOST)
             request.putrequest('GET', uri)
             request.putheader('user-agent', 'MDL-bibus')
 
@@ -222,4 +222,3 @@ class Bibus:
 
         uri = self.get_uri("get_stop", {"stop_name": stop_name})
         return self.get_json(uri)
-

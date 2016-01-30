@@ -13,6 +13,7 @@ class Bibus2Logs(bibusinterface.BibusInterface):
     def kill(self):
         super().kill()
 
-    def send_data(self, processData):
-        for _ in sorted(processData):
-            print(processData)
+    def update_data(self, id_, remaining_time=None):
+        if not remaining_time:
+            remaining_time = 'UNKNOW'
+        print("bus id n°", id_, "arrive in nearly", remaining_time, "seconds")

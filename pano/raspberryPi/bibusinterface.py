@@ -15,6 +15,7 @@ class BibusInterface:
     def __init__(self):
         print("Starting...")
         self.interval = 30
+        self.max_time = 600 # 10 [min] -> used for proportionallity (cf update_data)
 
         self._bibus = bibus.Bibus()
         print("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
@@ -63,66 +64,63 @@ class BibusInterface:
     def get_data(self):
         """
         get the remaining_time of each stops specified by the load fct
-        return a dict : {%id, [(remaining_time0, remaining_time1), time_to_go] ... }
+        return a dict : {id, [(remaining_time0, remaining_time1), time_to_go] ... }
         """
-        data = {}
         for arret in self.config:
             for route in arret["route"]:
                 for dest in route["dest"]:
-                    remaining_time = self._bibus.get_remaining_times(route["name"],
+                    data = {}
+                    id_ = dest['id']
+                    time_to_go = arret["time2Go"]
+                    bibus_remaining_time = self._bibus.get_remaining_times(route["name"],
                                                                      arret["name"], dest["name"])
 
-                    data[dest["id"]] = [(-1, -1), -1]
-
                     # test data integrity
-                    try:
-                        remaining_time0 = remaining_time[0][0]['Remaining_time']
-
-                        #transform the 'hh:mm:ss' format to seconds
-                        t_tmp = remaining_time0.split(':')
-                        remaining_time_val0 = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2])
+                    try: # value n 1
+                        remaining_time = bibus_remaining_time[0][0]['Remaining_time']
                     except IndexError:
-                        print('Bad URI ? : {} -> I got {}'.format(remaining_time[1],
-                                                                  remaining_time[0]))
+                        print('Any data received from bibus: {} -> I got {}'.format(self._bibus.HOST + bibus_remaining_time[1],
+                                                                  bibus_remaining_time[0]))
+
+                        self.update_data(id_, 0)
                         continue
 
+                    #transform the 'hh:mm:ss' format to seconds
+                    t_tmp = remaining_time.split(':')
+                    remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
 
-                    try:
-                        remaining_time1 = remaining_time[0][1]['Remaining_time']
+                    if remaining_time_val < 0:
+
+                        try: #value n 2
+                                remaining_time = bibus_remaining_time[0][1]['Remaining_time']
+                        except IndexError:
+                            self.update_data(id_)
+                            continue
 
                         #transform the 'hh:mm:ss' format to seconds
-                        t_tmp = remaining_time1.split(':')
-                        remaining_time_val1 = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2])
-                    except IndexError:
-                        remaining_time_val1 = -1
+                        t_tmp = remaining_time.split(':')
+                        remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
 
-                    data[dest["id"]][1] = arret["time2Go"]
-                    data[dest["id"]][0] = (remaining_time_val0, remaining_time_val1)
-        return data
+                        if remaining_time_val < 0: # possible but ... really unexpected
+                            self.update_data(id_)
 
-    @staticmethod
-    def process_data(data):
+                    self.update_data(id_, remaining_time_val)
+
+    def update_data(self, id_, remaining_time=None):
         """
         after receiving data, this process data
         return a dict : {id: value between 0 and 255 depending of remaining_time}
         look algo for more details
         """
         #order by key
-        processed_data = dict()
-        for key in sorted(data):
-            val = -1
-            time_to_go = data[key][1]
-            if data[key][0][0] - time_to_go > 0:
-                val = data[key][0][0] - time_to_go
+        if remaining_time is None:
+            data = 0
+        if remaining_time > max_time:
+            data = 255
+        else:
+            data = int(254/max_time * remaining_time_) # -> between 0 and 255
 
-            elif data[key][0][1] - time_to_go > 0:
-                val = data[key][0][1] - time_to_go
-
-            if val > 600 or val < 0:
-                processed_data[key] = 255
-            else:
-                processed_data[key] = int(254/600 * val)
-        return processed_data
+        self.send_data(_id, data)
 
     def send_data(self, processed_data):
         """
@@ -137,11 +135,11 @@ class BibusInterface:
         """
         #should don't be changed, look to subfunctions instead
         data = self.get_data()
-        processed_data = self.process_data(data)
-        print("Send to the led")
-        self.send_data(processed_data)
+
         if self.interval >= 0:
             self.sched.enter(self.interval, 1, self.loop, ()) #Wait for an interval (30s by default)
+
+        return
 
 
     def set_update_interval(self, interval):
@@ -155,3 +153,7 @@ class BibusInterface:
             return
 
         self.interval = interval
+
+    def clear(self):
+        """Should be redefined if used."""
+        pass

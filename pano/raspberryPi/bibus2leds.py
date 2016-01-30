@@ -17,12 +17,9 @@ class Bibus2Leds(bibusinterface.BibusInterface):
         self.led.off()
         super().kill()
 
-    def send_data(self, processData):
-        out = bytearray()
-        out.append(len(processData))
+    def send_data(self, id_, data):
+        self.led.update_led(id_,data)
 
-        for key in sorted(processData): # sort by key (here, an index)
-            out.append(processData[key])
-
-        self.led.led_time(out)
-        print("Send to the led")
+    def clear(self):
+        self.led.off()
+        self.led.led_arret()
