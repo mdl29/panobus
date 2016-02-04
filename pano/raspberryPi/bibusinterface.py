@@ -81,6 +81,7 @@ class BibusInterface:
                     # test data integrity
                     try: # value n 1
                         remaining_time = bibus_remaining_time[0][0]['Remaining_time']
+                        
                     except IndexError:
                         print('Any data received from bibus: {} -> I got {}'.format(self._bibus.HOST + bibus_remaining_time[1],
                                                                   bibus_remaining_time[0]))
@@ -91,18 +92,20 @@ class BibusInterface:
                     #transform the 'hh:mm:ss' format to seconds
                     t_tmp = remaining_time.split(':')
                     remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
+                    print("first ",remaining_time_val)
 
                     if remaining_time_val < 0:
 
                         try: #value n 2
                                 remaining_time = bibus_remaining_time[0][1]['Remaining_time']
                         except IndexError:
-                            self.update_data(id_)
+                            self.update_data(id_,3600)
                             continue
 
                         #transform the 'hh:mm:ss' format to seconds
                         t_tmp = remaining_time.split(':')
                         remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
+                        print("bis",remaining_time_val)
 
                         if remaining_time_val < 0: # possible but ... really unexpected
                             self.update_data(id_)

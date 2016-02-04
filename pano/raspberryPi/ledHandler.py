@@ -24,7 +24,7 @@ class LedHandler:
 				"L7",
 				"L7",
 				"L7",
-				"L7"]#A modifier, pour le moment pris de la map sur le wiki
+				"L7"]
 
     LED_FREQ_HZ = 800000  # LED signal frequency in hertz (800khz)
     LED_DMA = 5       # Cannal DMA a utiliser pour generer le signal PWM
