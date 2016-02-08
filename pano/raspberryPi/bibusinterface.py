@@ -108,7 +108,7 @@ class BibusInterface:
                         print("bis",remaining_time_val)
 
                         if remaining_time_val < 0: # possible but ... really unexpected
-                            self.update_data(id_)
+                            self.update_data(id_,3600)
 
                     self.update_data(id_, remaining_time_val)
 

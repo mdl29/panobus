@@ -1,23 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 	<head>
-		<script src="libs/js/jquery-2.1.4.min.js></script>
-
-		<link href=libs/css/jquery.fullPage.css></link>
-		<script src="libs/js/jquery.fullPage.min.js></script>
-
-	<script src="js/fullpage.js"></script>
+		<meta charset="utf-8">
+		<script src="libs/js/jquery.2.2.0.js"></script>
+		<link rel="stylesheet" href="libs/css/jquery.fullPage.css"></link>
+		<link rel="stylesheet" href="css/main.css"></link>
+		<script src="libs/js/jquery.fullPage.js"></script>
+		<script src="js/fullpage.js"></script>
+		
+		
+		<title>Panobus by Les Petits Hackers</title>
+		<link rel="icon" type="image/png" href="img/favicon.png" />
 	</head>	
 	<body>
 		<div id="preloader">Loading...</div>
-		<div id=main>
-			<div class="section" id="section0">
-			</div>
-			<div class="section" id="section1">
-			</div>
-			<div class="section" id="section2">
-			</div>
-			<div class="section" id="section3">
-			</div>
+		
+		<!--Debut du code avec FullPage.js  //<img id="logo" alt="logo" title="logo" src="img/favicon.png">-->
+		
+		<div id="fullpage">
+			<section class="section" id="presentation">
+				<h1>Panobus</h1>
+			</section>
+			
+			<section class="section" id="documentation">
+				<h2>Documentation</h2>
+				<div class="slide">
+				<h3>le wiki</h3>
+				</div>
+				<div class="slide">
+				<h3>Le github</h3>
+				</div>
+				<div class="slide">
+				<h3></h3>
+				</div>
+				<div class="slide">
+				<h3></h3>
+				</div>
+			</section>
+			
+			<section class="section" id="mapPano">
+				<div id="mapLeaflet"></div>
+			</section>
+			
+			<section class="section" id="partenaires">
+				<h2>Partenaires</h2>
+				<div class="slide">
+				<h3>Maison du Libre</h3>
+				<p></p>
+				<p></p>
+				</div>
+				<div class="slide">
+				<h3>Open Factory</h3>
+				</div>
+				<div class="slide">
+				<h3>Plus à venir</h3>
+				</div>
+			</section>
 		</div>
+		<ul id="menu">
+			<li> <img src="img/favicon.png" alt="Logo" title="Logo" id="logo"></li>
+			<li data-menuanchor="pres"><a href="#pres">Presentation</a></li>
+			<li data-menuanchor="doc"><a href="#doc">Documentation</a></li>
+			<li data-menuanchor="map"><a href="#map">Map</a></li>
+			<li data-menuanchor="parten"><a href="#parten">Partenaires</a></li>
+		</ul>
 	</body>
 </html>
