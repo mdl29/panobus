@@ -3,24 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<script src="libs/js/jquery.2.2.0.js"></script>
+		
 		<!--Import Fullpage-->
 		<link rel="stylesheet" href="libs/css/jquery.fullPage.css"></link>
 		<script src="libs/js/jquery.fullPage.js"></script>
+		
 		<!--Import Leaflet-->
 		<link rel="stylesheet" href="libs/css/leaflet.css"></link>
 		<script src="libs/js/leaflet.js"></script>
 		
+		<!--Import Autres-->
 		<link rel="stylesheet" href="css/main.css"></link>
 		<script src="js/main.js"></script>
 		
 		
-		<title>Panobus by Les Petits Hackers</title>
+		<title>Panobus</title>
 		<link rel="icon" type="image/png" href="img/favicon.png" />
 	</head>	
 	<body>
 		<div id="preloader">Loading...</div>
 		
-		<!--Debut du code avec FullPage.js  //<img id="logo" alt="logo" title="logo" src="img/favicon.png">-->
+		<!--Debut du code avec FullPage.js-->
 		
 		<div id="fullpage">
 			<section class="section" id="presentation">
@@ -34,8 +37,9 @@
 				</div>
 				<div class="slide">
 					<h3>Le github</h3>
-					<input>https://github.com/mdl29/panobus.git</input>
-					<a href="https://github.com/mdl29/panobus/archive/master.zip">Download ZIP</a>
+					<img src="img/github.png" alt="Github">
+					<input readonly="true" class="btn" value="https://github.com/mdl29/panobus.git"></input>
+					<a class="btn" href="https://github.com/mdl29/panobus/archive/master.zip">Download ZIP</a>
 				</div>
 				<div class="slide">
 					<h3></h3>
@@ -52,21 +56,23 @@
 			<section class="section" id="partenaires">
 				<h2>Partenaires</h2>
 				<div class="slide">
-				<h3>Maison du Libre</h3>
+					<h3>Maison du Libre</h3>
+					<a href="http://mdl29.net" target="_blank"><img class="logoPart" type="image/svg" src="img/MDL.svg"></a>
 				<p></p>
 				<p></p>
 				</div>
 				<div class="slide">
-				<h3>Open Factory</h3>
+					<h3>Ville de Brest</h3>
+					<a href="http://brest.fr" target="_blank"><img class="logoPart" type="image/png" src="img/brest.png"></a>
 				</div>
 				<div class="slide">
-				<h3>Plus à venir</h3>
+					<h3>Plus à venir...</h3>
 				</div>
 			</section>
 		</div>
 		<ul id="menu">
 			<li><img src="img/favicon.png" alt="Logo" title="Logo" id="logo">	</li>
-			<li data-menuanchor="pres">		<a href="#pres">Presentation</a>	</li>
+			<li data-menuanchor="pres">		<a href="#pres">Présentation</a>	</li>
 			<li data-menuanchor="doc" >		<a href="#doc">Documentation</a>	</li>
 			<li data-menuanchor="map" >		<a href="#map">Map</a>				</li>
 			<li data-menuanchor="parten" >	<a href="#parten">Partenaires</a>	</li>
