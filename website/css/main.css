@@ -5,8 +5,9 @@ h1, h2, h3{
 }
 
 #menu li {
+	vertical-align:middle;
 	display:inline-block;
-	padding: auto auto auto auto;
+	margin:5px .83%;
 	color: #000;
 	background:#fff;
 	background: rgba(255,255,255, 0.5);
@@ -15,7 +16,7 @@ h1, h2, h3{
 }
 #menu li.active{
 	background:#666;
-	background: rgba(0,0,0, 0.5);
+	background: rgba(0,0,0, 0.4);
 	color: #fff;
 }
 #menu li a{
@@ -26,12 +27,12 @@ h1, h2, h3{
 	color: #000;
 }
 #menu li:hover{
-	background: rgba(255,255,255, 0.8);
+	background: rgba(255,255,255, 0.7);
 }
 #menu li a,
 #menu li.active a{
 	padding: 9px 18px;
-	display:block;
+	display: block;
 }
 #menu li.active a{
 	color: #fff;
@@ -40,15 +41,23 @@ h1, h2, h3{
 	position:fixed;
 	top:0;
 	left:0;
-	height: 40px;
+	max-height: 10%;
 	z-index: 70;
 	width: 100%;
 	padding: 0;
 	margin:0;
 }
-
 #logo{
-	height:100px;
+	max-height: 75px;
+	height:11%;
 	width:auto;
-	margin:10px;
 }
+
+#mapLeaflet{
+	margin: 15% auto 0% auto;
+	height:80%;
+	width:90%;
+	border:graded;
+	background:#fff;
+}
+
