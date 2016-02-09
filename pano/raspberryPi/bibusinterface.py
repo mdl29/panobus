@@ -34,7 +34,7 @@ class BibusInterface:
             del self.sched
         except Exception:
             pass
-            
+
     def load(self, file="data/arret_lycee_rel.json"):
         """
         load the good file (effect may be quite long)
@@ -72,43 +72,46 @@ class BibusInterface:
         for arret in self.config:
             for route in arret["route"]:
                 for dest in route["dest"]:
-                    data = {}
                     id_ = dest['id']
                     time_to_go = arret["time2Go"]
                     bibus_remaining_time = self._bibus.get_remaining_times(route["name"],
-                                                                     arret["name"], dest["name"])
+                                                                           arret["name"],
+                                                                           dest["name"])
 
                     # test data integrity
                     try: # value n 1
                         remaining_time = bibus_remaining_time[0][0]['Remaining_time']
-                        
+
                     except IndexError:
-                        print('Any data received from bibus: {} -> I got {}'.format(self._bibus.HOST + bibus_remaining_time[1],
-                                                                  bibus_remaining_time[0]))
+                        print('Any data received from bibus: {} -> I got {}'.format(
+                            self._bibus.HOST + bibus_remaining_time[1],
+                            bibus_remaining_time[0]))
 
                         self.update_data(id_, 0)
                         continue
 
                     #transform the 'hh:mm:ss' format to seconds
                     t_tmp = remaining_time.split(':')
-                    remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
-                    print("first ",remaining_time_val)
+                    remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
+                            int(t_tmp[2]) - time_to_go #[s]
+                    print("first ", remaining_time_val)
 
                     if remaining_time_val < 0:
 
                         try: #value n 2
-                                remaining_time = bibus_remaining_time[0][1]['Remaining_time']
+                            remaining_time = bibus_remaining_time[0][1]['Remaining_time']
                         except IndexError:
-                            self.update_data(id_,3600)
+                            self.update_data(id_, 3600)
                             continue
 
                         #transform the 'hh:mm:ss' format to seconds
                         t_tmp = remaining_time.split(':')
-                        remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 + int(t_tmp[2]) - time_to_go #[s]
-                        print("bis",remaining_time_val)
+                        remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
+                                int(t_tmp[2]) - time_to_go #[s]
+                        print("bis", remaining_time_val)
 
                         if remaining_time_val < 0: # possible but ... really unexpected
-                            self.update_data(id_,3600)
+                            self.update_data(id_, 3600)
 
                     self.update_data(id_, remaining_time_val)
 
@@ -121,14 +124,14 @@ class BibusInterface:
         #order by key
         if remaining_time is None:
             data = 0
-        if remaining_time > max_time:
+        if remaining_time > self.max_time:
             data = 255
         else:
-            data = int(254/max_time * remaining_time_) # -> between 0 and 255
+            data = int(254/self.max_time * remaining_time) # -> between 0 and 255
 
-        self.send_data(_id, data)
+        self.send_data(id_, data)
 
-    def send_data(self, processed_data):
+    def send_data(self, id_, data):
         """
             See protocole.md for more informations
         """
@@ -140,11 +143,11 @@ class BibusInterface:
             A loop restarting all 30sec which do the whole cycle
         """
         #should don't be changed, look to subfunctions instead
-        data = self.get_data()
+        self.get_data()
 
         try:
             self.sched.enter(self.interval, 1, self.loop, ()) #Wait for an interval (30s by default)
-        except Exception:
+        except NameError:
             return
 
     def set_update_interval(self, interval):

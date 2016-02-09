@@ -1,4 +1,7 @@
-from neopixel import Adafruit_NeoPixel
+try:
+    from neopixel import Adafruit_NeoPixel, Color
+except ImportError:
+    from fakeneopixel import Adafruit_NeoPixel, Color
 
 class LedHandler:
 
@@ -11,20 +14,20 @@ class LedHandler:
                  "proche":[20, 255, 20],
                  "approche":[0, 200, 255],
                  "loin":[0, 0, 255],
-                 "blanc":[255,255,100]}
+                 "blanc":[255, 255, 100]}
 
-    rubanArret = [ "L8",
-				"L7",
-				"L8",
-				"L8",
-				"L12",
-				"L5",
-				"blanc",
-				"L5",
-				"L7",
-				"L7",
-				"L7",
-				"L7"]
+    rubanArret = ["L8",
+                  "L7",
+                  "L8",
+                  "L8",
+                  "L12",
+                  "L5",
+                  "blanc",
+                  "L5",
+                  "L7",
+                  "L7",
+                  "L7",
+                  "L7"]
 
     LED_FREQ_HZ = 800000  # LED signal frequency in hertz (800khz)
     LED_DMA = 5       # Cannal DMA a utiliser pour generer le signal PWM
@@ -35,17 +38,16 @@ class LedHandler:
 
     def __init__(self):
         # Intialisation de la librairie
-        print("Strip object created")
         self.strip.begin()
-        print("Strip begin")
 
     def set_led(self, led_num, couleur):
-        print("Set color to led:", led_num)
+        """set led of id led_ to color(a tuple of rgb))"""
         self.strip.setPixelColor(led_num, Color(couleur[0], couleur[1], couleur[2]))
         self.strip.show()
 
     def led_off(self, led):
-        self.set_led(led, [0,0,0])
+        """switch of led of id led"""
+        self.set_led(led, [0, 0, 0])
 
     def led_arret(self):
         print("Set up led arret")
@@ -53,19 +55,21 @@ class LedHandler:
             self.set_led(21+i, self.colorBank[self.rubanArret[i]])
 
     def update_led(self, id_, data):
-        if data[i] >= 255:
-            self.set_led(i, self.colorBank["loin"])
-        elif data[i] >= 200:
-            self.set_led(i, self.colorBank["approche"])
-        elif data[i] >= 100:
-            self.set_led(i, self.colorBank["proche"])
-        elif data[i] >= 50:
-            self.set_led(i, self.colorBank["pret"])
-        elif data[i] > 0:
-            self.set_led(i, self.colorBank["la"])
+        """Set the led of id id_ to the good color (look at code to know more"""
+        if data >= 255:
+            self.set_led(id_, self.colorBank["loin"])
+        elif data >= 200:
+            self.set_led(id_, self.colorBank["approche"])
+        elif data >= 100:
+            self.set_led(id_, self.colorBank["proche"])
+        elif data >= 50:
+            self.set_led(id_, self.colorBank["pret"])
+        elif data > 0:
+            self.set_led(id_, self.colorBank["la"])
         else:
-            self.led_off(i)
+            self.led_off(id_)
 
     def off(self):
+        """Switch off every leds"""
         for i in range(self.LED_NBR):
             self.led_off(i)

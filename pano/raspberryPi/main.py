@@ -59,7 +59,7 @@ def main():
     if interface == "leds":
         from bibus2leds import Bibus2Leds
         i_bibus = Bibus2Leds
-    if interface == "logs":
+    elif interface == "logs":
         from bibus2logs import Bibus2Logs
         i_bibus = Bibus2Logs
     else:
