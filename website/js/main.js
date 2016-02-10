@@ -1,13 +1,17 @@
 $(document).ready(function() {
 
 	$("#preloader").hide();
+	
+	//fullpage
     $('#fullpage').fullpage({
-		anchors: ['pres', 'doc', 'map', 'parten'],
-		sectionsColor: ['#FF0000', '#800080', '#1E90FF', '#FFFF00'],
+		anchors: ['pres', 'doc', 'map', 'parten', 'news'],
+		sectionsColor: ['#FF0000', '#800080', '#1E90FF', '#FFFF00','#008000'],
 		menu: "#menu",
 		css3: true,
 		normalScrollElements:"#mapLeaflet"
 	});
+	
+	//leaflet
 	var map = L.map('mapLeaflet').setView([48.3921,-4.4769], 13);
 	
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {

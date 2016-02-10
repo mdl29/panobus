@@ -19,6 +19,7 @@
 		
 		<title>Panobus</title>
 		<link rel="icon" type="image/png" href="img/favicon.png" />
+		
 	</head>	
 	<body>
 		<div id="preloader">Loading...</div>
@@ -37,9 +38,9 @@
 				</div>
 				<div class="slide">
 					<h3>Le github</h3>
-					<img src="img/github.png" alt="Github">
+					<img id="git" src="img/git.png" alt="Github"><br>
 					<input readonly="true" class="btn" value="https://github.com/mdl29/panobus.git"></input>
-					<a class="btn" href="https://github.com/mdl29/panobus/archive/master.zip">Download ZIP</a>
+					<button class="btn" href="https://github.com/mdl29/panobus/archive/master.zip">Download ZIP</button>
 				</div>
 				<div class="slide">
 					<h3></h3>
@@ -65,17 +66,65 @@
 					<h3>Ville de Brest</h3>
 					<a href="http://brest.fr" target="_blank"><img class="logoPart" type="image/png" src="img/brest.png"></a>
 				</div>
+				
+				<!--
+				<div class="slide">
+					<h3>Bibus</h3>
+					<a href="http://bibus.fr" target="_blank"><img class="logoPart" type="image/png" src="img/bibus.png"></a>
+				</div>
+				<div class="slide">
+					<h3>Brest Evenement Nautique</h3>
+					<a href="" target="_blank"><img class="logoPart" type="image/png" src=""></a>
+				</div>
+				<div class="slide">
+					<h3>Collège de Keranroux, Brest</h3>
+					<a href="http://brest.fr" target="_blank"><img class="logoPart" type="image/png" src="img/brest.png"></a>
+				</div>
+				-->
 				<div class="slide">
 					<h3>Plus à venir...</h3>
 				</div>
 			</section>
+			
+			<section class="section" id="presse">
+				<h2>Dans la presse</h2>
+				<div class="slide">
+					<h3>Article lors de Brest en Bien Commun 2015</h3>
+					<blockquote cite="http://mdl29.net/2015/10/01/les-petits-hackers-generation-ca-cree-brestbc/">
+						<p>"Les plus grands, dont certains habitent loin, en ont assez de louper leurs bus du samedi. Ils ont décidé de construire des panneaux leur permettant de savoir en temps réel où en sont les véhicules. La compagnie de transports publics n’en est pas revenue quand ils ont réclamé les infos « payées par les deniers publics » donc libres, non ? Les données ont été libérées et les hackers travaillent sur les panneaux."</p>
+						<cite>CC BY SA Sandrine Pierrefeu, octobre 2015</cite>
+					</blockquote>
+				</div>
+				<div class="slide">
+					<h3>Tébéo</h3>
+					<p>Nous avons été invité à presenter notre projet sur le plateau de l'émission <cite>On n'est pas que des Moutons</cite> en Décembre 2015
+					<iframe allowfullscreen="" frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/lD09GxpXA4k?start=1660&end=1701"></iframe></p>
+					<a href="https://www.youtube.com/embed/lD09GxpXA4k">Emission en entier</a>
+				</div>
+				<div class="slide">
+					<h3>Article sur le blog de la Maison du Libre</h3>
+					<blockquote cite="http://mdl29.net/2015/12/19/le-projet-panobus/">
+						<p>Depuis le début de l’année scolaire un groupe des LPH de l’après-midi travaille sur un projet de panneau d’affichage des horaires de bus aux alentours des anciens locaux, le lycée  Vauban.
+						Ce projet est né d’un réel besoin, celui de ne pas rater un bus et arriver chez soi après 20 heures et devoir subir le mécontentement des parents.
+						Ce projet a été rendu possible grâce à la libération des données par BIBUS en juin dernier. L’idée  de base du projet est de réunir sur un seul objet tous les prochains passages des bus tout autour de la cité  scolaire (soit environs 12 arrêts), pour que ce « pano » soit compréhensible rapidement le temps d’attente pour chaque bus est représenté par un code couleur et les arrêts sont repartis  sur une carte des environs.[...]
+						</p>
+						<p>
+						Suite sur <a href="http://mdl29.net/2015/12/19/le-projet-panobus/"> le blog de la Maison du Libre</a>
+						</p>
+					</blockquote>
+				</div>
+
+			</section>
+			
 		</div>
+		
 		<ul id="menu">
 			<li><img src="img/favicon.png" alt="Logo" title="Logo" id="logo">	</li>
 			<li data-menuanchor="pres">		<a href="#pres">Présentation</a>	</li>
 			<li data-menuanchor="doc" >		<a href="#doc">Documentation</a>	</li>
 			<li data-menuanchor="map" >		<a href="#map">Map</a>				</li>
 			<li data-menuanchor="parten" >	<a href="#parten">Partenaires</a>	</li>
+			<li data-menuanchor="news" >		<a href="#news">Presse</a>			</li>
 		</ul>
 	</body>
 </html>

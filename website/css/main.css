@@ -10,7 +10,7 @@ h1, h2, h3{
 #menu li {
 	vertical-align:middle;
 	display:inline-block;
-	margin:5px .83% 5px .83%;
+	margin:7px .83% 5px .83%;
 	color: #000;
 	background:#fff;
 	background: rgba(255,255,255, 0.5);
@@ -71,10 +71,21 @@ h1, h2, h3{
 	color: black;
 	background: rgba(255,255,255, 0.5);
 	margin:0;
-	height:35;
+	height:30px;
+	width:250px;
 }
 .logoPart{
 	height:200px;
 	width:auto;
 }
 
+#git{
+	height:100px;
+	width:auto;
+}
+
+blockquote{
+	width:75%;
+	text-align:left;
+	margin:0 12.5%;
+}
