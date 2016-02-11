@@ -20,6 +20,12 @@ $(document).ready(function() {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	}).addTo(map);
 	
-	L.marker([48.40850,-4.48043]).addTo(map)
-		.bindPopup();
+	$.getJSON("js/pano.json", function(json) {
+		for (i = 0; i < json.pano.length; i++) {
+			L.marker(json.pano[i].pos)
+				.addTo(map)
+				.bindPopup("<h1>"+json.pano[i].where+"</h1><br>"+json.pano[i].desc);
+		}
+	});
+	
 });
