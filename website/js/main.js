@@ -8,7 +8,9 @@ $(document).ready(function() {
 		sectionsColor: ['#FF0000', '#800080', '#1E90FF', '#FFFF00','#008000'],
 		menu: "#menu",
 		css3: true,
-		normalScrollElements:"#mapLeaflet"
+		normalScrollElements:"#mapLeaflet",
+		paddingTop:"6%",
+		sectionSelector:"section"
 	});
 	
 	//leaflet

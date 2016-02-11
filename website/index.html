@@ -2,19 +2,19 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<script src="libs/js/jquery.2.2.0.js"></script>
+		<script src="libs/js/jquery.2.2.0.js" type="text/javascript"></script>
 		
 		<!--Import Fullpage-->
-		<link rel="stylesheet" href="libs/css/jquery.fullPage.css"></link>
-		<script src="libs/js/jquery.fullPage.js"></script>
+		<link rel="stylesheet" href="libs/css/jquery.fullPage.css">
+		<script src="libs/js/jquery.fullPage.js" type="text/javascript"></script>
 		
 		<!--Import Leaflet-->
-		<link rel="stylesheet" href="libs/css/leaflet.css"></link>
-		<script src="libs/js/leaflet.js"></script>
+		<link rel="stylesheet" href="libs/css/leaflet.css">
+		<script src="libs/js/leaflet.js" type="text/javascript"></script>
 		
 		<!--Import Autres-->
-		<link rel="stylesheet" href="css/main.css"></link>
-		<script src="js/main.js"></script>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="js/main.js" type="text/javascript"></script>
 		
 		
 		<title>Panobus</title>
@@ -27,44 +27,46 @@
 		<!--Debut du code avec FullPage.js-->
 		
 		<div id="fullpage">
-			<section class="section" id="presentation">
+			<section id="presentation">
 				<h1>Panobus</h1>
+				<img alt="Photo du panneau" src="img/panobus.png" id="imgpano">
+				<article>
+					<p>Il s'agit d'un panneau qui affiche le temps d'attente aux arrêts de bus ou de 
+					tramway aux alentours d'un lieu où le panneau est implanté.</p>
+					<p>Le projet est développé par une équipe de cinq jeunes de 13 à 17 ans.
+					 Ce sont des "Petits Hackers" de l'association brestoise Maison du Libre.</p>
+				</article>
 			</section>
 			
-			<section class="section" id="documentation">
+			<section id="documentation">
 				<h2>Documentation</h2>
 				<div class="slide">
-					<h3>le wiki</h3>
+					<h3>Le wiki</h3>
+					<p>Notre projet documenté sur le wiki de la Maison du Libre.</p>
+					<a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus"><img src="img/wiki.png" alt="Wiki MDL" id="imgWiki"></a>
 				</div>
 				<div class="slide">
 					<h3>Le github</h3>
-					<img id="git" src="img/git.png" alt="Github"><br>
-					<input readonly="true" class="btn" value="https://github.com/mdl29/panobus.git"></input>
-					<button class="btn" href="https://github.com/mdl29/panobus/archive/master.zip">Download ZIP</button>
-				</div>
-				<div class="slide">
-					<h3></h3>
-				</div>
-				<div class="slide">
-					<h3></h3>
+					<a href="https://github.com/mdl29/panobus"><img id="git" src="img/git.png" alt="Github"><br></a>
+					<input readonly="" class="btn" value="https://github.com/mdl29/panobus.git"></input>
+					<a href="https://github.com/mdl29/panobus/archive/master.zip"><button class="btn">Download ZIP</button></a>
 				</div>
 			</section>
 			
-			<section class="section" id="mapPano">
+			<section id="mapPano">
+				<h2>Carte des panneaux implantés</h2>
 				<div id="mapLeaflet"></div>
 			</section>
 			
-			<section class="section" id="partenaires">
+			<section id="partenaires">
 				<h2>Partenaires</h2>
 				<div class="slide">
 					<h3>Maison du Libre</h3>
-					<a href="http://mdl29.net" target="_blank"><img class="logoPart" type="image/svg" src="img/MDL.svg"></a>
-				<p></p>
-				<p></p>
+					<a href="http://mdl29.net" target="_blank"><img class="logoPart" alt="Logo MDL" src="img/MDL.svg"></a>
 				</div>
 				<div class="slide">
 					<h3>Ville de Brest</h3>
-					<a href="http://brest.fr" target="_blank"><img class="logoPart" type="image/png" src="img/brest.png"></a>
+					<a href="http://brest.fr" target="_blank"><img class="logoPart" alt="Logo Ville de Brest" src="img/brest.png"></a>
 				</div>
 				
 				<!--
@@ -81,12 +83,13 @@
 					<a href="http://brest.fr" target="_blank"><img class="logoPart" type="image/png" src="img/brest.png"></a>
 				</div>
 				-->
+				
 				<div class="slide">
 					<h3>Plus à venir...</h3>
 				</div>
 			</section>
 			
-			<section class="section" id="presse">
+			<section id="presse">
 				<h2>Dans la presse</h2>
 				<div class="slide">
 					<h3>Article lors de Brest en Bien Commun 2015</h3>
