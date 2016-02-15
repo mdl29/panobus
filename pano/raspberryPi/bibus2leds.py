@@ -14,7 +14,11 @@ class Bibus2Leds(bibusinterface.BibusInterface):
         super().__init__()
 
     def kill(self):
+        def nop(self):
+	        quit() #good bye...
+        self.send_data = nop
         self.led.off()
+        print ("test")
         super().kill()
 
     def send_data(self, id_, data):

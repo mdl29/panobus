@@ -5,6 +5,7 @@ Look at Readme.md
 import threading
 import json
 from sys import argv
+import signal
 
 from pipe import Pipe
 
@@ -80,7 +81,7 @@ def main():
 
     fct_array = {
         "quit" : quit_,
-        "reload_efault_json": lambda *args: bibus.load(),
+        "reload_default_json": lambda *args: bibus.load(),
         "load_file": lambda *args: bibus.load(args[0]),
         "set_update_interval": lambda *args: bibus.set_update_interval(args[0]),
         "kill_pipe": lambda *args: event.clear(),
@@ -88,6 +89,7 @@ def main():
         "help" : lambda *args: print("\n".join(fct_array.keys())),
         }
 
+    signal.signal(signal.SIGTERM, lambda *args: quit_())
     try:
         thread = threading.Thread(target=parse_pipe, args=(event, fct_array))
 

@@ -43,7 +43,7 @@ class Pipe: #pylint: disable=R0903
                 return
             try:
                 block = os.read(self.pipe, 256)
-            except BlockingIOError:
+            except:
                 yield ""
 
             if block:
@@ -51,7 +51,7 @@ class Pipe: #pylint: disable=R0903
             else:
                 if buffer:
                     yield buffer.decode()
-                    buffer.clear()
+                    buffer = bytearray()
                 else:
                     yield ""
 

@@ -4,7 +4,8 @@ A module which contain a purely virtual interface between an element (to be defi
 import sched #for a 60sec scheduler
 import time # for a 60sec scheduler
 import json # For the file import
-
+import sys
+import os
 import bibus
 
 class BibusInterface:
@@ -19,8 +20,8 @@ class BibusInterface:
 
         self._bibus = bibus.Bibus()
         print("Don't hesitate to open a new issue on https://github.com/mdl29/panobus on any bug")
-
-        self.load()
+        file = "{}/data/arret_lycee_rel.json".format(os.path.dirname(os.path.realpath(sys.argv[0])))
+        self.load(file)
         self.sched = sched.scheduler(time.time, time.sleep)
 
     def kill(self):
@@ -35,7 +36,7 @@ class BibusInterface:
         except Exception:
             pass
 
-    def load(self, file="data/arret_lycee_rel.json"):
+    def load(self, file):
         """
         load the good file (effect may be quite long)
         """
@@ -147,7 +148,7 @@ class BibusInterface:
 
         try:
             self.sched.enter(self.interval, 1, self.loop, ()) #Wait for an interval (30s by default)
-        except NameError:
+        except:
             return
 
     def set_update_interval(self, interval):
