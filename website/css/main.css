@@ -1,10 +1,20 @@
 #fullpage{
 	text-align:center;
 }
+
+p, a{
+	color: white;
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 30px;
+}
+
 h1, h2, h3{
 	margin:0;
 	padding:0;
 	text-align:center;
+	font-family: 'PT Sans Narrow', sans-serif;
+	color: white;
+	font-size: 75px;
 }
 
 #menu li {
@@ -112,3 +122,23 @@ article{
 	margin:0;
 }
 
+#tebeo{
+	width: 50%;
+	margin-left: 3%;
+	margin-top: 5%;
+}
+
+#videoTebeo{
+	margin-left: 55%;
+	margin-top: -5%;
+}
+
+#tebeoTitre{
+	margin-top: 0%;
+}
+
+#lienTebeo{
+	margin-left: 50%;
+	margin-top: 120%;
+	margin: 20%;
+}
