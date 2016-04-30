@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//fullpage
     $('#fullpage').fullpage({
 		anchors: ['pres', 'doc', 'map', 'parten', 'news'],
-		sectionsColor: ['#FF0000', '#800080', '#1E90FF', '#FFFF00','#008000'],
+		sectionsColor: ['#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3'],
 		menu: "#menu",
 		css3: true,
 		normalScrollElements:"#mapLeaflet",
