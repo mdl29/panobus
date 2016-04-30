@@ -2,6 +2,7 @@
 	text-align:center;
 }
 h1, h2, h3{
+	color: white;
 	margin:0;
 	padding:0;
 	text-align:center;
@@ -14,34 +15,28 @@ img{
 }
 
 h1{
-	color: black;
 	font-size: 500%;
 }
 h2{
-	color: white;
 	font-size: 450%;
 }
 h3{
-	color: white;
 	font-size: 400%;
 }
 h4{
-	color: white;
 	font-size: 350%;
 }
 h5{
-	color: white;
 	font-size: 300%;
 }
 h6{
-	color: white;
 	font-size: 250%;
 }
 
 p, a{
-	color: white;
 	font-family:'amatic_scregular';
 	font-size: 200%;
+	color: white;
 }
 
 #menu li {
@@ -125,7 +120,7 @@ p, a{
 blockquote{
 	width:75%;
 	text-align:left;
-	margin:0 12.5%;
+	/*margin:0 12.5%;*/
 	background:rgba(100,100,100,0.5);
 	/*background: #B4AF91;*/
 	border-radius:10px;
@@ -135,18 +130,19 @@ blockquote{
 
 #imgpano{
 	width:auto;
-	height:80%;
-	float:left;
+	height:50%;
 	padding:1%;
+	display: inline-block;
 }
-article{
-	text-align:justify;
-	margin: 5% 5% 5% 45% ;
+
+#article{
+	width: 30%;
+	display: inline-block;
 }
 
 #imgWiki{
-	height:auto;
-	width: 50%;
+	height:50%;
+	min-width: 30%;
 	margin:0;
 }
 
@@ -175,24 +171,26 @@ article{
 
 
 #presse{
-	background-image: url(http://www.poharapanjaya.com/wp-content/uploads/2010/07/Wallpaper-Bus-Periwisata-Putri-Bali-1920x1080.jpg);
-	padding: 6% 0 0 0;
+	background-image: url(../img/bg1c.jpg);
+	background-size: 100%;
 }
 
 #partenaires{
-	background-image: url(http://img1.mxstatic.com/wallpapers/989c4d3e25386e9a769a1958735f5cdc_large.jpeg);
+	background-image: url(../img/bg2c.jpg);
 	background-size: 100%;
 }
 
 #presentation{
-	background-image: url(http://img1.mxstatic.com/wallpapers/805a9a0c9b187941e1864c82be0263a4_large.jpeg);
+	background-image: url(../img/bg3c.jpg);
+	background-size: 100%;
 }
 
 #mapPano{
-	background-image: url(http://img0.mxstatic.com/wallpapers/d9ffd4b9b0c2b1823a29917b0f081b19_large.jpeg);
+	background-image: url(../img/bg4c.jpg);
+	background-size: 100%;
 }
 
 #documentation{
-	background-image: url(http://fr.best-wallpaper.net/wallpaper/2560x1440/1306/London-England-street-red-bus-road-city_2560x1440.jpg);
+	background-image: url(../img/bg5c.jpg);
 	background-size: 100%;
 }
