@@ -1,6 +1,20 @@
 #fullpage{
 	text-align:center;
 }
+
+@font-face {
+    font-family: 'amatic_scregular';
+    src: url('font/amatic/amaticsc-regular-webfont.eot');
+    src: url('font/amatic/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/amatic/amaticsc-regular-webfont.woff2') format('woff2'),
+         url('font/amatic/amaticsc-regular-webfont.woff') format('woff'),
+         url('font/amatic/amaticsc-regular-webfont.ttf') format('truetype'),
+         url('font/amatic/amaticsc-regular-webfont.svg#amatic_scregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 h1, h2, h3{
 	margin:0;
 	padding:0;
@@ -134,10 +148,7 @@ blockquote{
 }
 
 #imgpano{
-	width:auto;
-	height:80%;
 	float:left;
-	padding:1%;
 }
 article{
 	text-align:justify;
@@ -149,30 +160,6 @@ article{
 	width: 50%;
 	margin:0;
 }
-
-#tebeo{
-	width: 50%;
-	margin-left: 3%;
-	margin-top: 5%;
-}
-
-#videoTebeo{
-	margin-left: 55%;
-	margin-top: -5%;
-}
-
-#tebeoTitre{
-	margin-top: 0%;
-}
-
-#lienTebeo{
-	margin-left: 50%;
-	margin-top: 120%;
-	margin: 20%;
-}
-
-
-
 
 #presse{
 	background-image: url(http://www.poharapanjaya.com/wp-content/uploads/2010/07/Wallpaper-Bus-Periwisata-Putri-Bali-1920x1080.jpg);

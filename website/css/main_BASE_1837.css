@@ -5,43 +5,6 @@ h1, h2, h3{
 	margin:0;
 	padding:0;
 	text-align:center;
-	font-family:amatic_scregular;
-}
-
-img{
-	/*box-shadow: 8px 8px 12px #aaa;*/
-	border-radius: 5%;
-}
-
-h1{
-	color: black;
-	font-size: 500%;
-}
-h2{
-	color: white;
-	font-size: 450%;
-}
-h3{
-	color: white;
-	font-size: 400%;
-}
-h4{
-	color: white;
-	font-size: 350%;
-}
-h5{
-	color: white;
-	font-size: 300%;
-}
-h6{
-	color: white;
-	font-size: 250%;
-}
-
-p, a{
-	color: white;
-	font-family:'amatic_scregular';
-	font-size: 200%;
 }
 
 #menu li {
@@ -126,8 +89,7 @@ blockquote{
 	width:75%;
 	text-align:left;
 	margin:0 12.5%;
-	background:rgba(100,100,100,0.5);
-	/*background: #B4AF91;*/
+	background:rgba(155,155,155,0.5);
 	border-radius:10px;
 	padding:1%;
 	margin-top:10px;
@@ -150,49 +112,3 @@ article{
 	margin:0;
 }
 
-#tebeo{
-	width: 50%;
-	margin-left: 3%;
-	margin-top: 5%;
-}
-
-#videoTebeo{
-	margin-left: 55%;
-	margin-top: -5%;
-}
-
-#tebeoTitre{
-	margin-top: 0%;
-}
-
-#lienTebeo{
-	margin-left: 50%;
-	margin-top: 120%;
-	margin: 20%;
-}
-
-
-
-
-#presse{
-	background-image: url(http://www.poharapanjaya.com/wp-content/uploads/2010/07/Wallpaper-Bus-Periwisata-Putri-Bali-1920x1080.jpg);
-	padding: 6% 0 0 0;
-}
-
-#partenaires{
-	background-image: url(http://img1.mxstatic.com/wallpapers/989c4d3e25386e9a769a1958735f5cdc_large.jpeg);
-	background-size: 100%;
-}
-
-#presentation{
-	background-image: url(http://img1.mxstatic.com/wallpapers/805a9a0c9b187941e1864c82be0263a4_large.jpeg);
-}
-
-#mapPano{
-	background-image: url(http://img0.mxstatic.com/wallpapers/d9ffd4b9b0c2b1823a29917b0f081b19_large.jpeg);
-}
-
-#documentation{
-	background-image: url(http://fr.best-wallpaper.net/wallpaper/2560x1440/1306/London-England-street-red-bus-road-city_2560x1440.jpg);
-	background-size: 100%;
-}
