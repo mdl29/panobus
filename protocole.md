@@ -44,6 +44,5 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
 
         * récupère via l'API le temps restant avant le passage des deux bus suivant pour chaque destination du panneau
         * calcule : "temps de passage - temps pour rejoindre" pour chaque temps
-
-            * Si le temps obtenu est inférieur à 0min ET que le temps du bus suivant est inférieur au temps nécessaire pour rejoindre l'arrêt : ignore le bus qui arrive et traite les données du bus suivant
+        => Si le temps obtenu est inférieur à 0min ET que le temps du bus suivant est inférieur au temps nécessaire pour rejoindre l'arrêt : ignore le bus qui arrive et traite les données du bus suivant
         * actualise la couleur des leds en fonction du résultat obtenu
