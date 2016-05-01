@@ -34,19 +34,15 @@ On utilise un JSON pour savoir quel arret "implementer" dans le script. Le json 
 
 ####################
 ##### Code #####
--la raspi récupère dans le Json :
+* la raspi récupère dans le Json :
 
-    *Nombre de Station
+    * Nombre de Station
+    * l'ID de chaque arrêt
+    * Le temps qu'on met pour aller à chaque station
 
-    *l'ID de chaque arrêt
+* Toutes les n secondes la raspberryPy:
 
-    *Le temps qu'on met pour aller à chaque station
-
--Toutes les n secondes la raspberryPy:
-        *récupère via l'API le temps restant avant le passage des deux bus suivant pour chaque destination du panneau
-
-        *calcule : "temps de passage - temps pour rejoindre" pour chaque temps
-
-            -Si le temps obtenu est inférieur à 0min ET que le temps du bus suivant est inférieur au temps nécessaire pour rejoindre l'arrêt : ignore le bus qui arrive et traite les données du bus suivant
-
-        *actualise la couleur des leds en fonction du résultat obtenu
+        * récupère via l'API le temps restant avant le passage des deux bus suivant pour chaque destination du panneau
+        * calcule : "temps de passage - temps pour rejoindre" pour chaque temps
+            * Si le temps obtenu est inférieur à 0min ET que le temps du bus suivant est inférieur au temps nécessaire pour rejoindre l'arrêt : ignore le bus qui arrive et traite les données du bus suivant
+        * actualise la couleur des leds en fonction du résultat obtenu
