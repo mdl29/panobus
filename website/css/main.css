@@ -1,12 +1,25 @@
 #fullpage{
 	text-align:center;
 }
+
+section {
+	height : 100%;
+	width : 100%;
+}
+
 h1, h2, h3{
 	color: white;
 	margin:0;
 	padding:0;
 	text-align:center;
 	font-family:amatic_scregular;
+}
+
+#slogan{
+	position: relative;
+	color: black;
+	margin-left: 15px;
+
 }
 
 img{
@@ -119,7 +132,7 @@ p, a{
 
 blockquote{
 	width:75%;
-	text-align:left;
+	text-align:justify;
 	/*margin:0 12.5%;*/
 	background:rgba(100,100,100,0.5);
 	/*background: #B4AF91;*/
@@ -171,26 +184,26 @@ blockquote{
 
 
 #presse{
-	background-image: url(../img/bg1c.jpg);
+	background-image: url(../img/bg1-light.jpg);
 	background-size: 100%;
 }
 
 #partenaires{
-	background-image: url(../img/bg2c.jpg);
+	background-image: url(../img/bg2-light.jpg);
 	background-size: 100%;
 }
 
 #presentation{
-	background-image: url(../img/bg3c.jpg);
+	background-image: url(../img/bg3-light.jpg);
 	background-size: 100%;
 }
 
 #mapPano{
-	background-image: url(../img/bg4c.jpg);
+	background-image: url(../img/bg4-light.jpg);
 	background-size: 100%;
 }
 
 #documentation{
-	background-image: url(../img/bg5c.jpg);
+	background-image: url(../img/bg5-light.jpg);
 	background-size: 100%;
 }
