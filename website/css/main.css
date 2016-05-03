@@ -12,13 +12,14 @@ h1, h2, h3{
 	margin:0;
 	padding:0;
 	text-align:center;
-	font-family:amatic_scregular;
+	font: amatic_scregular;
 }
 
 #slogan{
 	position: relative;
 	color: black;
 	margin-left: 15px;
+	font-family: "calligraffitiregular";
 
 }
 
@@ -27,27 +28,8 @@ img{
 	border-radius: 5%;
 }
 
-h1{
-	font-size: 500%;
-}
-h2{
-	font-size: 450%;
-}
-h3{
-	font-size: 400%;
-}
-h4{
-	font-size: 350%;
-}
-h5{
-	font-size: 300%;
-}
-h6{
-	font-size: 250%;
-}
-
 p, a{
-	font-family:'amatic_scregular';
+	font-family:'bonvenocflight';
 	font-size: 200%;
 	color: white;
 }
@@ -139,6 +121,7 @@ blockquote{
 	border-radius:10px;
 	padding:1%;
 	margin-top:10px;
+	font-family: arial, "bonvenocflight";
 }
 
 #imgpano{

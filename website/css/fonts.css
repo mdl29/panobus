@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "cicleshadow";
+    src: url('../font/webfontkit01/cicle_shadow-webfont.eot');
+    src: url('../font/webfontkit01/cicle_shadow-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/webfontkit01/cicle_shadow-webfont.woff2') format('woff2'),
+         url('../font/webfontkit01/cicle_shadow-webfont.woff') format('woff'),
+         url('../font/webfontkit01/cicle_shadow-webfont.ttf') format('truetype'),
+         url('../font/webfontkit01/cicle_shadow-webfont.svg#cicleshadow') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'daysregular';
+    src: url('../font/webfontkit01/days-webfont.eot');
+    src: url('../font/webfontkit01/days-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/webfontkit01/days-webfont.woff2') format('woff2'),
+         url('../font/webfontkit01/days-webfont.woff') format('woff'),
+         url('../font/webfontkit01/days-webfont.ttf') format('truetype'),
+         url('../font/webfontkit01/days-webfont.svg#daysregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'bonvenocf';
+    src: url('../font/webfontkit01/bonvenocf-light-webfont.eot');
+    src: url('../font/webfontkit01/bonvenocf-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/webfontkit01/bonvenocf-light-webfont.woff2') format('woff2'),
+         url('../font/webfontkit01/bonvenocf-light-webfont.woff') format('woff'),
+         url('../font/webfontkit01/bonvenocf-light-webfont.ttf') format('truetype'),
+         url('../font/webfontkit01/bonvenocf-light-webfont.svg#bonvenocflight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'calligraffiti';
+    src: url('../font/webfontkit01/calligraffiti-webfont.eot');
+    src: url('../font/webfontkit01/calligraffiti-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/webfontkit01/calligraffiti-webfont.woff2') format('woff2'),
+         url('../font/webfontkit01/calligraffiti-webfont.woff') format('woff'),
+         url('../font/webfontkit01/calligraffiti-webfont.ttf') format('truetype'),
+         url('../font/webfontkit01/calligraffiti-webfont.svg#calligraffitiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

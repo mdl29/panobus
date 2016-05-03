@@ -5,7 +5,7 @@ $(document).ready(function() {
 	//fullpage
     $('#fullpage').fullpage({
 		anchors: ['Panobus','pres', 'doc', 'map', 'parten', 'news'],
-		sectionsColor: ['#4a2aa0','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3'],
+		sectionsColor: ['#000000','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3'],
 		menu: "#menu",
 		css3: true,
 		normalScrollElements:"#mapLeaflet",

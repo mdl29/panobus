@@ -1,0 +1,20 @@
+.title{
+    position : absolute;
+    top : 10px;
+    left: 100px;
+    color : green;
+    font-family: "daysregular";
+    font-size: 100px;
+    text-align: center;
+}
+
+#slogan{
+    position : absolute;
+    top : 150px;
+    left: 100px;
+    right: 100px;
+    color : white;
+    font-family: "calligraffiti";
+    font-size: 50px;
+    text-align: center;
+}
