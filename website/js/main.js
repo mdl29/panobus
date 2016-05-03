@@ -10,7 +10,31 @@ $(document).ready(function() {
 		css3: true,
 		normalScrollElements:"#mapLeaflet",
 		paddingTop:"6%",
-		sectionSelector:"section"
+		sectionSelector:"section",
+
+		//Scrolling
+        scrollingSpeed: 700,
+        autoScrolling: true,
+        fitToSectionDelay: 1000,
+        scrollBar: false,
+        easing: 'easeInOutCubic',
+        easingcss3: 'ease',
+        loopBottom: false,
+        loopTop: false,
+        loopHorizontal: true,
+        continuousVertical: false,
+        scrollOverflow: false,
+        touchSensitivity: 15,
+        normalScrollElementTouchThreshold: 15,
+
+		//Design
+        controlArrows: true,
+        verticalCentered: true,
+        resize : false,
+        paddingTop: '64px',
+        paddingBottom: '20px',
+        responsiveWidth: '100px',
+        responsiveHeight: '100px',
 	});
 
 	//leaflet

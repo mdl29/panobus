@@ -27,48 +27,56 @@
 		<link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
 
 	</head>
+
 	<body>
 		<div id="preloader">Loading...</div>
 
 		<!--Debut du code avec FullPage.js-->
 
 		<div id="fullpage">
-			<section id="Panobus">
+			<section id="Panobus" class="fp-section">
 				<h1 class="title">Panobus</h1>
 					<span id="slogan">
-						<h4>Les bus à proximité en temps réel et sans effort ...<h4>
+						<h4>Les bus à proximité, en temps réel et sans effort ...<h4>
 					</span>
 			</section>
-			<section id="presentation">
+			<section id="presentation" class="fp-section">
+				<div class="flex-container">
 					<blockquote id="article">
-						<p>Il s'agit d'un panneau qui affiche le temps d'attente aux arrêts de bus ou de
+						<p>Panobus est un panneau qui affiche le temps d'attente aux arrêts de bus ou de
 						tramway aux alentours d'un lieu où le panneau est implanté.</p>
 						<p>Le projet est développé par une équipe de cinq jeunes de 13 à 17 ans.
 						 Ce sont des "Petits Hackers" de l'association brestoise Maison du Libre.</p>
 					</blockquote>
-				<img alt="Photo du panneau" src="img/panobus.png" id="imgpano">
+				</div>
+				<div class="empty-flex-container">
+					<img alt="Photo du panneau" src="img/panobus.png" id="imgpano" class="img-centre">
+				</div>
 			</section>
 
-			<section id="documentation">
+			<section id="documentation" class="fp-section">
 				<span class="slide">
-					<h2>Le wiki</h2>
-					<p>Notre projet est documenté sur le wiki de la Maison du Libre.</p>
-					<a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus">
-					<img src="img/wiki.png" alt="Wiki MDL" id="imgWiki"></a>
+					<div id="sld_doc_d1">
+						<h2 class="sld_title">Le wiki</h2>
+						<p class="diap_txt">Notre projet est documenté sur le wiki de la <br><a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus">
+						<img src="img/logo-mdl.png" alt="Wiki MDL" id="imgWiki"></a></p>
+					</div>
 				</span>
-				<span class="slide">
-					<h2>Le github</h2>
-					<a href="https://github.com/mdl29/panobus"><img id="git" src="img/git.png" alt="Github"><br></a>
-					<input readonly="" class="btn" value="https://github.com/mdl29/panobus.git"></input>
-					<a href="https://github.com/mdl29/panobus/archive/master.zip"><button class="btn">Download ZIP</button></a>
+				<span class="slide" >
+					<div id="sld_doc_d2">
+						<h2 class="sld_title">Le github</h2>
+						<a href="https://github.com/mdl29/panobus"><img id="git" src="img/git.png" alt="Github"><br></a>
+						<input readonly="" class="btn" value="https://github.com/mdl29/panobus.git"></input>
+						<a href="https://github.com/mdl29/panobus/archive/master.zip"><button class="btn">Download ZIP</button></a>
+					</div>
 				</span>
 			</section>
 
-			<section id="mapPano">
+			<section id="mapPano" class="fp-section">
 				<div id="mapLeaflet"></div>
 			</section>
 
-			<section id="partenaires">
+			<section id="partenaires" class="fp-section">
 				<div class="slide">
 					<a href="http://mdl29.net" target="_blank"><img class="logoPart" alt="Logo MDL" src="img/mdl29.png"></a>
 				</div>
@@ -99,7 +107,7 @@
 				</div>
 			</section>
 
-			<section id="presse">
+			<section id="presse" class="fp-section">
 				<h1>Dans la presse</h1>
 				<div class="slide">
 					<h2>Article lors de Brest en Bien Commun 2015</h2>
