@@ -19,8 +19,13 @@
     text-align: center;
 }
 
+.sub-title{
+    text-align: left;
+}
+
 blockquote{
     font-family: arial;
+    text-align: justify;
     color: white;
 }
 
@@ -28,7 +33,7 @@ blockquote{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 20em;
+    width: 315px;
     height: 100%;
     background-color: rgba(20,20,20,0.93);
 
@@ -47,5 +52,90 @@ blockquote{
     height: 60%;
     width: auto;
     left : 43%;
-    top: 20%
+    right : 5%;
+    top: 20%;
+    border-radius: 20px;
+}
+
+.slide-container{
+    position: absolute;
+    height: 60%;
+    width: 500px;
+    right: 5%;
+    left: 40%;
+    top: 20%;
+    border-radius: 20px;
+    background-color: rgba(100,100,100,0.7);
+}
+
+.img_slide{
+    position: relative;
+    left: 100px;
+    width: 300px;
+    top: -75px;
+    text-align: justify;
+}
+
+#git{
+    position: relative;
+    left: 132px;
+    width: 230px;
+    top: -75px;
+}
+
+.diap_paragraphe{
+    position: relative;
+    height: 50%;
+    left: -30px;
+    overflow: auto;
+
+}
+
+.diap-title{
+    position: relative;
+    font-family: arial;
+    text-align: center;
+    color: white;
+    top: -75px;
+}
+
+iframe{
+    position: relative;
+    width: 300px;
+    height: auto;
+    left: 100px;
+    top: -75px;
+}
+
+
+/*
+images de fond
+*/
+#presse{
+	background-image: url(../img/bg1c-light.jpg);
+	background-size: cover;
+}
+
+#partenaires{
+	background-image: url(../img/bg2c-light.jpg);
+	background-size: cover;
+    }
+
+#presentation{
+	background-image: url(../img/bg3c-light.jpg);
+	background-size: cover;
+    }
+
+#mapPano{
+	background-image: url(../img/bg4c-light.jpg);
+	background-size: cover;
+    }
+
+#documentation{
+	background-image: url(../img/bg5c-light.jpg);
+	background-size: cover;
+    }
+
+#mapLeaflet{
+	background:#fff;
 }

@@ -34,58 +34,86 @@
 		<!--Debut du code avec FullPage.js-->
 
 		<div id="fullpage">
+
+			<!-- ###### Page titre ######-->
 			<section id="Panobus" class="fp-section">
 				<h1 class="title">Panobus</h1>
 					<span id="slogan">
 						<h4>Les bus à proximité, en temps réel et sans effort ...<h4>
 					</span>
 			</section>
+
+			<!-- ###### Page présentation ######-->
 			<section id="presentation" class="fp-section">
 				<div class="flex-container">
 					<blockquote id="article">
+						<h2 class="sub-title">Présentation du projet</h2>
 						<p>Panobus est un panneau qui affiche le temps d'attente aux arrêts de bus ou de
 						tramway aux alentours d'un lieu où le panneau est implanté.</p>
 						<p>Le projet est développé par une équipe de cinq jeunes de 13 à 17 ans.
 						 Ce sont des "Petits Hackers" de l'association brestoise Maison du Libre.</p>
 					</blockquote>
 				</div>
-				<div class="empty-flex-container">
-					<img alt="Photo du panneau" src="img/panobus.png" id="imgpano" class="img-centre">
-				</div>
+				<img alt="Photo du panneau" src="img/panobus.png" id="imgpano" class="img-centre">
 			</section>
 
+			<!-- ###### Page documentation ######-->
 			<section id="documentation" class="fp-section">
-				<span class="slide">
-					<div id="sld_doc_d1">
-						<h2 class="sld_title">Le wiki</h2>
-						<p class="diap_txt">Notre projet est documenté sur le wiki de la <br><a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus">
-						<img src="img/logo-mdl.png" alt="Wiki MDL" id="imgWiki"></a></p>
-					</div>
-				</span>
-				<span class="slide" >
-					<div id="sld_doc_d2">
-						<h2 class="sld_title">Le github</h2>
-						<a href="https://github.com/mdl29/panobus"><img id="git" src="img/git.png" alt="Github"><br></a>
-						<input readonly="" class="btn" value="https://github.com/mdl29/panobus.git"></input>
-						<a href="https://github.com/mdl29/panobus/archive/master.zip"><button class="btn">Download ZIP</button></a>
-					</div>
-				</span>
+				<div class="flex-container" id="slide-doc">
+					<blockquote id="docu">
+						<h2 class="sub-title">Documentation</h2>
+						<p class="diap_txt">Notre projet est documenté sur le wiki de la Maison du Libre</p>
+						<p class="diap_txt">Vous pouvez aussi retrouver les codes sources sur la page github du projet</p>
+					</blockquote>
+				</div>
+				<div class="slide-container">
+					<span class="slide">
+						<div id="sld_doc_d1">
+							<h2 class="diap-title">Wiki</h2>
+							<a href="https://wiki.mdl29.net/doku.php?id=lespetitshackers:bibus:panobus"><img src="img/logo-mdl.png" alt="Wiki MDL" id="imgWiki" class="img_slide"></a></p>
+						</div>
+					</span>
+					<span class="slide" >
+						<div id="sld_doc_d2">
+							<h2 class="diap-title">Github</h2>
+							<a href="https://github.com/mdl29/panobus"><img id="git" src="img/git.png" alt="Github"><br></a>
+							<input readonly="" class="btn" value="https://github.com/mdl29/panobus.git"></input>
+							<a href="https://github.com/mdl29/panobus/archive/master.zip"><button class="btn">Download ZIP</button></a>
+						</div>
+					</span>
+				</div>
 			</section>
 
+			<!-- ###### Page Map ######-->
 			<section id="mapPano" class="fp-section">
-				<div id="mapLeaflet"></div>
+				<div class="flex-container">
+					<blockquote id="carte">
+						<h2 class="sub-title">Carte</h2>
+						<p>Voici la carte des panneaux déployés</p>
+					</blockquote>
+				</div>
+				<div id="mapLeaflet" class="img-centre"></div>
 			</section>
 
+			<!-- ###### Page partenaires ######-->
 			<section id="partenaires" class="fp-section">
-				<div class="slide">
-					<a href="http://mdl29.net" target="_blank"><img class="logoPart" alt="Logo MDL" src="img/mdl29.png"></a>
+				<div class="flex-container">
+					<blockquote>
+						<h2 class="sub-title">Partenaires</h2>
+						<p>Voici la listes de nos généreux partenaires.</p>
+						<p>Si vous désirez figurer parmis eux, rendez-vous ici.</p>
+					</blockquote>
 				</div>
-				<div class="slide">
-					<a href="http://brest.fr" target="_blank"><img class="logoPart" alt="Logo Ville de Brest" src="img/brest.png"></a>
-				</div>
-				<div class="slide">
-					<a href="http://www.fondation-free.fr/" target="_blank"><img class="logoPart" alt="Logo de la Fondation Free" src="img/FF.png"></a>
-				</div>
+				<div class="slide-container">
+					<div class="slide">
+						<a href="http://mdl29.net" target="_blank"><img class="img_slide" alt="Logo MDL" src="img/logo-mdl.png"></a>
+					</div>
+					<div class="slide">
+						<a href="http://brest.fr" target="_blank"><img class="img_slide" alt="Logo Ville de Brest" src="img/brest.png"></a>
+					</div>
+					<div class="slide">
+						<a href="http://www.fondation-free.fr/" target="_blank"><img class="img_slide" alt="Logo de la Fondation Free" src="img/FF.png"></a>
+					</div>
 
 				<!--
 				<div class="slide">
@@ -102,53 +130,64 @@
 				</div>
 				-->
 
-				<div class="slide">
-					<h3>Plus à venir...</h3>
+					<div class="slide">
+						<h3 class="diap-title">Soyez le prochain...</h3>
+					</div>
 				</div>
 			</section>
 
+			<!-- ###### Page presse ######-->
 			<section id="presse" class="fp-section">
-				<h1>Dans la presse</h1>
-				<div class="slide">
-					<h2>Article lors de Brest en Bien Commun 2015</h2>
-					<blockquote cite="http://mdl29.net/2015/10/01/les-petits-hackers-generation-ca-cree-brestbc/">
-						<p>"Les plus grands, dont certains habitent loin, en ont assez de louper leurs bus du samedi. Ils ont décidé de construire des panneaux leur permettant de savoir en temps réel où en sont les véhicules. La compagnie de transports publics n’en est pas revenue quand ils ont réclamé les infos « payées par les deniers publics » donc libres, non ? Les données ont été libérées et les hackers travaillent sur les panneaux."</p>
-						<cite>CC BY SA Sandrine Pierrefeu, octobre 2015</cite>
+				<div class="flex-container">
+					<blockquote>
+						<h2 class="sub-title">Dans la presse</h2>
+						<p>Voici des articles, vidéos, etc... Concernant Panobus</p>
 					</blockquote>
 				</div>
-				<div class="slide">
-					<h2>Tébéo</h2>
-					<p width=500>Nous avons été invité à presenter notre projet sur le plateau de l'émission <cite>On n'est pas que des Moutons</cite> en Décembre 2015</p>
-					<iframe allowfullscreen="" frameborder="0" width="560" height="315" src="https://www.youtube.com/embed/lD09GxpXA4k?start=1660&end=1701"></iframe>
-					<br/>
-					<a href="https://www.youtube.com/embed/lD09GxpXA4k">Emission en entier</a>
-				</div>
-				<div class="slide">
-					<h2>Article sur le blog de la Maison du Libre</h2>
-					<blockquote cite="http://mdl29.net/2015/12/19/le-projet-panobus/">
-						<p>Depuis le début de l’année scolaire un groupe des LPH de l’après-midi travaille sur un projet de panneau d’affichage des horaires de bus aux alentours des anciens locaux, le lycée  Vauban.
-						Ce projet est né d’un réel besoin, celui de ne pas rater un bus et arriver chez soi après 20 heures et devoir subir le mécontentement des parents.
-						Ce projet a été rendu possible grâce à la libération des données par BIBUS en juin dernier. L’idée  de base du projet est de réunir sur un seul objet tous les prochains passages des bus tout autour de la cité  scolaire (soit environs 12 arrêts), pour que ce « pano » soit compréhensible rapidement le temps d’attente pour chaque bus est représenté par un code couleur et les arrêts sont repartis  sur une carte des environs.[...]
-						</p>
-						<a href="http://mdl29.net/2015/12/19/le-projet-panobus/">Suite sur le blog de la Maison du Libre</a>
-					</blockquote>
-				</div>
-				<div class="slide">
-					<h2>Article sur le site de Décryptagéo</h2>
-					<blockquote cite="http://decryptageo.fr/quand-les-petits-hackers-inventent-le-panneau-de-bus-intelligent/">
-						<p>Parce qu’ils se réunissent le samedi et qu’en sortant, les bus se font rares, les petits hackers de Brest ont conçu et fabriqué un panneau indiquant simplement quand passent les prochains bus : le panobus. A priori, rien de bien sophistiqué. Sauf qu’il a fallu récupérer les données sur les horaires réels de passage fournis en open data par la société de transport, ajouter le temps nécessaire pour rejoindre l’arrêt, concevoir une sémiologie efficace (la couleur et les formes pour les différentes lignes, pour le temps avant le prochain passage), creuser le bois, brancher les LED… et se faire connaître.</p>
-						<a href="http://decryptageo.fr/quand-les-petits-hackers-inventent-le-panneau-de-bus-intelligent/">Le site de Décryptagéo</a>
-					</blockquote>
-				</div>
-				<div class="slide">
-					<h2>Sur France 3</h2>
-					<iframe width="854" height="480" src="https://www.youtube.com/embed/KULt4mPI8nE?start=39&end=64" frameborder="0" allowfullscreen></iframe></br>
-					<a href="https://www.youtube.com/embed/KULt4mPI8nE">Emission en entier</a>
+				<div class="slide-container">
+					<div class="slide">
+						<h2 class="diap-title">Brest en Bien Commun /2015</h2>
+						<blockquote cite="http://mdl29.net/2015/10/01/les-petits-hackers-generation-ca-cree-brestbc/" class="img_slide">
+							<p class="diap_paragraphe">"Les plus grands, dont certains habitent loin, en ont assez de louper leurs bus du samedi. Ils ont décidé de construire des panneaux leur permettant de savoir en temps réel où en sont les véhicules. La compagnie de transports publics n’en est pas revenue quand ils ont réclamé les infos « payées par les deniers publics » donc libres, non ? Les données ont été libérées et les hackers travaillent sur les panneaux."</p>
+							<cite>CC BY SA Sandrine Pierrefeu, octobre 2015</cite>
+						</blockquote>
+					</div>
+					<div class="slide">
+						<h2 class="diap-title">Tébéo</h2>
+						<h3 class="diap-title">On n'est pas que des Moutons -- Déc2015</h3>
+						<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/lD09GxpXA4k?start=1660&end=1701"></iframe>
+					</div>
+					<div class="slide">
+						<h2 class="diap-title">blog de la Maison du Libre</h2>
+						<blockquote class="img_slide" cite="http://mdl29.net/2015/12/19/le-projet-panobus/">
+							<div class="diap_paragraphe">
+								<p>Depuis le début de l’année scolaire un groupe des LPH de l’après-midi travaille sur un projet de panneau d’affichage des horaires de bus aux alentours des anciens locaux, le lycée  Vauban.
+								Ce projet est né d’un réel besoin, celui de ne pas rater un bus et arriver chez soi après 20 heures et devoir subir le mécontentement des parents.
+								Ce projet a été rendu possible grâce à la libération des données par BIBUS en juin dernier. L’idée  de base du projet est de réunir sur un seul objet tous les prochains passages des bus tout autour de la cité  scolaire (soit environs 12 arrêts), pour que ce « pano » soit compréhensible rapidement le temps d’attente pour chaque bus est représenté par un code couleur et les arrêts sont repartis  sur une carte des environs.[...]
+								</p>
+							</div>
+							<a href="http://mdl29.net/2015/12/19/le-projet-panobus/">Suite sur le blog de la Maison du Libre</a>
+						</blockquote>
+					</div>
+					<div class="slide">
+						<h2 class="diap-title">Décryptagéo /2016</h2>
+						<blockquote cite="http://decryptageo.fr/quand-les-petits-hackers-inventent-le-panneau-de-bus-intelligent/" class="img_slide">
+							<p>Parce qu’ils se réunissent le samedi et qu’en sortant, les bus se font rares, les petits hackers de Brest ont conçu et fabriqué un panneau indiquant simplement quand passent les prochains bus : le panobus. A priori, rien de bien sophistiqué. Sauf qu’il a fallu récupérer les données sur les horaires réels de passage fournis en open data par la société de transport, ajouter le temps nécessaire pour rejoindre l’arrêt, concevoir une sémiologie efficace (la couleur et les formes pour les différentes lignes, pour le temps avant le prochain passage), creuser le bois, brancher les LED… et se faire connaître.</p>
+							<a href="http://decryptageo.fr/quand-les-petits-hackers-inventent-le-panneau-de-bus-intelligent/">Le site de Décryptagéo</a>
+						</blockquote>
+					</div>
+					<div class="slide">
+						<h2 class="diap-title">France 3</h2>
+						<iframe width="854" height="480" src="https://www.youtube.com/embed/KULt4mPI8nE?start=39&end=64" frameborder="0" allowfullscreen></iframe></br>
+						<a href="https://www.youtube.com/embed/KULt4mPI8nE">Emission en entier</a>
+					</div>
 				</div>
 			</section>
 
 		</div>
 
+
+		<!-- ###### Menu ######-->
 		<div id="menu">
 		<ul>
 			<li data-menuanchor="Panobus"> <a href="#Panobus"> <img src="img/favicon.png" alt="Logo" title="Logo" id="logo"> </a>	</li>
