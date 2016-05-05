@@ -61,7 +61,6 @@ blockquote{
     position: absolute;
     height: 60%;
     width: 500px;
-    right: 5%;
     left: 40%;
     top: 20%;
     border-radius: 20px;
@@ -70,24 +69,18 @@ blockquote{
 
 .img_slide{
     position: relative;
-    left: 100px;
     width: 300px;
-    top: -15%;
-}
-
-.paragraphe-container{
-    position: relative;
-    left: 100px;
-    width: 300px;
-    top: -15%;
-    text-align: justify;
 }
 
 #git{
     position: relative;
-    left: 132px;
-    width: 230px;
-    top: -75px;
+    width: 200px;
+}
+
+.paragraphe-container{
+    position: relative;
+    width: 300px;
+    text-align: justify;
 }
 
 .diap-paragraphe-title{
@@ -95,16 +88,14 @@ blockquote{
     font-family: arial;
     text-align: center;
     color: white;
-    top: -12%;
 }
 
 .diap_paragraphe{
     position: relative;
     height: 150px;
-    left: -40px;
-    top : 50%;
-
     overflow: auto;
+    margin-left: 20px;
+    margin-right: 20px;
 
 }
 
@@ -112,16 +103,23 @@ blockquote{
     position: relative;
     font-family: arial;
     text-align: center;
+    padding: 5px;
+    z-index: 1;
     color: white;
-    top: -75px;
+
+    border-radius: 10px;
+    background: rgba(40,40,40,0.85);
+    width: fit-content;
+    width: -moz-fit-content;
+    width: -ms-fit-content;
+    width: -webkit-fit-content;
 }
 
 .diap-end-paragraphe{
     position: relative;
     text-align: left;
-    left: -40px;
     text-decoration: none;
-    bottom: -30px;
+    font-family: arial;
     color: rgb(100,200,100)
 }
 
@@ -129,12 +127,35 @@ a:hover{
     text-decoration: underline;
 }
 
+.diap-video-title{
+    position :relative;
+    font-family: arial;
+    text-align: center;
+    color: white;
+}
+
 iframe{
     position: relative;
     width: 300px;
     height: auto;
-    left: 100px;
-    top: -15%;
+}
+
+.flex-diapo-container{
+    position: relative;
+    display: flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+
+    margin-top: -30%;
 }
 
 
