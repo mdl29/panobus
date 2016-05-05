@@ -72,7 +72,14 @@ blockquote{
     position: relative;
     left: 100px;
     width: 300px;
-    top: -75px;
+    top: -15%;
+}
+
+.paragraphe-container{
+    position: relative;
+    left: 100px;
+    width: 300px;
+    top: -15%;
     text-align: justify;
 }
 
@@ -83,10 +90,20 @@ blockquote{
     top: -75px;
 }
 
+.diap-paragraphe-title{
+    position :relative;
+    font-family: arial;
+    text-align: center;
+    color: white;
+    top: -12%;
+}
+
 .diap_paragraphe{
     position: relative;
-    height: 50%;
-    left: -30px;
+    height: 150px;
+    left: -40px;
+    top : 50%;
+
     overflow: auto;
 
 }
@@ -99,12 +116,25 @@ blockquote{
     top: -75px;
 }
 
+.diap-end-paragraphe{
+    position: relative;
+    text-align: left;
+    left: -40px;
+    text-decoration: none;
+    bottom: -30px;
+    color: rgb(100,200,100)
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
 iframe{
     position: relative;
     width: 300px;
     height: auto;
     left: 100px;
-    top: -75px;
+    top: -15%;
 }
 
 
