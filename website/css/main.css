@@ -9,7 +9,7 @@ h1, h2, h3{
 	font-family:amatic_scregular;
 }
 
-img{
+img:not(.leaflet-tile){
 	/*box-shadow: 8px 8px 12px #aaa;*/
 	border-radius: 5%;
 }
