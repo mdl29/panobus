@@ -1,0 +1,62 @@
+#logo{
+    width: 32px;
+    height: auto;
+    position : relative;
+    top : 5px;
+}
+
+#menu {
+    z-index: 3;
+    position : fixed;
+    margin-top: 0px;
+    top:0px;
+    margin-left: 0px;
+    left: 0px;
+    height : 64px;
+    width : 100%;
+    background-color: rgb(20,20,20);
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+#menu ul{
+     position:relative;
+     top: 0px;
+     height:3.5em;
+     margin:auto auto;
+     padding:0;
+     white-space:nowrap;
+}
+ul li{
+     display:inline;
+     text-align:center;
+}
+ul li:nth-child(1) a{width:3em;}
+ul li:nth-child(2) a{width:8em;}
+ul li:nth-child(3) a{width:5em;}
+ul li:nth-child(4) a{width:9em;}
+ul li:nth-child(5) a{width:4em;}
+ul li:nth-child(6) a{width:7em;}
+
+
+ul li a{
+     display:inline-block;
+     box-sizing:border-box;
+     padding:.4em .2em;
+     color:#21B141;
+     text-decoration:none;
+     text-shadow:0 1px 0 #005E19;
+     background-color:transparent;
+     transition:background-color .3s ease;
+}
+ul li a:hover,ul li a:focus{
+     color:#005E19;
+     background-color:rgba(255,255,255,.4);
+     transition:background-color .3s ease .4s;
+}
+
+ul li a:focus{
+     border-bottom:3px solid #21B141;
+}
