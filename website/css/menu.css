@@ -33,12 +33,12 @@ ul li{
      display:inline;
      text-align:center;
 }
-ul li:nth-child(1) a{width:5em;}
-ul li:nth-child(2) a{width:9em;}
-ul li:nth-child(3) a{width:9em;}
-ul li:nth-child(4) a{width:4em;}
-ul li:nth-child(5) a{width:7em;}
-ul li:nth-child(6) a{width:5em;}
+ul li:nth-child(1) a{width:3em;}
+ul li:nth-child(2) a{width:8em;}
+ul li:nth-child(3) a{width:5em;}
+ul li:nth-child(4) a{width:9em;}
+ul li:nth-child(5) a{width:4em;}
+ul li:nth-child(6) a{width:7em;}
 
 
 ul li a{
