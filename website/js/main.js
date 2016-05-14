@@ -4,8 +4,8 @@ $(document).ready(function() {
 
 	//fullpage
     $('#fullpage').fullpage({
-		anchors: ['Panobus','pres', 'doc', 'map', 'parten', 'news'],
-		sectionsColor: ['#000000','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3'],
+		anchors: ['Panobus','pres', 'news','doc', 'map', 'parten','contact'],
+		sectionsColor: ['#000000','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3','#000000'],
 		menu: "#menu",
 		css3: true,
 		normalScrollElements:"#mapLeaflet",
