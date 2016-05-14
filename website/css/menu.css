@@ -6,6 +6,7 @@
 }
 
 #menu {
+    z-index: 3;
     position : fixed;
     margin-top: 0px;
     top:0px;

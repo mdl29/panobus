@@ -1,3 +1,5 @@
+/*##### Page titre #####*/
+
 .title{
     position : absolute;
     top : 10px;
@@ -19,6 +21,27 @@
     text-align: center;
 }
 
+/*##### Bandeau noir #####*/
+.bandeau{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 315px;
+    height: 100%;
+    background-color: rgba(20,20,20,0.93);
+
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -moz-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
 .sub-title{
     text-align: left;
 }
@@ -29,35 +52,8 @@ blockquote{
     color: white;
 }
 
-.flex-container{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 315px;
-    height: 100%;
-    background-color: rgba(20,20,20,0.93);
-
-    display: flex;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-
-    align-items: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-}
-
-.img-centre {
-    position: absolute;
-    height: 60%;
-    width: auto;
-    left : 43%;
-    right : 5%;
-    top: 20%;
-    border-radius: 20px;
-}
-
-.slide-container{
+/*##### Classes diapositives #####*/
+.diapo_container{
     position: absolute;
     height: 60%;
     width: 500px;
@@ -67,39 +63,7 @@ blockquote{
     background-color: rgba(100,100,100,0.7);
 }
 
-.img_slide{
-    position: relative;
-    width: 300px;
-}
-
-#git{
-    position: relative;
-    width: 200px;
-}
-
-.paragraphe-container{
-    position: relative;
-    width: 300px;
-    text-align: justify;
-}
-
-.diap-paragraphe-title{
-    position :relative;
-    font-family: arial;
-    text-align: center;
-    color: white;
-}
-
-.diap_paragraphe{
-    position: relative;
-    height: 150px;
-    overflow: auto;
-    margin-left: 20px;
-    margin-right: 20px;
-
-}
-
-.diap-title{
+.diapo_title{
     position: relative;
     font-family: arial;
     text-align: center;
@@ -109,13 +73,34 @@ blockquote{
 
     border-radius: 10px;
     background: rgba(40,40,40,0.85);
-    width: fit-content;
     width: -moz-fit-content;
     width: -ms-fit-content;
     width: -webkit-fit-content;
+    width: fit-content;
 }
 
-.diap-end-paragraphe{
+.diapo_img{
+    position: relative;
+    width: 300px;
+}
+
+.diapo_paragraphe-title{
+    position :relative;
+    font-family: arial;
+    text-align: center;
+    color: white;
+}
+
+.diapo_paragraphe{
+    position: relative;
+    height: 150px;
+    overflow: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.diapo_pied-page{
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -123,24 +108,7 @@ blockquote{
     color: rgb(100,200,100)
 }
 
-a:hover{
-    text-decoration: underline;
-}
-
-.diap-video-title{
-    position :relative;
-    font-family: arial;
-    text-align: center;
-    color: white;
-}
-
-iframe{
-    position: relative;
-    width: 300px;
-    height: auto;
-}
-
-.flex-diapo-container{
+.diapo_centrage-interne{
     position: relative;
     display: flex;
     display: -ms-flexbox;
@@ -158,6 +126,31 @@ iframe{
     margin-top: -30%;
 }
 
+iframe{
+    position: relative;
+    width: 300px;
+    height: auto;
+}
+
+/*##### Divers #####*/
+.img-centre {
+    position: absolute;
+    height: 60%;
+    width: auto;
+    left : 43%;
+    right : 5%;
+    top: 20%;
+    border-radius: 20px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#git{
+    position: relative;
+    width: 200px;
+}
 
 /*
 images de fond
