@@ -1,11 +1,8 @@
 $(document).ready(function() {
-
-	$("#preloader").hide();
-
 	//fullpage
     $('#fullpage').fullpage({
 		anchors: ['Panobus','pres', 'news','doc', 'map', 'parten','contact'],
-		sectionsColor: ['#000000','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3','#000000'],
+		sectionsColor: ['#191919','#352a75', '#423495', '#4f3eb6', '#6857c7','#8477d3','#000000'],
 		menu: "#menu",
 		css3: true,
 		normalScrollElements:"#mapLeaflet",
@@ -36,6 +33,8 @@ $(document).ready(function() {
         responsiveWidth: '100px',
         responsiveHeight: '100px',
 	});
+
+        $("#preloader").hide();
 
 	//leaflet
 	var map = L.map('mapLeaflet').setView([48.3921,-4.4769], 13);

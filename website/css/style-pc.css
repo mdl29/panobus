@@ -1,3 +1,19 @@
+/*##### Preloader #####*/
+
+#preloader {
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('../img/loading.gif') no-repeat center center;
+    /*From http://files.mimoymima.com/images/loading.gif TODO: change that*/
+}
+
 /*##### Page titre #####*/
 
 .title{
@@ -134,12 +150,11 @@ iframe{
 
 /*##### Divers #####*/
 .img-centre {
-    position: absolute;
+    display: block;
+    margin-right: auto;
+    margin-left: 40%;
     height: 60%;
-    width: auto;
-    left : 43%;
-    right : 5%;
-    top: 20%;
+    max-width: 50%;
     border-radius: 20px;
 }
 
