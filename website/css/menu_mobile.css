@@ -1,0 +1,107 @@
+#bouton{
+    position:absolute;
+    left: -9999px;
+}
+
+#menu {
+    z-index: 3;
+    position : fixed;
+    margin-top: 0px;
+    top:0px;
+    margin-left: 0px;
+    left: 0px;
+    height : 4em;
+    width : 100%;
+    background-color: rgb(20,20,20);
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+#menu ul{
+    display:none;
+    height: 100%;
+    list-style: none;
+
+}
+
+#menu label {
+    cursor: pointer;
+    user-select: none;
+
+    position:relative;
+    display:block;
+    width:100%;
+    min-height:2.25em;
+    padding:.45em;
+    font-size:1.1em;
+    margin:0;
+    border: .15em solid rgba(60, 60, 60, 0);
+    background-image: $img_bg;
+}
+
+#menu label:after {
+      position: absolute;
+      right: 1em;
+      top: 0;
+      content:"\2261";
+      font-size:2.7em;
+      color : #fff;
+      transition: color .2s ease .1s;
+    }
+
+#bouton:checked ~ label:after {
+    color : #444;
+    transition: color .2s ease .1s;
+}
+
+.ul_menu{
+    z-index: 5;
+}
+
+#bouton:checked ~ .ul_menu{
+    position: fixed;
+    margin-top:4em;
+    top:0px;
+    left:0px;
+    display: block;
+    background-color: #222;
+    height: -moz-fit-content;
+    height: -ms-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+    width : 100%;
+    text-align: left;
+    padding: 1.5em 2em;
+}
+
+
+
+ul li a{
+     width:90%;
+     display:inline-block;
+     box-sizing:border-box;
+     padding:.4em .2em;
+     color:#21B141;
+     text-decoration:none;
+     text-shadow:0 1px 0 #005E19;
+     background-color:transparent;
+     transition:background-color .3s ease;
+}
+
+ul li a:hover,ul li a:focus{
+     color:#005E19;
+     text-decoration : none;
+     background-color:rgba(255,255,255,.4);
+     transition:background-color .3s ease .4s;
+}
+
+ul li a:focus{
+     border-bottom:3px solid #21B141;
+}
+
+#logo{
+    width: 3em;
+    height: auto;
+}

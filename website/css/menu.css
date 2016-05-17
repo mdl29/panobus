@@ -1,3 +1,14 @@
+#bouton{
+    position:absolute;
+    left: -9999px;
+}
+
+#menu label {
+    display: none;
+    cursor: pointer;
+    user-select: none;
+}
+
 #logo{
     width: 2em;
     height: auto;
@@ -29,6 +40,7 @@
      padding:0;
      white-space:nowrap;
 }
+
 ul li{
      display:inline;
      text-align:center;
@@ -39,6 +51,7 @@ ul li:nth-child(3) a{width:5em;}
 ul li:nth-child(4) a{width:9em;}
 ul li:nth-child(5) a{width:4em;}
 ul li:nth-child(6) a{width:7em;}
+ul li:nth-child(7) a{width:5em;}
 
 
 ul li a{
@@ -60,14 +73,4 @@ ul li a:hover,ul li a:focus{
 
 ul li a:focus{
      border-bottom:3px solid #21B141;
-}
-
-/*
-###################################################
-#################### mobile #######################
-###################################################
-*/
-
-@media screen and (max-width: 834px){
-
 }
