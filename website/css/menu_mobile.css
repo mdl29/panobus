@@ -17,13 +17,15 @@
     text-decoration: none;
     list-style: none;
     color: white;
+
 }
 
 #menu ul{
     display:none;
     height: 100%;
+    bottom: 30%;
     list-style: none;
-
+    overflow: auto;
 }
 
 #menu label {

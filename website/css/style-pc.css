@@ -100,10 +100,12 @@ blockquote{
     width: 300px;
 }
 
+
 .diapo_paragraphe-title{
     position :relative;
     font-family: arial;
     text-align: center;
+    top : 30px;
     color: white;
 }
 
