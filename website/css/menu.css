@@ -1,8 +1,8 @@
 #logo{
-    width: 32px;
+    width: 2em;
     height: auto;
     position : relative;
-    top : 5px;
+    top : 0.5em;
 }
 
 #menu {
@@ -53,10 +53,21 @@ ul li a{
 }
 ul li a:hover,ul li a:focus{
      color:#005E19;
+     text-decoration : none;
      background-color:rgba(255,255,255,.4);
      transition:background-color .3s ease .4s;
 }
 
 ul li a:focus{
      border-bottom:3px solid #21B141;
+}
+
+/*
+###################################################
+#################### mobile #######################
+###################################################
+*/
+
+@media screen and (max-width: 834px){
+
 }
