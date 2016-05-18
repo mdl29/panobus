@@ -11,11 +11,10 @@
     height: 100%;
     overflow: visible;
     background: #333 url('../img/loading.gif') no-repeat center center;
-    /*From http://files.mimoymima.com/images/loading.gif TODO: change that*/
+    /*From http://files.mimoymima.com/images/loading.gif TODO: changer ce gif*/
 }
 
 /*##### Page titre #####*/
-
 .title{
     position : absolute;
     top : 10px;
@@ -37,14 +36,16 @@
     text-align: center;
 }
 
-/*##### Bandeau noir #####*/
+/*########## Bandeau noir ##########*/
 .bandeau{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 315px;
+    width: 40%;
     height: 100%;
     background-color: rgba(20,20,20,0.93);
+    padding:5px;
+    overflow: auto;
 
     display: -moz-flex;
     display: -ms-flexbox;
@@ -60,6 +61,7 @@
 
 .sub-title{
     text-align: left;
+    font-size: 100%;
 }
 
 blockquote{
@@ -68,15 +70,55 @@ blockquote{
     color: white;
 }
 
+/*########## Contenu ##########*/
+.contenu{
+    position: absolute;
+    right: 0px;
+    top: 64px;
+    width: 60%;
+    bottom: 0px;
+    background-image: url("http://imas-cinderella.com/assets/img/top/visual/main2.jpg");
+    background-size: contain;
+    display: flex;
+    align-items: center;
+}
+
+/*##### Divers #####*/
+.img-centre {
+    position: relative;
+    height: auto;
+    width: 70%;
+    left: 15%;
+    border-radius: 20px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+#git{
+    position: relative;
+    width: 200px;
+}
+
+
 /*##### Classes diapositives #####*/
 .diapo_container{
     position: absolute;
-    height: 60%;
-    width: 500px;
-    left: 40%;
-    top: 20%;
+    height: 50%;
+    width: 70%;
+    top: 25%;
+    left: 15%;
     border-radius: 20px;
     background-color: rgba(100,100,100,0.7);
+}
+
+.slide{
+    position: relative;
+    height: 5%;
+    width: 70%;
+    top: 25%;
+    left: 15%;
 }
 
 .diapo_title{
@@ -104,14 +146,17 @@ blockquote{
 .diapo_paragraphe-title{
     position :relative;
     font-family: arial;
+    font-size: 150%;
     text-align: center;
-    top : 30px;
+    top : 5%;
     color: white;
 }
 
 .diapo_paragraphe{
     position: relative;
-    height: 150px;
+    font-size: 90%;
+    top: -10%;
+    height: 70%;
     overflow: auto;
     margin-left: 20px;
     margin-right: 20px;
@@ -123,7 +168,10 @@ blockquote{
     text-align: left;
     text-decoration: none;
     font-family: arial;
-    color: rgb(100,200,100)
+    color: rgb(100,200,100);
+    padding: 4px;
+    border-radius: 10px;
+    background-color: rgba(100,100,100,0.7)
 }
 
 .diapo_centrage-interne{
@@ -150,24 +198,6 @@ iframe{
     height: auto;
 }
 
-/*##### Divers #####*/
-.img-centre {
-    display: block;
-    margin-right: auto;
-    margin-left: 40%;
-    height: 60%;
-    max-width: 50%;
-    border-radius: 20px;
-}
-
-a:hover{
-    text-decoration: underline;
-}
-
-#git{
-    position: relative;
-    width: 200px;
-}
 
 /*
 images de fond
