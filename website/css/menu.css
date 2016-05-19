@@ -63,6 +63,7 @@ ul li a{
      text-shadow:0 1px 0 #005E19;
      background-color:transparent;
      transition:background-color .3s ease;
+     font-size: 11pt;
 }
 ul li a:hover,ul li a:focus{
      color:#005E19;
@@ -73,4 +74,11 @@ ul li a:hover,ul li a:focus{
 
 ul li a:focus{
      border-bottom:3px solid #21B141;
+}
+
+@media screen and (max-width: 685px) {
+    ul li a{
+        font-size: 8pt;
+        padding: 1.3em 2em;
+    }
 }
