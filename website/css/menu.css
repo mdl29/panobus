@@ -39,22 +39,24 @@
      margin:auto auto;
      padding:0;
      white-space:nowrap;
+     overflow-x: auto;
+     overflow-y: hidden;
 }
 
-ul li{
+#menu ul li{
      display:inline;
      text-align:center;
 }
-ul li:nth-child(1) a{width:3em;}
-ul li:nth-child(2) a{width:8em;}
-ul li:nth-child(3) a{width:5em;}
-ul li:nth-child(4) a{width:9em;}
-ul li:nth-child(5) a{width:4em;}
-ul li:nth-child(6) a{width:7em;}
-ul li:nth-child(7) a{width:5em;}
+#menu ul li:nth-child(1) a{width:3em;}
+#menu ul li:nth-child(2) a{width:8em;}
+#menu ul li:nth-child(3) a{width:5em;}
+#menu ul li:nth-child(4) a{width:9em;}
+#menu ul li:nth-child(5) a{width:4em;}
+#menu ul li:nth-child(6) a{width:7em;}
+#menu ul li:nth-child(7) a{width:5em;}
 
 
-ul li a{
+#menu ul li a{
      display:inline-block;
      box-sizing:border-box;
      padding:.4em .2em;
@@ -65,19 +67,19 @@ ul li a{
      transition:background-color .3s ease;
      font-size: 11pt;
 }
-ul li a:hover,ul li a:focus{
+#menu ul li a:hover,ul li a:focus{
      color:#005E19;
      text-decoration : none;
      background-color:rgba(255,255,255,.4);
      transition:background-color .3s ease .4s;
 }
 
-ul li a:focus{
+#menu ul li a:focus{
      border-bottom:3px solid #21B141;
 }
 
 @media screen and (max-width: 685px) {
-    ul li a{
+    #menu ul li a{
         font-size: 8pt;
         padding: 1.3em 2em;
     }

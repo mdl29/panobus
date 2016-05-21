@@ -37,22 +37,25 @@
 }
 
 /*########## Bandeau noir ##########*/
+
+
 .bandeau{
     position: absolute;
-    top: 0px;
+    top: 64px;
     left: 0px;
     width: 40%;
-    height: 100%;
+    height: 70%;
     background-color: rgba(20,20,20,0.93);
     padding:5px;
-    overflow: auto;
+
+    border-bottom-right-radius: 20px;
 
     display: -moz-flex;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
 
-    -moz-flex-align: center;
+    -moz-align-items: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -97,6 +100,11 @@
 
 #mapLeaflet{
     height: 50%;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(100,200,100);
 }
 
 a:hover{
@@ -199,6 +207,28 @@ iframe{
     height: 80%;
 }
 
+/*########## gestion petites fenêtres ##########*/
+
+@media screen and (max-width: 685px){
+    .bandeau{
+        width: 30%;
+        padding: 2px;
+
+        -moz-align-items: flex-start;
+        -ms-flex-align: flex-start;
+        -webkit-align-items: flex-start;
+        -webkit-box-align: flex-start;
+        align-items: flex-start;
+    }
+    .bandeau blockquote{
+        font-size: 9pt;
+        max-height: 60%;
+        width: 90%;
+    }
+    .contenu{
+        width:70%;
+    }
+}
 
 /*
 images de fond
