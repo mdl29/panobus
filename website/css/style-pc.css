@@ -181,7 +181,6 @@ a:hover{
     margin-right: 20px;
     align-self: stretch;
     overflow: auto;
-    overflow-style: move;
 
     text-align: justify;
     color: #fff;
