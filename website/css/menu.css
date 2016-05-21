@@ -81,6 +81,6 @@
 @media screen and (max-width: 685px) {
     #menu ul li a{
         font-size: 8pt;
-        padding: 1.3em 2em;
+        padding: 1.3em .2em;
     }
 }

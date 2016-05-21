@@ -116,6 +116,7 @@ a:hover{
 .diapo_centrage-interne{
     position: relative;
     height: 90%;
+    max-height: 200px;
     min-height: 222px;
     width: 70%;
     min-width: 222px;
@@ -226,6 +227,16 @@ iframe{
     }
     .contenu{
         width:70%;
+    }
+}
+
+@media screen and (max-height: 450px){
+    .title{
+        font-size: 30pt;
+        top: 40px;
+    }
+    #slogan{
+        font-size: 15pt;
     }
 }
 
