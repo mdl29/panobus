@@ -66,7 +66,7 @@ class Memorize(object):
         if self.cache_exists():
             self.read_cache() # Sets self.timestamp and self.cache
             if do_cache:
-                self.count = len(self.cache)
+                self.count = len(self.cache) - 1
         else:
             self.cache = [{}]
 
@@ -84,10 +84,9 @@ class Memorize(object):
                 v = self.default
 
         else:
-            if self.count == len(self.cache):
-                self.cache.append({})
             if key in self.cache[self.count]:
                 self.count += 1
+                self.cache.append({})
             v = self.func(s, *args, **kwargs)
             self.cache[self.count][key] = v
             self.save_cache()
