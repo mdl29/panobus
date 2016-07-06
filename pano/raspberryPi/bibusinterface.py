@@ -1,6 +1,7 @@
 """
 A module which contain a purely virtual interface between an element (to be defined) and bibus API
 """
+from memorize import memorize
 import sched #for a 60sec scheduler
 import time # for a 60sec scheduler
 import json # For the file import
@@ -75,46 +76,54 @@ class BibusInterface:
                 for dest in route["dest"]:
                     id_ = dest['id']
                     time_to_go = arret["time2Go"]
-                    bibus_remaining_time = self._bibus.get_remaining_times(route["name"],
-                                                                           arret["name"],
-                                                                           dest["name"])
+                    bibus_remaining_time = self._get_remaining_times(route["name"],
+                            arret["name"],
+                            dest["name"])
 
-                    # test data integrity
-                    try: # value n 1
-                        remaining_time = bibus_remaining_time[0][0]['Remaining_time']
-
-                    except IndexError:
-                        print('Any data received from bibus: {} -> I got {}'.format(
-                            self._bibus.HOST + bibus_remaining_time[1],
-                            bibus_remaining_time[0]))
-
-                        self.update_data(id_, 0)
-                        continue
-
-                    #transform the 'hh:mm:ss' format to seconds
-                    t_tmp = remaining_time.split(':')
-                    remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
-                            int(t_tmp[2]) - time_to_go #[s]
-                    print("first ", remaining_time_val)
-
-                    if remaining_time_val < 0:
-
-                        try: #value n 2
-                            remaining_time = bibus_remaining_time[0][1]['Remaining_time']
-                        except IndexError:
-                            self.update_data(id_, 3600)
-                            continue
-
-                        #transform the 'hh:mm:ss' format to seconds
-                        t_tmp = remaining_time.split(':')
-                        remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
-                                int(t_tmp[2]) - time_to_go #[s]
-                        print("bis", remaining_time_val)
-
-                        if remaining_time_val < 0: # possible but ... really unexpected
-                            self.update_data(id_, 3600)
-
+                    remaining_time_val = self._get_data(id_, time_to_go, bibus_remaining_time)
                     self.update_data(id_, remaining_time_val)
+
+#    @memorize(False, None)
+    def _get_remaining_times(self,*args):
+        return self._bibus.get_remaining_times(*args)
+
+    def _get_data(self, id_, time_to_go, bibus_remaining_time):
+                        # test data integrity
+        if bibus_remaining_time is None:
+            return 0
+
+        try: # value n 1
+            remaining_time = bibus_remaining_time[0][0]['Remaining_time']
+
+        except IndexError:
+            print('Any data received from bibus: {} -> I got {}'.format(
+                self._bibus.HOST + bibus_remaining_time[1],
+                bibus_remaining_time[0]))
+
+            return 0
+
+        #transform the 'hh:mm:ss' format to seconds
+        t_tmp = remaining_time.split(':')
+        remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
+                int(t_tmp[2]) - time_to_go #[s]
+        print("first ", remaining_time_val)
+
+        if remaining_time_val < 0:
+
+            try: #value n 2
+                remaining_time = bibus_remaining_time[0][1]['Remaining_time']
+            except IndexError:
+                return 3600
+
+            #transform the 'hh:mm:ss' format to seconds
+            t_tmp = remaining_time.split(':')
+            remaining_time_val = int(t_tmp[0])*3600 + int(t_tmp[1])*60 +\
+                    int(t_tmp[2]) - time_to_go #[s]
+            print("bis", remaining_time_val)
+
+            if remaining_time_val < 0: # possible but ... really unexpected
+                return 3600
+            return remaining_time_val
 
     def update_data(self, id_, remaining_time=None):
         """
