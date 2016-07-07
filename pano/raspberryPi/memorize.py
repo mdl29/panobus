@@ -63,6 +63,7 @@ class Memorize(object):
         self.set_parent_file() # Sets self.parent_filepath and self.parent_filename
         self.__name__ = self.func.__name__
         self.set_cache_filename()
+        self.lcache = {}
         if self.cache_exists():
             self.read_cache() # Sets self.timestamp and self.cache
             if do_cache:
@@ -73,13 +74,15 @@ class Memorize(object):
     def __call__(self,s, *args, **kwargs):
         key = str(args) + str(kwargs)
         if self.do_cache == False:
-            if len(self.cache) <= self.count and not key in self.cache[self.count]:
+            if not key in self.lcache:
+                self.lcache = self.cache[self.count]
                 self.count += 1
 
+            print(self.lcache)
             if self.count % len(self.cache) == 0:
                 self.count = 0
-            if key in self.cache[self.count]:
-                v = self.cache[self.count].pop(key)
+            if key in self.lcache:
+                v = self.lcache.pop(key)
             else:
                 v = self.default
 
@@ -90,7 +93,6 @@ class Memorize(object):
             v = self.func(s, *args, **kwargs)
             self.cache[self.count][key] = v
             self.save_cache()
-        print(v)
         return v
 
     def set_parent_file(self):
