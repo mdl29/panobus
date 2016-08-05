@@ -1,0 +1,86 @@
+#bouton{
+    position:absolute;
+    left: -9999px;
+}
+
+#menu label {
+    display: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+#logo{
+    width: 2em;
+    height: auto;
+    position : relative;
+    top : 0.5em;
+}
+
+#menu {
+    z-index: 3;
+    position : fixed;
+    margin-top: 0px;
+    top:0px;
+    margin-left: 0px;
+    left: 0px;
+    height : 64px;
+    width : 100%;
+    background-color: rgb(20,20,20);
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+#menu ul{
+     position:relative;
+     top: 0px;
+     height:3.5em;
+     margin:auto auto;
+     padding:0;
+     white-space:nowrap;
+     overflow-x: auto;
+     overflow-y: hidden;
+}
+
+#menu ul li{
+     display:inline;
+     text-align:center;
+}
+#menu ul li:nth-child(1) a{width:3em;}
+#menu ul li:nth-child(2) a{width:8em;}
+#menu ul li:nth-child(3) a{width:5em;}
+#menu ul li:nth-child(4) a{width:9em;}
+#menu ul li:nth-child(5) a{width:4em;}
+#menu ul li:nth-child(6) a{width:7em;}
+#menu ul li:nth-child(7) a{width:5em;}
+
+
+#menu ul li a{
+     display:inline-block;
+     box-sizing:border-box;
+     padding:.4em .2em;
+     color:#21B141;
+     text-decoration:none;
+     text-shadow:0 1px 0 #005E19;
+     background-color:transparent;
+     transition:background-color .3s ease;
+     font-size: 11pt;
+}
+#menu ul li a:hover,ul li a:focus{
+     color:#005E19;
+     text-decoration : none;
+     background-color:rgba(255,255,255,.4);
+     transition:background-color .3s ease .4s;
+}
+
+#menu ul li a:focus{
+     border-bottom:3px solid #21B141;
+}
+
+@media screen and (max-width: 685px) {
+    #menu ul li a{
+        font-size: 8pt;
+        padding: 1.3em .2em;
+    }
+}
