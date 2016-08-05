@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   id="svg3502"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   inkscape:export-filename="/home/tristan/Bureau/en cours/Cirque yann/final1.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90"
+   sodipodi:docname="final.svg">
+  <defs
+     id="defs3">
+    <filter
+       color-interpolation-filters="sRGB"
+       id="filter4690">
+      <feGaussianBlur
+         stdDeviation="3.4203099"
+         id="feGaussianBlur4692" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.51720994"
+     inkscape:cx="510.04937"
+     inkscape:cy="562.06335"
+     inkscape:current-layer="g16805"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="704"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g16805"
+       transform="matrix(1.6272819,0,0,1.6272819,26.224724,43.608927)"
+       inkscape:export-filename="/home/tristan/Bureau/en cours/Cirque yann/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <path
+         id="path4309-78-4-6"
+         d="m 157.28,527.59 c -10.774,-14.506 -8.2002,-35.349 5.7481,-46.554 13.9483,-11.205 33.989,-8.5282 44.763,5.978 10.774,14.5062 8.2002,35.349 -5.7481,46.554 -13.85,11.126 -33.732,8.5752 -44.568,-5.7173"
+         transform="matrix(-0.23977,-0.0049413,-0.0057774,0.22798,114.01,-87.88)"
+         inkscape:connector-curvature="0"
+         style="opacity:0.57612999;fill-rule:evenodd;stroke:#000000;stroke-width:4.27610016;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4690)" />
+      <path
+         id="path4309-7-8-9-3"
+         d="m 157.28,527.59 c -10.774,-14.506 -8.2002,-35.349 5.7481,-46.554 13.9483,-11.205 33.989,-8.5282 44.763,5.978 10.774,14.5062 8.2002,35.349 -5.7481,46.554 -13.85,11.126 -33.732,8.5752 -44.568,-5.7173"
+         transform="matrix(0.23977,0.0049413,-0.0057774,0.22798,-10.48,-92)"
+         inkscape:connector-curvature="0"
+         style="opacity:0.57612999;fill-rule:evenodd;stroke:#000000;stroke-width:4.27610016;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4690)" />
+      <path
+         id="path4339-7-8-2"
+         d="m -49.783,512.41 c -30.644,119.17 -66.048,129.04 -153.93,42.918 -87.882,-86.123 -78.729,-121.72 39.797,-154.77 118.53,-33.047 144.78,-7.3216 114.13,111.85 z"
+         transform="matrix(-0.091874,0.016439,0.019893,0.076366,24.91,13.76)"
+         inkscape:connector-curvature="0"
+         style="opacity:0.57612999;fill:#ffc600;fill-rule:evenodd;stroke:#000000;stroke-width:11.67000008;stroke-linecap:round;stroke-linejoin:round;filter:url(#filter4690)" />
+      <path
+         id="path4363-1-2-9"
+         d="M 21.153182,77.779972 C 9.0316788,83.260283 -0.04638987,73.714208 0.52053058,56.086029 1.0880348,38.455887 10.611735,34.1513 22.166832,46.300713 33.720831,58.450544 33.2752,72.301206 21.153182,77.779972 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d40000;fill-rule:evenodd;stroke:#000000;stroke-width:1.00001669;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4363-7-8"
+         d="M 74.051094,85.059974 C 62.4436,82.2755 62.914679,67.270605 75.120158,50.959086 87.327335,34.646093 96.446367,36.83497 95.847683,55.932763 95.248,75.03023 85.657888,87.846248 74.051094,85.059974 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#d40000;fill-rule:evenodd;stroke:#000000;stroke-width:1.00001252;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4383-5-4"
+         d="m 46.621753,94.995019 c 2.874327,-0.37208 2.983561,12.929161 4.776272,15.022821 1.792811,2.09396 15.876041,5.3693 14.794554,7.83542 -1.081437,2.46611 -13.714683,-4.11561 -16.588996,-3.74345 -2.874328,0.37208 -12.9945,9.89918 -14.787328,7.80522 -1.79281,-2.09396 10.731188,-8.81356 11.812674,-11.27967 1.081438,-2.46611 -2.881468,-15.268643 -0.0073,-15.641087 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e5b302;fill-rule:evenodd;stroke:#000000;stroke-width:0.99999726;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4383-1-6-0"
+         d="m 37.992385,92.930179 c 2.955413,0.0958 0.510014,13.358141 1.906555,15.733721 1.396584,2.37588 14.89777,7.92196 13.338956,10.20214 -1.558763,2.28017 -12.970001,-6.32299 -15.925416,-6.4187 -2.955413,-0.0958 -14.939472,7.74898 -16.336073,5.37309 -1.396585,-2.37588 12.460054,-7.03515 14.018868,-9.31532 1.558763,-2.28017 0.04181,-15.671103 2.997127,-15.575694 z"
+         inkscape:connector-curvature="0"
+         style="fill:#e5b302;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000679;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4341-6-1"
+         d="M 45.767901,9.1248004 C 74.921281,7.885974 98.07949,46.441768 84.362423,73.384405 70.647783,100.32969 26.920174,102.18929 11.481368,76.485424 -3.957438,50.781561 16.616949,10.366279 45.767901,9.1248004 Z"
+         inkscape:connector-curvature="0"
+         style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.999991;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path3799-4-6"
+         d="M 89.453695,36.907811 C 96.951218,28.350081 95.516977,15.792848 86.249669,8.8608833 76.982616,1.9284806 63.391988,3.2460572 55.893479,11.803988 c -7.497523,8.557731 -6.063282,21.114963 3.204026,28.046928 9.201818,6.883575 22.683051,5.639238 30.220071,-2.789315"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000668;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4309-78-4"
+         d="m 69.773478,33.466157 c 2.667089,-3.253841 2.170387,-8.018346 -1.109261,-10.641784 -3.279648,-2.623439 -8.100272,-2.112209 -10.767362,1.141677 -2.66709,3.253885 -2.170387,8.018345 1.109261,10.641784 3.256535,2.604942 8.038379,2.121654 10.719101,-1.083207"
+         inkscape:connector-curvature="0"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.00001621;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path3799-5-1-1"
+         d="M 6.1089036,34.021612 C -1.1738983,24.673498 0.94803489,11.506865 10.848928,4.6135989 20.74958,-2.2801399 34.679783,-0.29047669 41.96359,9.0578928 49.246391,18.406007 47.124458,31.57264 37.223565,38.465906 27.39261,45.311087 13.571319,43.40343 6.2412048,34.189667"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1.00001216;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4309-7-8-9"
+         d="m 17.145128,15.419752 c -2.499475,-3.360316 -1.761937,-8.0993855 1.647183,-10.5849775 3.40912,-2.485593 8.198814,-1.776309 10.698287,1.584052 2.499474,3.36036 1.761937,8.0993845 -1.647183,10.5849775 -3.385094,2.468068 -8.137464,1.788294 -10.653038,-1.523654"
+         inkscape:connector-curvature="0"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.00001621;stroke-linecap:square;stroke-linejoin:round" />
+      <path
+         id="path4339-7-8"
+         d="m 38.957135,50.972319 c 5.186036,8.59678 8.635087,8.768506 14.995933,0.747021 6.360826,-8.021561 4.811772,-10.589496 -6.735149,-11.164943 -11.547229,-0.575152 -13.447166,1.820917 -8.260548,10.41772 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffc600;fill-rule:evenodd;stroke:#000000;stroke-width:1.00002241;stroke-linecap:square;stroke-linejoin:round" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.21415138px;line-height:125%;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="2.7227709"
+       y="17.119164"
+       id="text16820"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/tristan/Bureau/en cours/Cirque yann/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="2.7227709"
+         y="17.119164"
+         id="tspan16824">    C'est ton regard </tspan><tspan
+         sodipodi:role="line"
+         x="2.7227709"
+         y="38.636852"
+         id="tspan6976">qui guide tes mouvements</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.21415138px;line-height:125%;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="102.33066"
+       y="264.56808"
+       id="text16820-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/tristan/Bureau/en cours/Cirque yann/2.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         x="106.63419"
+         y="264.56808"
+         id="tspan7003"
+         style="text-align:center;text-anchor:middle">Regarde en haut  </tspan><tspan
+         sodipodi:role="line"
+         x="102.33066"
+         y="286.08578"
+         id="tspan7001"
+         style="text-align:center;text-anchor:middle">Tu t'envoles</tspan></text>
+  </g>
+</svg>
