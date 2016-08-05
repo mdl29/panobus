@@ -83,7 +83,7 @@ class BibusInterface:
                     remaining_time_val = self._get_data(id_, time_to_go, bibus_remaining_time)
                     self.update_data(id_, remaining_time_val)
 
-#    @memorize(False, None)
+    @memorize(False, None)
     def _get_remaining_times(self,*args):
         return self._bibus.get_remaining_times(*args)
 
